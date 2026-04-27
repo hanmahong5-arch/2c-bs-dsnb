@@ -1,75 +1,91 @@
 # dsnb.help 部署手册
 
-落地策略：R6（`43.226.38.244`，三丰云，32C/32G/300G）docker-compose + Caddy 自动 TLS。
+R6（`43.226.38.244`）上 host nginx 已占 80/443，反代多个 docker/k3s 服务。
+dsnb 复用此 nginx，自身只跑一个绑 loopback 的 Next.js 容器。
+
+## 拓扑
+
+```
+公网 → R6 nginx (host, 80/443)
+        ├── *.lurus.cn → 各服务（已存在）
+        └── dsnb.help / www.dsnb.help → 127.0.0.1:18301 (dsnb-web)
+```
 
 ## 一次性准备
 
 1. **DNS（阿里云控制台手动）**
+
    ```
    类型   主机   值              TTL
    A     @     43.226.38.244   600
    A     www   43.226.38.244   600
    ```
 
-2. **GHCR 镜像构建**
-   - 把 `2c-bs-dsnb/` 推到 `https://github.com/hanmahong5-arch/2c-bs-dsnb`（私有 OK）
-   - GitHub Actions 自动构建 + push 到 `ghcr.io/hanmahong5-arch/2c-bs-dsnb:latest`
-   - 包可见性设为 public（或在 R6 配置 ghcr-pull-secret）
-
-3. **R6 端口检查**（必须，docker-compose 占用 80/443）
-   ```bash
-   ssh root@43.226.38.244 'ss -tlnp | grep -E ":(80|443) "'
-   ```
-   如果有冲突，先停掉占用进程或改 `Caddyfile` + compose ports。
+2. **GHCR 镜像** — 已配置 GitHub Actions 推 `ghcr.io/hanmahong5-arch/2c-bs-dsnb:latest`，仓库 public，R6 直接 pull 不需 secret。
 
 ## 部署
 
 ```bash
 ssh root@43.226.38.244
 mkdir -p /data/dsnb && cd /data/dsnb
-# 把 deploy/docker-compose.yml + deploy/Caddyfile 拷过来
-# scp -r deploy/ root@43.226.38.244:/data/dsnb/
+# 把 deploy/docker-compose.yml + nginx-dsnb.conf 拷过来
+# scp deploy/docker-compose.yml deploy/nginx-dsnb.conf root@43.226.38.244:/data/dsnb/
 
+# 1. 启动 dsnb-web 容器（绑 127.0.0.1:18301）
 docker compose pull
 docker compose up -d
-docker compose logs -f --tail=50
+docker compose logs --tail=30
+curl -I http://127.0.0.1:18301   # 期望 200
+
+# 2. 安装 nginx vhost
+cp /data/dsnb/nginx-dsnb.conf /etc/nginx/sites-enabled/dsnb
+nginx -t && systemctl reload nginx
+curl -I -H "Host: dsnb.help" http://127.0.0.1   # 期望 200，nginx 转发到 18301
 ```
 
-首次启动 Caddy 会向 Let's Encrypt 申请证书（30-60 秒），等 `dsnb-caddy` 日志看到 `certificate obtained` 即成功。
+## TLS（DNS 生效后）
 
-## 验证
+DNS A 记录添加后等 5-10 分钟传播，然后：
 
 ```bash
-curl -I https://dsnb.help
-# 期望 HTTP/2 200 + Strict-Transport-Security 头
+# 安装 snap certbot（如未装）
+snap install --classic certbot 2>/dev/null
+ln -sf /snap/bin/certbot /usr/bin/certbot
 
-curl -I https://www.dsnb.help
-# 期望 301 → https://dsnb.help
+# 申请证书 + 自动改 vhost 加 443 server block
+certbot --nginx -d dsnb.help -d www.dsnb.help \
+  --non-interactive --agree-tos -m ops@lurus.cn --redirect
+
+# 验证
+curl -I https://dsnb.help
 ```
 
-## 更新
+certbot 会自动写 `/etc/letsencrypt/live/dsnb.help/`，配 nginx 自动续期 timer。
+
+## 更新（CI 推完镜像后）
 
 ```bash
 ssh root@43.226.38.244 'cd /data/dsnb && docker compose pull && docker compose up -d'
 ```
 
-GitHub Actions 每次 push 到 main 就会刷新 `:latest` tag，R6 上 `pull` 一下即可热更新。
+GHCR :latest tag 每次 main push 自动刷新。
 
 ## 回滚
 
-镜像是 `main-<sha7>` 双 tag，回滚：
 ```bash
-docker compose stop dsnb-web
-docker pull ghcr.io/hanmahong5-arch/2c-bs-dsnb:main-<上一个sha>
-# 临时改 docker-compose.yml 的 image tag → docker compose up -d dsnb-web
+ssh root@43.226.38.244 'cd /data/dsnb && \
+  docker pull ghcr.io/hanmahong5-arch/2c-bs-dsnb:main-<旧sha7> && \
+  docker compose stop dsnb-web && \
+  sed -i "s|:latest|:main-<旧sha7>|" docker-compose.yml && \
+  docker compose up -d dsnb-web'
 ```
 
 ## 资源占用
 
-预估：dsnb-web ≈ 80MB RAM, caddy ≈ 30MB RAM。R6 32G 完全无压力。
+dsnb-web ≈ 80MB RAM，单 pod。R6 (32G) 完全无压。
 
 ## 已知风险
 
-- R6 已有 supabase（zhongtie-oa）跑在 8100/8443，不冲突。但若 R6 主机有 nginx 监听 80/443 需要先 stop。
-- Caddy 申请 LE 证书需要 80 端口能从公网访问 → 三丰云防火墙必须开放 80/443。
-- `.help` 是 nTLD，不需要 ICP 备案，三丰云直接承载。
+- 申请 LE 证书前 DNS 必须先生效（HTTP-01 challenge 走 80 端口，需要 dsnb.help 已解析到 R6）
+- nginx 已存在多个 vhost，不要 `nginx -s stop`，只用 `systemctl reload nginx`
+- `dsnb` 这个 vhost 文件名不要与已有冲突（`ls /etc/nginx/sites-enabled/` 现有：lurus-stage, zhongtie-oa, zhongtie-oa-test）
