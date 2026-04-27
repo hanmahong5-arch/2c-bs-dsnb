@@ -1,0 +1,39 @@
+services:
+  dsnb-web:
+    image: ghcr.io/hanmahong5-arch/2c-bs-dsnb:latest
+    container_name: dsnb-web
+    restart: unless-stopped
+    expose:
+      - "3000"
+    networks:
+      - dsnb
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:3000/"]
+      interval: 30s
+      timeout: 5s
+      start_period: 10s
+      retries: 3
+
+  caddy:
+    image: caddy:2
+    container_name: dsnb-caddy
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    networks:
+      - dsnb
+    depends_on:
+      - dsnb-web
+
+networks:
+  dsnb:
+    driver: bridge
+
+volumes:
+  caddy_data:
+  caddy_config:

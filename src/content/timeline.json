@@ -1,0 +1,314 @@
+{
+  "hero": {
+    "eyebrow": "DSNB · DeepSeek牛逼",
+    "headline": "不做追随者的计算",
+    "subhead": "从万亿级量化海浪到全球AI桌底，一个由好奇心驱动、无KPI约束的团队，用开源一步步重写游戏规则。",
+    "cta": {
+      "primary": "阅读完整故事",
+      "secondary": "下载Switch"
+    }
+  },
+  "intro": {
+    "headline": "这世上总该有人为开源燃一次",
+    "body": "有一种公司出生就不打算“正常”。当风险投资敲门，它说“我们没有商业压力，没有KPI”。当全球为千亿参数模型算力焦虑，它用约557万美元练出一个性能超GPT-4o的模型。DeepSeek不是另一个硅谷神童剧本，它来自中国杭州一间量化对冲基金的机房。从2015年将机器学习悄悄注入金融交易，到2026年开源1.6万亿参数模型、API价格仅为OpenAI的十分之一——这个故事里没有造神公式，只有一群坚信“开源发论文并不会失去什么”的工程师，和一个在采访中说“中国不能永远做追随者”的创始人。这是一段关于计算、谦逊和持续驶入风暴眼的旅程。"
+  },
+  "timeline": [
+    {
+      "date": "2015年",
+      "era": "origin",
+      "headline": "当机器学习遇见A股",
+      "body": "梁文锋在杭州创立幻方量化，最初团队只有十余人。他们把机器学习模型引入量化交易，从零构建数据管道和低延迟系统。在当时，这种结合几乎被视为异端——金融圈谈量化还停留在多因子回归。幻方的AUM后来突破千亿人民币，但这些利润没有变成奢华办公桌，而是变成GPU集群的第一桶金。没有人预见到，这些为了在微秒中捕捉市场裂缝而积累的算力和深度学习经验，会指向一条更疯狂的道路。",
+      "product": null,
+      "emotionalBeat": "spark",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Liang_Wenfeng",
+        "https://fortune.com/2025/01/27/deepseek-founder-liang-wenfeng-hedge-fund-manager-high-flyer-quant-trading/"
+      ]
+    },
+    {
+      "date": "2020–2021年",
+      "era": "origin",
+      "headline": "萤火点亮自建超算之路",
+      "body": "当多数量化基金还在租用云端算力时，幻方启动了“萤火一号”——1100块GPU，投入近2亿人民币。这还不够。很快，“萤火二号”上线，约10000块NVIDIA A100，投入超10亿。这不是任何一个CTO会轻易签字的预算：维护一个万卡集群的成本、功耗、冷却都是无底洞。但梁文锋看到的是，让交易模型更快迭代的唯一解不在别人的云上，而在地下的自有机房。这些A100后来出现在DeepSeek V2、V3的训练日志里，成了点燃开源代际跃迁的萤火。",
+      "product": null,
+      "emotionalBeat": "spark",
+      "sources": [
+        "https://fortune.com/2025/01/27/deepseek-founder-liang-wenfeng-hedge-fund-manager-high-flyer-quant-trading/",
+        "https://en.wikipedia.org/wiki/DeepSeek"
+      ]
+    },
+    {
+      "date": "2023年4月14日",
+      "era": "origin",
+      "headline": "一纸公告，全面滑入AGI深水区",
+      "body": "幻方量化发布公告：成立AGI研究实验室。措辞平淡，没有目标宣言、没有融资新闻。但这意味着一个管理千亿资金的对冲基金正式将触角伸向通用人工智能。公司在内部信中说这是“既有能力的自然延伸”，外界却觉得匪夷所思——量化基金为何要挑战基础科学的高峰？对梁文锋而言，答案在萤火集群的闪烁里：这些算力不再只是服务于交易信号，它们可以服务于认知本身的未知。",
+      "product": null,
+      "emotionalBeat": "spark",
+      "sources": [
+        "https://en.wikipedia.org/wiki/DeepSeek",
+        "https://thechinaacademy.org/interview-with-deepseek-founder-were-done-following-its-time-to-lead/"
+      ]
+    },
+    {
+      "date": "2023年7月17日",
+      "era": "origin",
+      "headline": "没有风投，没有KPI，独立开局",
+      "body": "实验室拆分成为独立公司DeepSeek，由幻方全额出资。当几乎所有AI初创都在追逐VC背书和下一轮估值时，梁文锋说：“我们没有商业压力，没有KPI。”这听起来近乎傲慢，但背后是长达八年的量化积累提供的资本缓冲。公司只有一套简单逻辑：解决技术问题，然后把成果开源。这种结构让DeepSeek避开了产品经理的挤压和季度目标的撕扯，可以沉进那些真正棘手的研究问题——比如，如何让一个模型的KV缓存降至原来的6.7%。",
+      "product": null,
+      "emotionalBeat": "turning",
+      "sources": [
+        "https://jiexu.substack.com/p/interview-deepseek-founder-liang-wenfeng-a-journey-by-curiosity",
+        "https://thechinaacademy.org/interview-with-deepseek-founder-were-done-following-its-time-to-lead/"
+      ]
+    },
+    {
+      "date": "2023年11月2日",
+      "era": "breakthrough",
+      "headline": "代码模型第一枪：谁说开源不行？",
+      "body": "DeepSeek-Coder系列发布，1.3B至33B四种尺寸，从第一天起全部开源。模型在2万亿token上训练，混合87%代码与13%自然语言，覆盖80多种编程语言。33B版本在多个基准上超越当时显赫的CodeLlama-34B。更令开发者震动的是：它不是某个大企业的副产品，而是一个刚独立不到四个月的团队推出的、完全为写代码而生的模型。GitHub星星一夜涌入，HuggingFace排行攀升，程序员第一次真切感受到，开源代码模型的“用爱发电”可以来自一个没有商业路演的神秘公司。",
+      "product": {
+        "name": "DeepSeek-Coder",
+        "tagline": "为代码而生，开箱即开源",
+        "url": "https://github.com/deepseek-ai/DeepSeek-Coder"
+      },
+      "emotionalBeat": "triumph",
+      "sources": [
+        "https://deepseekcoder.github.io/",
+        "https://github.com/deepseek-ai/DeepSeek-Coder"
+      ]
+    },
+    {
+      "date": "2023年11月29日",
+      "era": "breakthrough",
+      "headline": "中英双语基座立起",
+      "body": "仅隔27天，DeepSeek-LLM 7B和67B发布。这是团队在基座模型上的首次完整亮相，覆盖中英双语。它的出现补上了拼图：Coder专注代码，LLM承担通用理解。支撑这两个模型训练的，是萤火集群日夜不歇的轰鸣。外界开始留意这个“隔周发模型”的节奏——没有发布会，只有arxiv的一篇论文和HuggingFace上可下载的权重。这种发布方式后来成为DeepSeek的标志：把工程事实摊在桌面上，让开发者自己判断。",
+      "product": {
+        "name": "DeepSeek-LLM",
+        "tagline": "中英双语基座，极简发布",
+        "url": "https://huggingface.co/deepseek-ai/DeepSeek-R1"
+      },
+      "emotionalBeat": "triumph",
+      "sources": [
+        "https://api-docs.deepseek.com/updates",
+        "https://en.wikipedia.org/wiki/DeepSeek"
+      ]
+    },
+    {
+      "date": "2024年5月7日",
+      "era": "breakthrough",
+      "headline": "MLA改写注意力规则，价格战自此打响",
+      "body": "DeepSeek-V2以236B总参数、21B激活参数登场，128K长上下文。它首次亮相的多头潜在注意力机制（MLA）将KV缓存需求暴降93.3%，推理吞吐提升5.76倍。训练成本比前代67B模型还低42.5%。更激进的是定价：每百万tokens仅0.14元人民币，直接击穿了当时国内API市场的底线。各大云厂紧急跟进降价，舆论称之为“由一家量化基金引发的价格血战”。这一天，MLA不仅成为架构创新的代名词，也把DeepSeek从“有意思的开源团队”推至“让所有人都紧张的对手”。",
+      "product": {
+        "name": "DeepSeek-V2",
+        "tagline": "KV缓存锐减93.3%，定价击穿行业地板",
+        "url": "https://arxiv.org/abs/2405.04434"
+      },
+      "emotionalBeat": "turning",
+      "sources": [
+        "https://arxiv.org/abs/2405.04434",
+        "https://api-docs.deepseek.com/updates"
+      ]
+    },
+    {
+      "date": "2024年6月",
+      "era": "breakthrough",
+      "headline": "338种语言，代码对标GPT-4 Turbo",
+      "body": "DeepSeek-Coder V2采用MoE架构，支持338种编程语言，上下文窗口大幅扩展。在多个高级编程基准上，它追平甚至超越了GPT-4 Turbo——而此时距离最初的Coder发布仅7个月。这意味着一个小团队已经能够在一个相当垂直的领域里，追上拥有海量资源的顶级闭源模型。那些曾经怀疑开源代码模型天花板的人开始沉默，而全球的开发者社区则在庆祝：有了一个可以完全私密部署、免费商用的编程大脑。",
+      "product": {
+        "name": "DeepSeek-Coder V2",
+        "tagline": "MoE架构，开源代码模型跻身第一梯队",
+        "url": "https://deepseekcoder.github.io/"
+      },
+      "emotionalBeat": "triumph",
+      "sources": [
+        "https://deepseekcoder.github.io/",
+        "https://github.com/deepseek-ai/DeepSeek-Coder"
+      ]
+    },
+    {
+      "date": "2024年7月",
+      "era": "breakthrough",
+      "headline": "「中国不能永远做追随者」",
+      "body": "梁文锋接受《36氪》深度采访，金句频出。他说：“开源发论文并不会失去什么，对技术人来说，被人跟随本身就是成就感。”“中国不能永远做追随者。”“更多投入不一定产生更多创新，否则大公司早就垄断所有创新了。”这不是一次公关话术的表演，而是一个穿着低调、言语精炼的量化经理对AI行业基本信条的平静反驳。采访全文被翻译成英文，在海外技术社区引发巨大共鸣，许多人第一次理解了这家奇怪公司的内在驱动力：好奇心，以及一种对“重新定义问题”的执念。",
+      "product": null,
+      "emotionalBeat": "humility",
+      "sources": [
+        "https://jiexu.substack.com/p/interview-deepseek-founder-liang-wenfeng-a-journey-by-curiosity",
+        "https://thechinaacademy.org/interview-with-deepseek-founder-were-done-following-its-time-to-lead/"
+      ]
+    },
+    {
+      "date": "2024年12月26日",
+      "era": "world",
+      "headline": "557万美元撬动GPT-4o级性能",
+      "body": "DeepSeek-V3发布：671B总参数、37B激活参数，在14.8万亿token上训练，全面采用FP8混合精度和Multi-Token Prediction。训练仅用2048块H800 GPU，总成本约557万美元——不到许多同级模型训练预算的十分之一。在多个评测集上，V3性能超越GPT-4o和Claude 3.5 Sonnet。论文详细披露了每一个工程选择，包括对抗FP8下数值不稳定的大量实验。社区将它称为“效率的奇迹”：不是算力最多的人赢，而是把算力用到极致的人赢。",
+      "product": {
+        "name": "DeepSeek-V3",
+        "tagline": "671B参数，$5.6M训练成本，性能比肩最强者",
+        "url": "https://arxiv.org/html/2412.19437v1"
+      },
+      "emotionalBeat": "triumph",
+      "sources": [
+        "https://arxiv.org/html/2412.19437v1",
+        "https://api-docs.deepseek.com/updates"
+      ]
+    },
+    {
+      "date": "2025年1月20日",
+      "era": "world",
+      "headline": "纯强化学习的推理觉醒",
+      "body": "DeepSeek-R1用MIT协议开源，671B的模型完全通过强化学习训练推理能力，没有任何SFT冷启动数据。这种“让模型自己学会思考”的路子在学术界被反复讨论，但鲜有人敢在全量规模实现。R1做到了，在多个推理基准上对标OpenAI o1，而推理成本仅为后者的1/27。同时开源的还有6个蒸馏版本，小至1.5B，让低配硬件也能跑出强大推理。R1的发布标志着开源社区第一次在硬核推理领域有了不妥协的选项，论文中那句“deepseek-r1, trained via pure RL”成为无数研究者的兴奋点。",
+      "product": {
+        "name": "DeepSeek-R1",
+        "tagline": "纯RL训练推理，MIT开源，成本仅为o1的1/27",
+        "url": "https://github.com/deepseek-ai/DeepSeek-R1"
+      },
+      "emotionalBeat": "triumph",
+      "sources": [
+        "https://github.com/deepseek-ai/DeepSeek-R1",
+        "https://huggingface.co/deepseek-ai/DeepSeek-R1"
+      ]
+    },
+    {
+      "date": "2025年1月27日",
+      "era": "world",
+      "headline": "App登顶美区，Nvidia单日蒸发$600亿",
+      "body": "DeepSeek官方应用在美区App Store免费榜超越ChatGPT登顶，引发全球关注。同一天，Nvidia股价重挫，单日市值蒸发约600亿美元，创下美股单公司单日最大跌幅纪录。投资者开始重估“唯有堆算力才能赢”的AI军备叙事。Marc Andreessen称R1是“我见过的最令人叹服的突破之一，作为开源，是给世界的礼物”。短短几天内，DeepSeek从一个科技圈熟知的秘密，变成了全球新闻头条。而公司的工程师们还在推上默默上传新的模型量化版。",
+      "product": null,
+      "emotionalBeat": "turning",
+      "sources": [
+        "https://www.cnbc.com/2025/01/27/nvidia-sheds-almost-600-billion-in-market-cap-biggest-drop-ever.html",
+        "https://www.nbcnews.com/business/business-news/nvidia-loses-market-value-chinese-ai-startup-deepseek-debut-rcna189431",
+        "https://fortune.com/2025/01/27/deepseek-founder-liang-wenfeng-hedge-fund-manager-high-flyer-quant-trading/"
+      ]
+    },
+    {
+      "date": "2025年3月24日",
+      "era": "world",
+      "headline": "静默升级，数学编程再越界",
+      "body": "DeepSeek-V3-0324悄然更新，强化推理能力、前端代码生成、中文写作和函数调用。本次升级没有轰轰烈烈的发布会，只有HuggingFace上一份更新的模型卡片和一个MIT开放权重的通知。评测显示，它在数学和编程上超越了GPT-4.5。开发者社群再次骚动：这家公司似乎已经把“在旧模型基础上持续改进”当成了日常操作，而非一个需要对外宣告的里程碑。迭代如呼吸，开源如心跳。",
+      "product": {
+        "name": "DeepSeek-V3-0324",
+        "tagline": "持续进化，数学编程超越GPT-4.5",
+        "url": "https://api-docs.deepseek.com/updates"
+      },
+      "emotionalBeat": "triumph",
+      "sources": [
+        "https://api-docs.deepseek.com/updates",
+        "https://en.wikipedia.org/wiki/DeepSeek"
+      ]
+    },
+    {
+      "date": "2025年8月21日",
+      "era": "present",
+      "headline": "Hybrid Thinking：向Agent时代踏出第一步",
+      "body": "DeepSeek-V3.1带着128K上下文和671B参数到来，首次引入hybrid thinking模式——单一模型同时支持thinking和non-thinking，无需切换模型，还能集成工具调用。梁文锋说：“这是我们走向Agent时代的第一步。”模型可以一边进行长篇复杂推理，一边在执行工具时果断给出非推理式响应，这种“一念两面”的能力让开发者能够用同一个端点构建更为自主的AI工作流。比起新一轮基准比拼，这项工程突破更具远期意义：它把推理-行动的切换成本压缩到了架构内部。",
+      "product": {
+        "name": "DeepSeek-V3.1",
+        "tagline": "一个模型，两种思维，原生工具调用",
+        "url": "https://huggingface.co/deepseek-ai/DeepSeek-V3.1"
+      },
+      "emotionalBeat": "turning",
+      "sources": [
+        "https://huggingface.co/deepseek-ai/DeepSeek-V3.1",
+        "https://api-docs.deepseek.com/updates"
+      ]
+    },
+    {
+      "date": "2026年4月24日",
+      "era": "present",
+      "headline": "V4预览：百万token，与硬件共舞",
+      "body": "DeepSeek发布V4预览版，包含Pro和Flash变体：Pro达1.6T参数、49B激活，Flash仅284B/13B。上下文窗口跃升至100万token，采用Hybrid Attention架构。V4-Pro输出定价每百万tokens $3.48，对比OpenAI的$30，再次拉大性价比鸿沟。另一个信号：模型与华为昇腾950实现原生适配，开源权重全部可用。这不仅是模型尺寸的膨胀，更是生态布局的显现——当世界还在争论软硬件脱钩时，DeepSeek已经默默打通了另一条管道。",
+      "product": {
+        "name": "DeepSeek-V4 (Preview)",
+        "tagline": "1.6T参数，100万上下文，原生昇腾适配",
+        "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro"
+      },
+      "emotionalBeat": "triumph",
+      "sources": [
+        "https://www.cnbc.com/2026/04/24/deepseek-v4-llm-preview-open-source-ai-competition-china.html",
+        "https://fortune.com/2026/04/24/deepseek-v4-ai-model-price-performance-china-open-source/",
+        "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro"
+      ]
+    }
+  ],
+  "products": [
+    {
+      "name": "DeepSeek-Coder",
+      "year": "2023",
+      "bullet": "首个开源代码模型系列，33B超越CodeLlama-34B，覆盖80+语言。",
+      "impact": "让独立开发者第一次拥有可私密部署的强编码模型，引发开源代码工具链重构。",
+      "url": "https://github.com/deepseek-ai/DeepSeek-Coder"
+    },
+    {
+      "name": "DeepSeek-LLM",
+      "year": "2023",
+      "bullet": "7B/67B中英双语基座，极简发布风格树立开放标准。",
+      "impact": "证明小团队也能产出可商用的高质量基座模型，加速非英语开源LLM生态。",
+      "url": null
+    },
+    {
+      "name": "DeepSeek-V2",
+      "year": "2024",
+      "bullet": "236B参数，首创MLA机制，KV缓存降93.3%，推理吞吐增5.76倍。",
+      "impact": "引发国内API价格战，迫使产业链整体降本，ML架构创新成行业必选项。",
+      "url": "https://arxiv.org/abs/2405.04434"
+    },
+    {
+      "name": "DeepSeek-Coder V2",
+      "year": "2024",
+      "bullet": "MoE架构，支持338种语言，代码能力对标GPT-4 Turbo。",
+      "impact": "消除开源代码模型与最强闭源模型的体验鸿沟，推动企业级代码助手开源化。",
+      "url": "https://deepseekcoder.github.io/"
+    },
+    {
+      "name": "DeepSeek-V3",
+      "year": "2024",
+      "bullet": "671B参数，$5.6M训练成本，性能超越GPT-4o和Claude 3.5 Sonnet。",
+      "impact": "以极低训练预算挑战“算力=能力”的叙事，开启效率优先的模型研发新范式。",
+      "url": "https://arxiv.org/html/2412.19437v1"
+    },
+    {
+      "name": "DeepSeek-R1",
+      "year": "2025",
+      "bullet": "纯强化学习训练推理，MIT开源，推理成本为o1的1/27。",
+      "impact": "开源推理模型首次在硬核逻辑任务中对标闭源顶尖，激发全球RL for reasoning研究浪潮。",
+      "url": "https://github.com/deepseek-ai/DeepSeek-R1"
+    },
+    {
+      "name": "DeepSeek-V3.1",
+      "year": "2025",
+      "bullet": "Hybrid Thinking单一模型切换思考与非思考，集成工具调用。",
+      "impact": "为Agent构建提供原生架构支持，降低推理-行动切换成本，定义下一代模型交互范式。",
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V3.1"
+    },
+    {
+      "name": "DeepSeek-V4",
+      "year": "2026",
+      "bullet": "1.6T参数/49B激活，100万token上下文，与昇腾950原生适配，API价格$3.48/M tokens。",
+      "impact": "百万token窗口打通全本代码库、长篇档案理解，生态兼容国产硬件，重新划定性价比边界。",
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro"
+    }
+  ],
+  "closing": {
+    "headline": "一键切换到你的思考引擎",
+    "body": "现在我们回过头来看，这一切都始于杭州某间不起眼的机房，和一群深信“被人跟随本身就是成就感”的工程师。他们没想过去纳斯达克敲钟，也没想过让自己的logo成为应用商店头名——但这两个都发生了。从萤火一号的微光到百万token上下文，DeepSeek始终在做一件事：把最好的模型做成开源，然后用极限工程把价格打到一个让所有人能用的数字。这篇文字本身就是用DeepSeek写的——可能你读到的这一刻，我们刚刚更新了权重，已经更聪明了一点点。所以，别犹豫了，下载DeepSeek，我们把它叫做 Switch，因为每一次切换都是思维模式的重启。从写代码到解微分方程，从起草合同到润色十四行诗，你的新思考引擎就在这里。",
+    "ctaPrimary": "下载Switch，一键接入DeepSeek",
+    "ctaSecondary": "已有Switch？一键导入DeepSeek"
+  },
+  "meta": {
+    "title": "DeepSeek 故事：不做追随者的计算 | 从量化到开源AI",
+    "description": "从幻方量化到全球现象级AI，DeepSeek用开源和极致工程重写规则。深度叙事，从萤火超算到V4预览，不做追随者。",
+    "keywords": [
+      "deepseek",
+      "DeepSeek",
+      "开源AI",
+      "梁文锋",
+      "DeepSeek-R1",
+      "DeepSeek-V3",
+      "AI叙事",
+      "推理模型",
+      "开源大模型"
+    ]
+  }
+}
