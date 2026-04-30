@@ -10,7 +10,7 @@ const SWITCH_IMPORT_URL =
   "switch://import?type=provider&data=eyJpZCI6Imx1cnVzLW5ld2FwaS1kZWVwc2VlayIsIm5hbWUiOiJEZWVwU2VlayDCtyBMdXJ1cyDkuK3ovawiLCJiYXNlVXJsIjoiaHR0cHM6Ly9uZXdhcGkubHVydXMuY24iLCJpY29uIjoiZGVlcHNlZWsiLCJpY29uQ29sb3IiOiIjNEQ2QkZFIiwiY2F0ZWdvcnkiOiJwcm94eSIsImtleUZvcm1hdCI6InNrLS4uLiIsIm1vZGVscyI6ImRlZXBzZWVrLXY0LXBybyxkZWVwc2Vlay12NC1mbGFzaCxkZWVwc2Vlay1yZWFzb25lciIsImRlc2NyaXB0aW9uIjoiRGVlcFNlZWsg5YWo57O75YiXIMK3IOmAmui_hyBMdXJ1cyDkuK3ovawgwrcg5Zu95YaF55u06L-e5YWN5Luj55CGIiwiZG9jc1VybCI6Imh0dHBzOi8vZHNuYi5oZWxwIiwiZnJlZVRpZXIiOmZhbHNlLCJuZWVkc1Byb3h5IjpmYWxzZX0";
 
 const SWITCH_RELEASE_URL =
-  "https://github.com/lurus-dev/lurus-switch/releases/latest";
+  "https://github.com/hanmahong5-arch/lurus-switch/releases/latest";
 
 type ClosingCTAProps = {
   closing: ContentBundle["closing"];
