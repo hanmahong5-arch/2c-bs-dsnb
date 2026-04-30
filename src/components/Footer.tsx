@@ -10,7 +10,7 @@ export function Footer() {
           <p>
             DeepSeek 情感叙事落地页 ·{" "}
             <a
-              href="https://github.com/lurus-dev/lurus-switch"
+              href="https://github.com/hanmahong5-arch/lurus-switch"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-[var(--color-primary-light)] transition-colors duration-150"
@@ -35,7 +35,7 @@ export function Footer() {
             邮件
           </a>
           <a
-            href="https://github.com/lurus-dev"
+            href="https://github.com/hanmahong5-arch/2c-bs-dsnb"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-[var(--color-primary-light)] transition-colors duration-150 flex items-center gap-1"
