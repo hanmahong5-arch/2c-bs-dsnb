@@ -156,7 +156,7 @@ export function Hero({ hero }: HeroProps) {
           transition={{ duration: 0.8, ease, delay: 0.54 }}
         >
           <a
-            href="https://github.com/lurus-dev/lurus-switch/releases/latest"
+            href="https://github.com/hanmahong5-arch/lurus-switch/releases/latest"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl text-white font-semibold text-base transition-all duration-200"
