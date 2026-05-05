@@ -50,6 +50,9 @@ export type UiText = {
   footerIcpNote: string;
   languageSwitch: string;
   ogSubtitle: string;
+  readFull: string;
+  readingTimeUnit: string;
+  rssLabel: string;
 };
 
 export type ContentBundle = {
@@ -133,4 +136,27 @@ export function eventUrl(slug: string, locale: Locale): string {
 
 export function homeUrl(locale: Locale): string {
   return locale === "en" ? "/en" : "/";
+}
+
+// Estimate reading time in minutes. Chinese: ~300 chars/min; English: ~225 wpm.
+export function readingTimeMinutes(body: string, locale: Locale): number {
+  if (locale === "en") {
+    const words = body.trim().split(/\s+/).length;
+    return Math.max(1, Math.ceil(words / 225));
+  }
+  return Math.max(1, Math.ceil(body.length / 300));
+}
+
+// Derive a publication-style Date from an event slug. Slugs always start
+// with a 4-digit year, optionally followed by zero-padded MM and DD.
+export function slugDate(slug: string): Date {
+  const parts = slug.split("-");
+  const year = Number.parseInt(parts[0] ?? "1970", 10);
+  const month = /^\d{2}$/.test(parts[1] ?? "")
+    ? Number.parseInt(parts[1]!, 10) - 1
+    : 0;
+  const day = /^\d{2}$/.test(parts[2] ?? "")
+    ? Number.parseInt(parts[2]!, 10)
+    : 1;
+  return new Date(Date.UTC(year, month, day));
 }

@@ -5,8 +5,9 @@ import type {
   Locale,
   Era,
 } from "@/lib/content";
-import { eventUrl, homeUrl } from "@/lib/content";
+import { eventUrl, homeUrl, readingTimeMinutes } from "@/lib/content";
 import { Footer } from "@/components/Footer";
+import { ReadingProgress } from "@/components/ReadingProgress";
 
 const ERA_COLOR: Record<Era, string> = {
   origin: "#6F8AFF",
@@ -25,9 +26,11 @@ type Props = {
 
 export function EventPageContent({ event, prev, next, locale, ui }: Props) {
   const eraColor = ERA_COLOR[event.era];
+  const minutes = readingTimeMinutes(event.body, locale);
 
   return (
     <>
+      <ReadingProgress />
       <header className="border-b border-[var(--color-border)]">
         <div className="max-w-2xl mx-auto px-6 py-4 flex items-center justify-between text-sm">
           <Link
@@ -57,6 +60,9 @@ export function EventPageContent({ event, prev, next, locale, ui }: Props) {
               }}
             >
               {ui.eraLabels[event.era]}
+            </span>
+            <span className="text-xs text-[var(--color-text-muted)]">
+              {minutes} {ui.readingTimeUnit}
             </span>
           </div>
 

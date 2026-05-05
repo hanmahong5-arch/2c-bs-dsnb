@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useInView } from "framer-motion";
+import Link from "next/link";
 import { useRef, useState } from "react";
 import type {
   ContentBundle,
@@ -328,6 +329,15 @@ function TimelineEntry({ entry, index, locale, ui }: TimelineEntryProps) {
               </ul>
             </details>
           )}
+
+          <div className="mt-4 flex justify-end">
+            <Link
+              href={eventUrl(entry.slug, locale)}
+              className="text-xs text-[var(--color-text-muted)] hover:text-[var(--color-primary-light)] transition-colors underline underline-offset-4 decoration-[var(--color-border)] hover:decoration-[var(--color-primary)]"
+            >
+              {ui.readFull}
+            </Link>
+          </div>
         </div>
       </div>
     </motion.div>

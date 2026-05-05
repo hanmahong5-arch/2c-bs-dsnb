@@ -9,6 +9,7 @@ type FooterProps = {
 export function Footer({ locale, ui }: FooterProps) {
   const otherLocale: Locale = locale === "zh" ? "en" : "zh";
   const otherHref = otherLocale === "en" ? "/en" : "/";
+  const rssHref = locale === "en" ? "/en/rss.xml" : "/rss.xml";
 
   return (
     <footer className="border-t border-[var(--color-border)] py-10 px-6">
@@ -41,6 +42,15 @@ export function Footer({ locale, ui }: FooterProps) {
             <GlobeIcon />
             {ui.languageSwitch}
           </Link>
+          <a
+            href={rssHref}
+            className="hover:text-[var(--color-primary-light)] transition-colors duration-150 flex items-center gap-1"
+            aria-label={ui.rssLabel}
+            title={ui.rssLabel}
+          >
+            <RssIcon />
+            RSS
+          </a>
           <a
             href="mailto:marvin.uu@gmail.com"
             className="hover:text-[var(--color-primary-light)] transition-colors duration-150"
@@ -76,6 +86,25 @@ function GlobeIcon() {
         d="M1.5 7h11M7 1.5c1.6 2 1.6 9 0 11M7 1.5c-1.6 2-1.6 9 0 11"
         stroke="currentColor"
         strokeWidth="1"
+      />
+    </svg>
+  );
+}
+
+function RssIcon() {
+  return (
+    <svg
+      width="13"
+      height="13"
+      viewBox="0 0 14 14"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path
+        d="M2.5 11.5a1 1 0 100-2 1 1 0 000 2zM2 5.5a6.5 6.5 0 016.5 6.5M2 2a10 10 0 0110 10"
+        stroke="currentColor"
+        strokeWidth="1.4"
+        strokeLinecap="round"
       />
     </svg>
   );

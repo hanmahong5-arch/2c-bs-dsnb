@@ -355,6 +355,9 @@
     "footerEmail": "邮件",
     "footerIcpNote": ".help 域名无需 ICP 备案",
     "languageSwitch": "English",
-    "ogSubtitle": "DeepSeek 的故事"
+    "ogSubtitle": "DeepSeek 的故事",
+    "readFull": "完整阅读 →",
+    "readingTimeUnit": "分钟阅读",
+    "rssLabel": "RSS 订阅"
   }
 }

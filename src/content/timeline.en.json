@@ -357,6 +357,9 @@
     "footerEmail": "Email",
     "footerIcpNote": ".help — no ICP filing required",
     "languageSwitch": "中文",
-    "ogSubtitle": "The DeepSeek Story"
+    "ogSubtitle": "The DeepSeek Story",
+    "readFull": "Read full →",
+    "readingTimeUnit": "min read",
+    "rssLabel": "RSS feed"
   }
 }
