@@ -1,14 +1,24 @@
-export function Footer() {
+import Link from "next/link";
+import type { Locale, UiText } from "@/lib/content";
+
+type FooterProps = {
+  locale: Locale;
+  ui: UiText;
+};
+
+export function Footer({ locale, ui }: FooterProps) {
+  const otherLocale: Locale = locale === "zh" ? "en" : "zh";
+  const otherHref = otherLocale === "en" ? "/en" : "/";
+
   return (
     <footer className="border-t border-[var(--color-border)] py-10 px-6">
       <div className="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6 text-sm text-[var(--color-text-muted)]">
-        {/* Left — project description */}
         <div className="text-center sm:text-left">
           <p className="font-medium text-[var(--color-text-secondary)] mb-1">
             dsnb.help
           </p>
           <p>
-            DeepSeek 情感叙事落地页 ·{" "}
+            {ui.footerTagline} ·{" "}
             <a
               href="https://github.com/hanmahong5-arch/lurus-switch"
               target="_blank"
@@ -17,22 +27,25 @@ export function Footer() {
             >
               Switch Desktop
             </a>{" "}
-            出品
+            {ui.footerBy}
           </p>
         </div>
 
-        {/* Center — ICP placeholder (.help 无需 ICP) */}
-        <p className="text-xs opacity-60 hidden sm:block">
-          .help 域名无需 ICP 备案
-        </p>
-
-        {/* Right — contact & social */}
         <div className="flex items-center gap-5">
+          <Link
+            href={otherHref}
+            hrefLang={otherLocale}
+            className="hover:text-[var(--color-primary-light)] transition-colors duration-150 flex items-center gap-1"
+            aria-label={`Switch language to ${ui.languageSwitch}`}
+          >
+            <GlobeIcon />
+            {ui.languageSwitch}
+          </Link>
           <a
             href="mailto:marvin.uu@gmail.com"
             className="hover:text-[var(--color-primary-light)] transition-colors duration-150"
           >
-            邮件
+            {ui.footerEmail}
           </a>
           <a
             href="https://github.com/hanmahong5-arch/2c-bs-dsnb"
@@ -46,6 +59,25 @@ export function Footer() {
         </div>
       </div>
     </footer>
+  );
+}
+
+function GlobeIcon() {
+  return (
+    <svg
+      width="13"
+      height="13"
+      viewBox="0 0 14 14"
+      fill="none"
+      aria-hidden="true"
+    >
+      <circle cx="7" cy="7" r="5.5" stroke="currentColor" strokeWidth="1.2" />
+      <path
+        d="M1.5 7h11M7 1.5c1.6 2 1.6 9 0 11M7 1.5c-1.6 2-1.6 9 0 11"
+        stroke="currentColor"
+        strokeWidth="1"
+      />
+    </svg>
   );
 }
 

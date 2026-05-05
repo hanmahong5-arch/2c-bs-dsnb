@@ -2,7 +2,7 @@
 
 import { AnimatePresence, motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import type { ContentBundle } from "@/lib/content";
+import type { ContentBundle, UiText } from "@/lib/content";
 import { track } from "@/lib/track";
 
 // One-click import: DeepSeek (via Lurus newapi.lurus.cn) provider preset.
@@ -13,15 +13,14 @@ const SWITCH_IMPORT_URL =
 const SWITCH_RELEASE_URL =
   "https://github.com/hanmahong5-arch/lurus-switch/releases/latest";
 
-// If the OS doesn't hand off to Switch within this window, the page is
-// still visible — show an inline install hint.
 const DEEPLINK_FALLBACK_MS = 1800;
 
 type ClosingCTAProps = {
   closing: ContentBundle["closing"];
+  ui: UiText;
 };
 
-export function ClosingCTA({ closing }: ClosingCTAProps) {
+export function ClosingCTA({ closing, ui }: ClosingCTAProps) {
   const ref = useRef<HTMLElement>(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
   const [showFallback, setShowFallback] = useState(false);
@@ -30,8 +29,6 @@ export function ClosingCTA({ closing }: ClosingCTAProps) {
     track("cta_deeplink_import");
     setShowFallback(false);
     window.setTimeout(() => {
-      // If the deeplink succeeded, the OS swapped focus to Switch and the
-      // tab is hidden; in that case do nothing.
       if (typeof document !== "undefined" && !document.hidden) {
         setShowFallback(true);
         track("cta_deeplink_fallback_shown");
@@ -40,11 +37,7 @@ export function ClosingCTA({ closing }: ClosingCTAProps) {
   };
 
   return (
-    <section
-      ref={ref}
-      className="py-24 px-6 relative overflow-hidden"
-    >
-      {/* Background glow */}
+    <section ref={ref} className="py-24 px-6 relative overflow-hidden">
       <div
         className="pointer-events-none absolute inset-0 flex items-center justify-center"
         aria-hidden="true"
@@ -59,7 +52,6 @@ export function ClosingCTA({ closing }: ClosingCTAProps) {
         />
       </div>
 
-      {/* Divider */}
       <div className="section-divider mb-20 max-w-4xl mx-auto" />
 
       <div className="relative z-10 max-w-2xl mx-auto text-center">
@@ -87,7 +79,6 @@ export function ClosingCTA({ closing }: ClosingCTAProps) {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
         >
-          {/* Primary CTA — download Switch */}
           <a
             href={SWITCH_RELEASE_URL}
             target="_blank"
@@ -114,7 +105,6 @@ export function ClosingCTA({ closing }: ClosingCTAProps) {
             {closing.ctaPrimary}
           </a>
 
-          {/* Secondary CTA — deeplink import */}
           <a
             href={SWITCH_IMPORT_URL}
             onClick={handleImportClick}
@@ -125,7 +115,6 @@ export function ClosingCTA({ closing }: ClosingCTAProps) {
           </a>
         </motion.div>
 
-        {/* Deeplink fallback hint — only shows if OS didn't hand off */}
         <AnimatePresence>
           {showFallback && (
             <motion.div
@@ -136,7 +125,7 @@ export function ClosingCTA({ closing }: ClosingCTAProps) {
               transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
               className="mt-5 text-sm text-[var(--color-text-muted)]"
             >
-              <span>Switch 还没启动？</span>{" "}
+              <span>{ui.switchNotStarted}</span>{" "}
               <a
                 href={SWITCH_RELEASE_URL}
                 target="_blank"
@@ -144,13 +133,12 @@ export function ClosingCTA({ closing }: ClosingCTAProps) {
                 onClick={() => track("cta_download_fallback")}
                 className="text-[var(--color-primary-light)] underline underline-offset-4 hover:text-[var(--color-primary)] transition-colors"
               >
-                下载 Switch →
+                {ui.downloadSwitchInline}
               </a>
             </motion.div>
           )}
         </AnimatePresence>
 
-        {/* Tertiary text link */}
         <motion.div
           className="mt-8"
           initial={{ opacity: 0 }}
@@ -162,7 +150,7 @@ export function ClosingCTA({ closing }: ClosingCTAProps) {
             onClick={() => track("cta_scroll_timeline")}
             className="text-sm text-[var(--color-text-muted)] hover:text-[var(--color-primary-light)] transition-colors duration-200 underline underline-offset-4 decoration-[var(--color-border)]"
           >
-            故事的一部分用 DeepSeek 自己写的 →
+            {ui.writtenWithDeepseek}
           </a>
         </motion.div>
       </div>

@@ -2,21 +2,21 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import type { ContentBundle } from "@/lib/content";
+import type { ContentBundle, UiText } from "@/lib/content";
 import { track } from "@/lib/track";
 
 type ProductCardProps = {
   product: ContentBundle["products"][number];
   index: number;
+  ui: UiText;
 };
 
-function ProductCard({ product, index }: ProductCardProps) {
+function ProductCard({ product, index, ui }: ProductCardProps) {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
 
   const inner = (
     <div className="card h-full p-5 flex flex-col gap-3 group cursor-default">
-      {/* Header */}
       <div className="flex items-start justify-between gap-2">
         <h3 className="font-semibold text-[var(--color-text-primary)] text-base leading-snug group-hover:text-[var(--color-primary-light)] transition-colors duration-200">
           {product.name}
@@ -33,24 +33,27 @@ function ProductCard({ product, index }: ProductCardProps) {
         </span>
       </div>
 
-      {/* Bullet */}
       <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed flex-1">
         {product.bullet}
       </p>
 
-      {/* Impact */}
-      <div
-        className="mt-auto pt-3 border-t border-[var(--color-border)] text-xs text-[var(--color-text-muted)]"
-      >
-        <span className="text-[var(--color-accent)] font-medium">Impact: </span>
+      <div className="mt-auto pt-3 border-t border-[var(--color-border)] text-xs text-[var(--color-text-muted)]">
+        <span className="text-[var(--color-accent)] font-medium">
+          {ui.impactLabel}:{" "}
+        </span>
         {product.impact}
       </div>
 
-      {/* External link indicator */}
       {product.url && (
         <div className="text-xs text-[var(--color-primary)] flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-          <span>查看项目</span>
-          <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
+          <span>{ui.viewProject}</span>
+          <svg
+            width="10"
+            height="10"
+            viewBox="0 0 10 10"
+            fill="none"
+            aria-hidden="true"
+          >
             <path
               d="M2 8L8 2M5 2h3v3"
               stroke="currentColor"
@@ -99,9 +102,10 @@ function ProductCard({ product, index }: ProductCardProps) {
 
 type ProductGalleryProps = {
   products: ContentBundle["products"];
+  ui: UiText;
 };
 
-export function ProductGallery({ products }: ProductGalleryProps) {
+export function ProductGallery({ products, ui }: ProductGalleryProps) {
   const headerRef = useRef<HTMLDivElement>(null);
   const headerInView = useInView(headerRef, { once: true, margin: "-80px" });
 
@@ -111,10 +115,8 @@ export function ProductGallery({ products }: ProductGalleryProps) {
   return (
     <section className="py-20 px-6">
       <div className="max-w-4xl mx-auto">
-        {/* Divider */}
         <div className="section-divider mb-16" />
 
-        {/* Header */}
         <div ref={headerRef} className="mb-10 text-center">
           <motion.p
             className="eyebrow mb-3"
@@ -122,7 +124,7 @@ export function ProductGallery({ products }: ProductGalleryProps) {
             animate={headerInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           >
-            研究产出
+            {ui.productsEyebrow}
           </motion.p>
           <motion.h2
             className="text-3xl sm:text-4xl font-bold headline-tight"
@@ -130,14 +132,13 @@ export function ProductGallery({ products }: ProductGalleryProps) {
             animate={headerInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.08 }}
           >
-            产品图谱
+            {ui.productsHeading}
           </motion.h2>
         </div>
 
-        {/* Grid */}
         <div className={`grid grid-cols-1 ${cols} gap-4`}>
           {products.map((p, i) => (
-            <ProductCard key={`${p.name}-${i}`} product={p} index={i} />
+            <ProductCard key={`${p.name}-${i}`} product={p} index={i} ui={ui} />
           ))}
         </div>
       </div>

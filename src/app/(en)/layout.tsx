@@ -1,54 +1,58 @@
 import type { Metadata, Viewport } from "next";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import "./globals.css";
+import "../globals.css";
 
 const SITE_URL = "https://dsnb.help";
 const OG_IMAGE = "/og-image.png";
-const TITLE = "DeepSeek 的故事 — 从海底到星空";
+const TITLE = "The DeepSeek Story: Done Following";
 const DESCRIPTION =
-  "一个关于 DeepSeek 的情感叙事时间线。从幻方量化的 AI 实验到撼动硅谷的开源突破，用 Switch 桌面应用一键接入 DeepSeek。";
+  "An emotional narrative timeline of DeepSeek — from a Hangzhou quant fund's GPU cluster to open-sourcing a 1.6T-parameter model. One-click access via the Switch desktop app.";
 
 export const metadata: Metadata = {
   title: TITLE,
   description: DESCRIPTION,
   metadataBase: new URL(SITE_URL),
-  alternates: { canonical: "/" },
+  alternates: {
+    canonical: "/en",
+    languages: {
+      "zh-CN": "/",
+      en: "/en",
+      "x-default": "/",
+    },
+  },
   openGraph: {
     type: "article",
-    locale: "zh_CN",
+    locale: "en_US",
+    alternateLocale: ["zh_CN"],
     siteName: "dsnb.help",
-    url: SITE_URL,
+    url: `${SITE_URL}/en`,
     images: [
-      {
-        url: OG_IMAGE,
-        width: 1200,
-        height: 630,
-        alt: TITLE,
-      },
+      { url: OG_IMAGE, width: 1200, height: 630, alt: TITLE },
     ],
     title: TITLE,
     description:
-      "情感叙事时间线：DeepSeek 如何在质疑声中崛起，以最小成本挑战最强模型。",
+      "From a quant fund to a global AI phenomenon: DeepSeek's open-source narrative, told plainly.",
   },
   twitter: {
     card: "summary_large_image",
     title: TITLE,
-    description: "情感叙事时间线：DeepSeek 如何以最小成本挑战最强模型。",
+    description:
+      "From a quant fund to a global AI phenomenon. The DeepSeek story.",
     images: [OG_IMAGE],
   },
   keywords: [
     "DeepSeek",
-    "AI",
-    "大语言模型",
-    "开源",
-    "Switch",
-    "桌面应用",
-    "梁文锋",
-    "幻方量化",
+    "open-source AI",
+    "Liang Wenfeng",
     "DeepSeek-R1",
     "DeepSeek-V3",
     "DeepSeek-V4",
+    "AI narrative",
+    "reasoning models",
+    "open-source LLM",
+    "China AI",
+    "Switch desktop app",
   ],
   authors: [{ name: "Lurus" }],
   category: "technology",
@@ -69,7 +73,7 @@ const STRUCTURED_DATA = {
   image: `${SITE_URL}${OG_IMAGE}`,
   datePublished: "2026-04-30",
   dateModified: "2026-05-05",
-  inLanguage: "zh-CN",
+  inLanguage: "en",
   author: {
     "@type": "Organization",
     name: "Lurus",
@@ -78,15 +82,9 @@ const STRUCTURED_DATA = {
   publisher: {
     "@type": "Organization",
     name: "Lurus",
-    logo: {
-      "@type": "ImageObject",
-      url: `${SITE_URL}${OG_IMAGE}`,
-    },
+    logo: { "@type": "ImageObject", url: `${SITE_URL}${OG_IMAGE}` },
   },
-  mainEntityOfPage: {
-    "@type": "WebPage",
-    "@id": `${SITE_URL}/`,
-  },
+  mainEntityOfPage: { "@type": "WebPage", "@id": `${SITE_URL}/en` },
   about: {
     "@type": "Organization",
     name: "DeepSeek",
@@ -94,13 +92,11 @@ const STRUCTURED_DATA = {
   },
 };
 
-export default function RootLayout({
+export default function RootLayoutEn({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="zh-CN" className="antialiased">
+    <html lang="en" className="antialiased">
       <body className="min-h-screen flex flex-col bg-[var(--background)] text-[var(--foreground)]">
         <main className="flex-1">{children}</main>
         <script

@@ -5,21 +5,18 @@ import { Timeline } from "@/components/Timeline";
 import { ProductGallery } from "@/components/ProductGallery";
 import { ClosingCTA } from "@/components/ClosingCTA";
 import { Footer } from "@/components/Footer";
-import { InAppBrowserHint } from "@/components/InAppBrowserHint";
 
-// Server component — content is loaded at build/request time.
-export default function HomePage() {
-  const content = loadContentSync();
+export default function HomePageEn() {
+  const content = loadContentSync("en");
 
   return (
     <>
-      <InAppBrowserHint />
       <Hero hero={content.hero} />
       <IntroSection intro={content.intro} />
-      <Timeline entries={content.timeline} />
-      <ProductGallery products={content.products} />
-      <ClosingCTA closing={content.closing} />
-      <Footer />
+      <Timeline entries={content.timeline} locale="en" ui={content.ui} />
+      <ProductGallery products={content.products} ui={content.ui} />
+      <ClosingCTA closing={content.closing} ui={content.ui} />
+      <Footer locale="en" ui={content.ui} />
     </>
   );
 }

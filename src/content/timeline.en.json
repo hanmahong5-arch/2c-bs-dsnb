@@ -1,0 +1,362 @@
+{
+  "hero": {
+    "eyebrow": "DSNB · The DeepSeek Story",
+    "headline": "Done Following",
+    "subhead": "From a trillion-yuan quant fund's GPU cluster to the world's AI conversation — a team driven by curiosity, unbound by KPIs, rewriting the rules one open-source release at a time.",
+    "cta": {
+      "primary": "Download Switch",
+      "secondary": "Read the full story"
+    }
+  },
+  "intro": {
+    "headline": "Someone has to burn for open source",
+    "body": "Some companies are born unwilling to be “normal.” When venture capital came knocking, this one answered: “We have no commercial pressure. No KPIs.” While the rest of the world chased GPU clusters for trillion-parameter models, it trained a model surpassing GPT-4o for about $5.6 million. DeepSeek isn't another Silicon Valley prodigy script — it came from the server room of a quantitative hedge fund in Hangzhou, China. From quietly injecting machine learning into financial trading in 2015, to open-sourcing a 1.6-trillion-parameter model in 2026 at one-tenth the API price of OpenAI, this story holds no formula for myth-making. Only a group of engineers convinced that “open-sourcing papers loses you nothing,” and a founder who told an interviewer: “China cannot remain a follower forever.” This is a journey of compute, humility, and steady steering into the eye of the storm."
+  },
+  "timeline": [
+    {
+      "date": "2015",
+      "slug": "2015-firefly-quant",
+      "era": "origin",
+      "headline": "When machine learning met China's stock market",
+      "body": "In Hangzhou, Liang Wenfeng founded High-Flyer Quant — barely a dozen people at first. They began folding machine learning models into quantitative trading, building data pipelines and low-latency infrastructure from scratch. At the time, this combination was treated almost as heresy: Chinese quant finance still talked about multi-factor regressions. High-Flyer's AUM would later cross 100 billion yuan, but those profits didn't become luxury offices — they became the seed money for a GPU cluster. No one foresaw that compute and deep learning expertise accumulated to chase microsecond market opportunities would point toward something far more ambitious.",
+      "product": null,
+      "emotionalBeat": "spark",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Liang_Wenfeng",
+        "https://fortune.com/2025/01/27/deepseek-founder-liang-wenfeng-hedge-fund-manager-high-flyer-quant-trading/"
+      ]
+    },
+    {
+      "date": "2020–2021",
+      "slug": "2020-firefly-supercluster",
+      "era": "origin",
+      "headline": "Firefly: lighting the path to a private supercluster",
+      "body": "While most quantitative funds were still renting cloud compute, High-Flyer launched Firefly-1: 1,100 GPUs, an investment of nearly 200 million yuan. It wasn't enough. Firefly-2 came online soon after — roughly 10,000 NVIDIA A100s, more than 1 billion yuan in capital. This is not a budget any CTO signs lightly: maintaining a ten-thousand-card cluster means a bottomless pit of cost, power, and cooling. But Liang Wenfeng saw that the only way to iterate trading models faster wasn't on someone else's cloud — it was in his own basement. Those A100s would later appear in DeepSeek V2 and V3 training logs, the firefly that ignited an open-source generational leap.",
+      "product": null,
+      "emotionalBeat": "spark",
+      "sources": [
+        "https://fortune.com/2025/01/27/deepseek-founder-liang-wenfeng-hedge-fund-manager-high-flyer-quant-trading/",
+        "https://en.wikipedia.org/wiki/DeepSeek"
+      ]
+    },
+    {
+      "date": "April 14, 2023",
+      "slug": "2023-04-14-agi-lab",
+      "era": "origin",
+      "headline": "A flat announcement, a step into AGI's deep end",
+      "body": "High-Flyer Quant published a notice: an AGI research lab had been established. The wording was plain — no mission statement, no funding round news. But it meant a hedge fund managing 100 billion yuan was officially extending its reach into general artificial intelligence. The internal letter described it as “a natural extension of existing capabilities.” To outsiders, it was bewildering: why would a quantitative fund take on the peaks of fundamental science? For Liang Wenfeng, the answer flickered in the Firefly cluster — that compute no longer had to serve only trading signals. It could serve cognition itself, in all its unknowns.",
+      "product": null,
+      "emotionalBeat": "spark",
+      "sources": [
+        "https://en.wikipedia.org/wiki/DeepSeek",
+        "https://thechinaacademy.org/interview-with-deepseek-founder-were-done-following-its-time-to-lead/"
+      ]
+    },
+    {
+      "date": "July 17, 2023",
+      "slug": "2023-07-17-spinout",
+      "era": "origin",
+      "headline": "No VC, no KPIs: spinning out on its own terms",
+      "body": "The lab was carved out as an independent company, DeepSeek, fully funded by High-Flyer. While nearly every AI startup chased VC validation and the next valuation round, Liang Wenfeng said: “We have no commercial pressure. No KPIs.” It bordered on hubris — but behind it stood eight years of quant accumulation as capital cushion. The company operated on one simple logic: solve the technical problems, then open-source the results. This structure let DeepSeek dodge product-manager pressure and quarterly target tugs-of-war, sinking instead into the truly thorny research questions — like how to compress a model's KV cache to 6.7% of its original size.",
+      "product": null,
+      "emotionalBeat": "turning",
+      "sources": [
+        "https://jiexu.substack.com/p/interview-deepseek-founder-liang-wenfeng-a-journey-by-curiosity",
+        "https://thechinaacademy.org/interview-with-deepseek-founder-were-done-following-its-time-to-lead/"
+      ]
+    },
+    {
+      "date": "November 2, 2023",
+      "slug": "2023-11-02-coder",
+      "era": "breakthrough",
+      "headline": "First shot in code: who said open source couldn't?",
+      "body": "DeepSeek-Coder shipped — four sizes from 1.3B to 33B, all open-sourced from day one. The models were trained on 2 trillion tokens, mixing 87% code and 13% natural language, covering more than 80 programming languages. The 33B variant beat the then-prominent CodeLlama-34B on multiple benchmarks. What shook developers more: this wasn't the side-project of a tech giant. It came from a team that had spun out four months earlier, built entirely for writing code. GitHub stars poured in overnight, HuggingFace rankings climbed, and programmers truly felt for the first time that the labor of love behind open-source code models could come from a company with no PR roadshow.",
+      "product": {
+        "name": "DeepSeek-Coder",
+        "tagline": "Built for code, open from day one",
+        "url": "https://github.com/deepseek-ai/DeepSeek-Coder"
+      },
+      "emotionalBeat": "triumph",
+      "sources": [
+        "https://deepseekcoder.github.io/",
+        "https://github.com/deepseek-ai/DeepSeek-Coder"
+      ]
+    },
+    {
+      "date": "November 29, 2023",
+      "slug": "2023-11-29-llm-bilingual",
+      "era": "breakthrough",
+      "headline": "A bilingual base model, plainly delivered",
+      "body": "Just 27 days later, DeepSeek-LLM 7B and 67B arrived. This was the team's first complete reveal of a base model, covering both Chinese and English. Coder handled programming; LLM took on general understanding. Behind both: the Firefly cluster's nonstop hum. The world started noticing this “a-model-every-other-week” rhythm — no launch event, just an arXiv paper and downloadable weights on HuggingFace. That release style would become DeepSeek's signature: put the engineering facts on the table, let developers judge for themselves.",
+      "product": {
+        "name": "DeepSeek-LLM",
+        "tagline": "Bilingual base model, minimalist release",
+        "url": "https://huggingface.co/deepseek-ai/DeepSeek-R1"
+      },
+      "emotionalBeat": "triumph",
+      "sources": [
+        "https://api-docs.deepseek.com/updates",
+        "https://en.wikipedia.org/wiki/DeepSeek"
+      ]
+    },
+    {
+      "date": "May 7, 2024",
+      "slug": "2024-05-07-v2-mla",
+      "era": "breakthrough",
+      "headline": "MLA rewrites attention; the price war begins",
+      "body": "DeepSeek-V2 arrived: 236B total parameters, 21B active, 128K context window. Its debut feature, Multi-Head Latent Attention (MLA), slashed KV cache requirements by 93.3% and lifted inference throughput 5.76x. Training cost ran 42.5% below the previous 67B model. Pricing was even more aggressive: just 0.14 yuan per million tokens, blowing through the floor of China's API market. Major cloud providers scrambled to cut prices in response. Commentators called it “a price war ignited by a quantitative fund.” That day MLA became shorthand for architectural innovation — and DeepSeek went from “interesting open-source team” to “a competitor everyone has to watch.”",
+      "product": {
+        "name": "DeepSeek-V2",
+        "tagline": "KV cache cut 93.3%, pricing through the floor",
+        "url": "https://arxiv.org/abs/2405.04434"
+      },
+      "emotionalBeat": "turning",
+      "sources": [
+        "https://arxiv.org/abs/2405.04434",
+        "https://api-docs.deepseek.com/updates"
+      ]
+    },
+    {
+      "date": "June 2024",
+      "slug": "2024-06-coder-v2",
+      "era": "breakthrough",
+      "headline": "338 languages; coding parity with GPT-4 Turbo",
+      "body": "DeepSeek-Coder V2 adopted an MoE architecture, supported 338 programming languages, and substantially extended its context window. On multiple advanced coding benchmarks, it caught up with — and on some, surpassed — GPT-4 Turbo. By this point, only seven months had passed since the original Coder release. A small team had reached parity with top closed-source models in a deeply vertical domain. Skeptics of open-source code-model ceilings went quiet. Developer communities celebrated: there was now a fully private-deployable, free-for-commercial-use coding brain.",
+      "product": {
+        "name": "DeepSeek-Coder V2",
+        "tagline": "MoE architecture; open-source coding in the top tier",
+        "url": "https://deepseekcoder.github.io/"
+      },
+      "emotionalBeat": "triumph",
+      "sources": [
+        "https://deepseekcoder.github.io/",
+        "https://github.com/deepseek-ai/DeepSeek-Coder"
+      ]
+    },
+    {
+      "date": "July 2024",
+      "slug": "2024-07-liang-interview",
+      "era": "breakthrough",
+      "headline": "“China cannot remain a follower forever”",
+      "body": "Liang Wenfeng sat for an in-depth interview with 36Kr. The lines kept landing. “Open-sourcing papers loses you nothing. For a technical person, being followed is itself a kind of achievement.” “China cannot remain a follower forever.” “More investment doesn't necessarily produce more innovation, otherwise large companies would have monopolized all innovation by now.” This wasn't PR theatre. It was a low-key, sharply spoken quant manager calmly contradicting the AI industry's foundational beliefs. The full interview was translated into English and resonated widely in overseas tech circles, where many understood for the first time the inner drive behind this strange company: curiosity, and an obsession with redefining problems.",
+      "product": null,
+      "emotionalBeat": "humility",
+      "sources": [
+        "https://jiexu.substack.com/p/interview-deepseek-founder-liang-wenfeng-a-journey-by-curiosity",
+        "https://thechinaacademy.org/interview-with-deepseek-founder-were-done-following-its-time-to-lead/"
+      ]
+    },
+    {
+      "date": "December 26, 2024",
+      "slug": "2024-12-26-v3",
+      "era": "world",
+      "headline": "$5.6M for GPT-4o-class performance",
+      "body": "DeepSeek-V3 dropped: 671B total parameters, 37B active, trained on 14.8 trillion tokens, fully adopting FP8 mixed precision and Multi-Token Prediction. Training used just 2,048 H800 GPUs at a total cost of about $5.6 million — less than a tenth of many comparable models' training budgets. On multiple evaluation sets, V3 outperformed GPT-4o and Claude 3.5 Sonnet. The paper detailed every engineering choice, including extensive experiments fighting numerical instability under FP8. The community called it “a miracle of efficiency”: not the team with the most compute wins, but the team that uses compute most ruthlessly.",
+      "product": {
+        "name": "DeepSeek-V3",
+        "tagline": "671B params, $5.6M train cost, parity with the best",
+        "url": "https://arxiv.org/html/2412.19437v1"
+      },
+      "emotionalBeat": "triumph",
+      "sources": [
+        "https://arxiv.org/html/2412.19437v1",
+        "https://api-docs.deepseek.com/updates"
+      ]
+    },
+    {
+      "date": "January 20, 2025",
+      "slug": "2025-01-20-r1",
+      "era": "world",
+      "headline": "Reasoning awakens through pure RL",
+      "body": "DeepSeek-R1 was open-sourced under MIT license. The 671B model learned to reason entirely through reinforcement learning — no supervised fine-tuning cold start. This “let the model learn to think on its own” path had been discussed academically for years, but few dared run it at full scale. R1 did, matching OpenAI's o1 on multiple reasoning benchmarks while costing one twenty-seventh as much to run. Six distilled versions shipped alongside, scaling down to 1.5B so modest hardware could still produce strong reasoning. R1 marked the first time the open-source community had an uncompromising option in hardcore reasoning, and the line in the paper — “deepseek-r1, trained via pure RL” — became an electric moment for researchers everywhere.",
+      "product": {
+        "name": "DeepSeek-R1",
+        "tagline": "Pure-RL reasoning, MIT license, 1/27 the cost of o1",
+        "url": "https://github.com/deepseek-ai/DeepSeek-R1"
+      },
+      "emotionalBeat": "triumph",
+      "sources": [
+        "https://github.com/deepseek-ai/DeepSeek-R1",
+        "https://huggingface.co/deepseek-ai/DeepSeek-R1"
+      ]
+    },
+    {
+      "date": "January 27, 2025",
+      "slug": "2025-01-27-app-store-nvidia",
+      "era": "world",
+      "headline": "App Store No. 1; Nvidia loses $600B in a day",
+      "body": "DeepSeek's official app overtook ChatGPT to top the U.S. App Store free chart, prompting global attention. The same day, Nvidia's stock plunged, wiping out roughly $600 billion in market cap — the largest single-company single-day drop in U.S. market history. Investors began re-pricing the “only piles of compute can win” AI arms-race narrative. Marc Andreessen called R1 “one of the most amazing and impressive breakthroughs I've ever seen — and as open source, a profound gift to the world.” In a few short days, DeepSeek went from a tech-circle secret to global front-page news. Meanwhile, the company's engineers were quietly uploading new model quantizations on Twitter.",
+      "product": null,
+      "emotionalBeat": "turning",
+      "sources": [
+        "https://www.cnbc.com/2025/01/27/nvidia-sheds-almost-600-billion-in-market-cap-biggest-drop-ever.html",
+        "https://www.nbcnews.com/business/business-news/nvidia-loses-market-value-chinese-ai-startup-deepseek-debut-rcna189431",
+        "https://fortune.com/2025/01/27/deepseek-founder-liang-wenfeng-hedge-fund-manager-high-flyer-quant-trading/"
+      ]
+    },
+    {
+      "date": "March 24, 2025",
+      "slug": "2025-03-24-v3-0324",
+      "era": "world",
+      "headline": "A silent upgrade; math and coding past another line",
+      "body": "DeepSeek-V3-0324 quietly updated, sharpening reasoning, frontend code generation, Chinese writing, and function calling. No splashy launch event — just a refreshed model card on HuggingFace and an MIT-open-weight notice. Benchmarks showed it surpassing GPT-4.5 on math and coding. Developer communities stirred again: this company seemed to treat “continuously improving on the previous model” as routine work, not a milestone to announce. Iteration as breath, open source as heartbeat.",
+      "product": {
+        "name": "DeepSeek-V3-0324",
+        "tagline": "Continuous evolution, math and coding past GPT-4.5",
+        "url": "https://api-docs.deepseek.com/updates"
+      },
+      "emotionalBeat": "triumph",
+      "sources": [
+        "https://api-docs.deepseek.com/updates",
+        "https://en.wikipedia.org/wiki/DeepSeek"
+      ]
+    },
+    {
+      "date": "August 21, 2025",
+      "slug": "2025-08-21-v3-1-hybrid",
+      "era": "present",
+      "headline": "Hybrid Thinking: a first step into the agent era",
+      "body": "DeepSeek-V3.1 arrived with 128K context and 671B parameters, introducing hybrid thinking for the first time — a single model supporting both thinking and non-thinking modes without switching, plus integrated tool calls. Liang Wenfeng said: “This is our first step toward the agent era.” The model could undertake long, complex reasoning while delivering decisive non-reasoning responses when invoking tools. This “one mind, two faces” capability lets developers build more autonomous AI workflows on a single endpoint. Beyond a fresh round of benchmark contests, this engineering breakthrough has longer-term significance: it compresses the cost of switching between reasoning and acting into the architecture itself.",
+      "product": {
+        "name": "DeepSeek-V3.1",
+        "tagline": "One model, two modes of thought, native tool use",
+        "url": "https://huggingface.co/deepseek-ai/DeepSeek-V3.1"
+      },
+      "emotionalBeat": "turning",
+      "sources": [
+        "https://huggingface.co/deepseek-ai/DeepSeek-V3.1",
+        "https://api-docs.deepseek.com/updates"
+      ]
+    },
+    {
+      "date": "April 24, 2026",
+      "slug": "2026-04-24-v4-preview",
+      "era": "present",
+      "headline": "V4 Preview: million-token context, dancing with hardware",
+      "body": "DeepSeek released V4 Preview in Pro and Flash variants: Pro at 1.6T parameters, 49B active; Flash at 284B/13B. Context window jumped to 1 million tokens, using a Hybrid Attention architecture. V4-Pro pricing: $3.48 per million output tokens — versus OpenAI's $30, a value gap pulled wider still. Another signal: native compatibility with Huawei's Ascend 950, all open weights available. This isn't only model size growth — it's an ecosystem move. While the world still debates software-hardware decoupling, DeepSeek has quietly opened a parallel pipeline.",
+      "product": {
+        "name": "DeepSeek-V4 (Preview)",
+        "tagline": "1.6T params, 1M context, native Ascend support",
+        "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro"
+      },
+      "emotionalBeat": "triumph",
+      "sources": [
+        "https://www.cnbc.com/2026/04/24/deepseek-v4-llm-preview-open-source-ai-competition-china.html",
+        "https://fortune.com/2026/04/24/deepseek-v4-ai-model-price-performance-china-open-source/",
+        "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro"
+      ]
+    }
+  ],
+  "products": [
+    {
+      "name": "DeepSeek-Coder",
+      "year": "2023",
+      "bullet": "First open-source code-model series. 33B beat CodeLlama-34B; covered 80+ languages.",
+      "impact": "Gave independent developers their first privately-deployable strong coding model, sparking a rebuild of open-source coding toolchains.",
+      "url": "https://github.com/deepseek-ai/DeepSeek-Coder"
+    },
+    {
+      "name": "DeepSeek-LLM",
+      "year": "2023",
+      "bullet": "7B/67B bilingual base, minimalist release style as open standard.",
+      "impact": "Proved a small team could ship commercial-grade base models, accelerating the non-English open-source LLM ecosystem.",
+      "url": null
+    },
+    {
+      "name": "DeepSeek-V2",
+      "year": "2024",
+      "bullet": "236B params, the original MLA, 93.3% KV cache cut, 5.76x throughput.",
+      "impact": "Triggered China's API price war, forced industry-wide cost reduction, made architectural innovation a non-optional.",
+      "url": "https://arxiv.org/abs/2405.04434"
+    },
+    {
+      "name": "DeepSeek-Coder V2",
+      "year": "2024",
+      "bullet": "MoE architecture; 338 languages; coding ability matching GPT-4 Turbo.",
+      "impact": "Erased the experience gap between open-source coding models and the best closed ones; pushed enterprise coding assistants toward open source.",
+      "url": "https://deepseekcoder.github.io/"
+    },
+    {
+      "name": "DeepSeek-V3",
+      "year": "2024",
+      "bullet": "671B params, $5.6M training, beating GPT-4o and Claude 3.5 Sonnet.",
+      "impact": "Challenged the “compute = capability” narrative on the smallest of training budgets; opened an efficiency-first paradigm of model R&D.",
+      "url": "https://arxiv.org/html/2412.19437v1"
+    },
+    {
+      "name": "DeepSeek-R1",
+      "year": "2025",
+      "bullet": "Pure-RL reasoning, MIT open-sourced, 1/27 the cost of o1.",
+      "impact": "First open reasoning model to match closed flagships in hardcore logic, igniting a global wave of RL-for-reasoning research.",
+      "url": "https://github.com/deepseek-ai/DeepSeek-R1"
+    },
+    {
+      "name": "DeepSeek-V3.1",
+      "year": "2025",
+      "bullet": "Hybrid Thinking: one model, switching between thinking and non-thinking, with integrated tool calls.",
+      "impact": "Native architectural support for agent building; lower switching cost between reasoning and action; a new interaction paradigm for next-gen models.",
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V3.1"
+    },
+    {
+      "name": "DeepSeek-V4",
+      "year": "2026",
+      "bullet": "1.6T params / 49B active, 1M-token context, native Ascend 950 compatibility, $3.48/M output tokens API price.",
+      "impact": "Million-token windows unlock whole-codebase coding and long-document understanding; ecosystem support for domestic hardware redraws the price-performance frontier.",
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro"
+    }
+  ],
+  "closing": {
+    "headline": "One-click switch to your thinking engine",
+    "body": "Looking back, all of this began in an unremarkable server room in Hangzhou, with a group of engineers who genuinely believed that being followed is its own form of achievement. They never planned to ring the Nasdaq bell or top the App Store — yet both happened. From the faint glow of Firefly-1 to a million-token context window, DeepSeek has been doing one thing all along: build the best models open-source, then push prices through extreme engineering until anyone can use them. Part of these very lines were written with DeepSeek itself — by the time you're reading this, we may have just updated the weights and gotten a little smarter. So don't hesitate. Download DeepSeek — we call it Switch, because every switch is a reset of how you think. From writing code to solving differential equations, from drafting contracts to polishing sonnets, your new thinking engine is here.",
+    "ctaPrimary": "Download Switch — instant DeepSeek",
+    "ctaSecondary": "Already have Switch? One-click import"
+  },
+  "meta": {
+    "title": "The DeepSeek Story: Done Following | From quant to open-source AI",
+    "description": "From High-Flyer Quant to a global AI phenomenon, DeepSeek rewrites the rules through open source and ruthless engineering. A deep narrative — from the Firefly supercluster to V4 Preview. Done following.",
+    "keywords": [
+      "deepseek",
+      "DeepSeek",
+      "open-source AI",
+      "Liang Wenfeng",
+      "DeepSeek-R1",
+      "DeepSeek-V3",
+      "DeepSeek-V4",
+      "AI narrative",
+      "reasoning models",
+      "open-source LLM",
+      "China AI"
+    ]
+  },
+  "ui": {
+    "eraLabels": {
+      "origin": "Origin",
+      "breakthrough": "Breakthrough",
+      "world": "World",
+      "present": "Present"
+    },
+    "timelineEyebrow": "Full timeline",
+    "timelineHeading": "Timeline",
+    "productsEyebrow": "Research output",
+    "productsHeading": "Product map",
+    "sources": "Sources",
+    "copied": "Copied",
+    "share": "Share",
+    "prev": "Previous",
+    "next": "Next",
+    "viewProject": "View project",
+    "impactLabel": "Impact",
+    "relatedProduct": "Related product",
+    "backToTimeline": "← Full timeline",
+    "viewFullStory": "Read the full DeepSeek story →",
+    "switchNotStarted": "Switch didn't open?",
+    "downloadSwitchInline": "Download Switch →",
+    "writtenWithDeepseek": "Part of this was written with DeepSeek itself →",
+    "footerTagline": "DeepSeek narrative landing",
+    "footerBy": "by Switch Desktop",
+    "footerEmail": "Email",
+    "footerIcpNote": ".help — no ICP filing required",
+    "languageSwitch": "中文",
+    "ogSubtitle": "The DeepSeek Story"
+  }
+}
