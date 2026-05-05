@@ -15,7 +15,8 @@ export type CTAEvent =
   | "outbound_source"
   | "in_app_hint_shown"
   | "in_app_hint_dismissed"
-  | "in_app_hint_copy_url";
+  | "in_app_hint_copy_url"
+  | "share_event";
 
 type Props = Record<string, string | number | boolean>;
 

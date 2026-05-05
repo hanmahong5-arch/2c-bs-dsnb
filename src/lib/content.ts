@@ -9,6 +9,7 @@ export type EmotionalBeat = "spark" | "struggle" | "triumph" | "humility" | "tur
 
 export type TimelineEntry = {
   date: string;
+  slug: string;
   era: Era;
   headline: string;
   body: string;
@@ -50,4 +51,27 @@ export async function loadContent(): Promise<ContentBundle> {
 
 export function loadContentSync(): ContentBundle {
   return CONTENT_BUNDLE;
+}
+
+export function getEventBySlug(slug: string): TimelineEntry | undefined {
+  return CONTENT_BUNDLE.timeline.find((e) => e.slug === slug);
+}
+
+export function getAllEventSlugs(): string[] {
+  return CONTENT_BUNDLE.timeline.map((e) => e.slug);
+}
+
+export function getAdjacentEvents(slug: string): {
+  prev?: TimelineEntry;
+  next?: TimelineEntry;
+} {
+  const idx = CONTENT_BUNDLE.timeline.findIndex((e) => e.slug === slug);
+  if (idx === -1) return {};
+  return {
+    prev: idx > 0 ? CONTENT_BUNDLE.timeline[idx - 1] : undefined,
+    next:
+      idx < CONTENT_BUNDLE.timeline.length - 1
+        ? CONTENT_BUNDLE.timeline[idx + 1]
+        : undefined,
+  };
 }

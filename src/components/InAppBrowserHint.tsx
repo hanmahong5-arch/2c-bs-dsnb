@@ -1,7 +1,7 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 import { track } from "@/lib/track";
 
 // In-app browsers (especially WeChat) intercept switch:// deeplinks and
@@ -44,25 +44,35 @@ const CLIENT_LABEL: Record<InAppClient, string> = {
   alipay: "支付宝",
 };
 
+// useSyncExternalStore: server returns null (no banner), client computes
+// from UA + sessionStorage. This is the React-blessed pattern for
+// "show different thing on server vs client" without hydration mismatch.
+const subscribe = () => () => {};
+
+function getClientSnapshot(): InAppClient | null {
+  if (typeof window === "undefined") return null;
+  try {
+    if (sessionStorage.getItem(STORAGE_KEY) === "1") return null;
+  } catch {
+    // sessionStorage may be unavailable in some embedded contexts; ignore.
+  }
+  return detectInAppClient();
+}
+
+const getServerSnapshot = (): InAppClient | null => null;
+
 export function InAppBrowserHint() {
-  const [client, setClient] = useState<InAppClient | null>(null);
+  const client = useSyncExternalStore(
+    subscribe,
+    getClientSnapshot,
+    getServerSnapshot,
+  );
   const [dismissed, setDismissed] = useState(false);
   const [copied, setCopied] = useState(false);
 
   useEffect(() => {
-    const detected = detectInAppClient();
-    if (!detected) return;
-    try {
-      if (sessionStorage.getItem(STORAGE_KEY) === "1") {
-        setDismissed(true);
-        return;
-      }
-    } catch {
-      // sessionStorage may be unavailable in some embedded contexts; ignore.
-    }
-    setClient(detected);
-    track("in_app_hint_shown", { client: detected });
-  }, []);
+    if (client) track("in_app_hint_shown", { client });
+  }, [client]);
 
   const onDismiss = () => {
     setDismissed(true);

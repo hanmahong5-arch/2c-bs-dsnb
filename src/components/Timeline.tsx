@@ -1,9 +1,11 @@
 "use client";
 
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import type { ContentBundle, Era, EmotionalBeat } from "@/lib/content";
 import { track } from "@/lib/track";
+
+const SITE_URL = "https://dsnb.help";
 
 function safeHostname(url: string): string {
   try {
@@ -11,6 +13,77 @@ function safeHostname(url: string): string {
   } catch {
     return url;
   }
+}
+
+type ShareButtonProps = { slug: string; headline: string };
+
+function ShareButton({ slug, headline }: ShareButtonProps) {
+  const [copied, setCopied] = useState(false);
+
+  const handle = async (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    const url = `${SITE_URL}/e/${slug}`;
+    track("share_event", { slug });
+
+    if (typeof navigator !== "undefined" && "share" in navigator) {
+      try {
+        await navigator.share({
+          title: `${headline} · DeepSeek 的故事`,
+          url,
+        });
+        return;
+      } catch {
+        // user cancelled or share unavailable; fall through to copy
+      }
+    }
+
+    try {
+      await navigator.clipboard.writeText(url);
+      setCopied(true);
+      window.setTimeout(() => setCopied(false), 1800);
+    } catch {
+      // give up silently — analytics already fired
+    }
+  };
+
+  return (
+    <button
+      onClick={handle}
+      className="ml-auto flex items-center gap-1 text-[11px] text-[var(--color-text-muted)] hover:text-[var(--color-primary-light)] transition-colors px-1.5 py-1 rounded-md"
+      aria-label={`分享：${headline}`}
+      title={copied ? "已复制链接" : "分享此节"}
+    >
+      {copied ? (
+        <span className="text-[var(--color-primary-light)]">已复制</span>
+      ) : (
+        <>
+          <ShareIcon />
+          <span className="sr-only sm:not-sr-only">分享</span>
+        </>
+      )}
+    </button>
+  );
+}
+
+function ShareIcon() {
+  return (
+    <svg
+      width="12"
+      height="12"
+      viewBox="0 0 12 12"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path
+        d="M9 4l-3-3-3 3M6 1v7M2 8v2a1 1 0 001 1h6a1 1 0 001-1V8"
+        stroke="currentColor"
+        strokeWidth="1.2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
 }
 
 // Era color map — stays within the DeepSeek blue palette
@@ -165,6 +238,7 @@ function TimelineEntry({ entry, index }: TimelineEntryProps) {
             >
               {BEAT_ICONS[entry.emotionalBeat]}
             </span>
+            <ShareButton slug={entry.slug} headline={entry.headline} />
           </div>
 
           {/* Headline */}
