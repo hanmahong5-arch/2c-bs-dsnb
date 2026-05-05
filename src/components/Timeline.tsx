@@ -3,6 +3,15 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import type { ContentBundle, Era, EmotionalBeat } from "@/lib/content";
+import { track } from "@/lib/track";
+
+function safeHostname(url: string): string {
+  try {
+    return new URL(url).hostname.replace(/^www\./, "");
+  } catch {
+    return url;
+  }
+}
 
 // Era color map — stays within the DeepSeek blue palette
 const ERA_COLORS: Record<Era, { dot: string; label: string; bg: string }> = {
@@ -176,6 +185,12 @@ function TimelineEntry({ entry, index }: TimelineEntryProps) {
                   href={entry.product.url}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() =>
+                    track("outbound_product", {
+                      name: entry.product!.name,
+                      from: "timeline",
+                    })
+                  }
                   className="inline-flex items-center gap-2 text-xs px-3 py-1.5 rounded-lg border border-[var(--color-border)] text-[var(--color-primary-light)] hover:border-[var(--color-primary)] transition-colors duration-200"
                   style={{ background: "rgba(77,107,254,0.06)" }}
                 >
@@ -192,6 +207,46 @@ function TimelineEntry({ entry, index }: TimelineEntryProps) {
                 </span>
               )}
             </div>
+          )}
+
+          {/* References — collapsed by default; click to expand */}
+          {entry.sources.length > 0 && (
+            <details className="mt-4 group">
+              <summary className="text-xs text-[var(--color-text-muted)] cursor-pointer hover:text-[var(--color-primary-light)] transition-colors list-none flex items-center gap-1.5 select-none">
+                <svg
+                  className="w-3 h-3 transition-transform duration-200 group-open:rotate-90"
+                  viewBox="0 0 12 12"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M4 3l4 3-4 3"
+                    stroke="currentColor"
+                    strokeWidth="1.4"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+                参考来源 · {entry.sources.length}
+              </summary>
+              <ul className="mt-2 ml-4 space-y-1.5 text-xs">
+                {entry.sources.map((src, i) => (
+                  <li key={`${src}-${i}`} className="leading-snug">
+                    <a
+                      href={src}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() =>
+                        track("outbound_source", { host: safeHostname(src) })
+                      }
+                      className="text-[var(--color-text-secondary)] hover:text-[var(--color-primary-light)] underline underline-offset-2 decoration-[var(--color-border)] hover:decoration-[var(--color-primary)] transition-colors break-all"
+                    >
+                      {safeHostname(src)}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </details>
           )}
         </div>
       </div>

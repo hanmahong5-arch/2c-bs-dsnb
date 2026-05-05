@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import type { ContentBundle } from "@/lib/content";
+import { track } from "@/lib/track";
 
 // Simple geometric whale silhouette — SVG, no external assets.
 function WhaleSVG() {
@@ -107,9 +108,10 @@ export function Hero({ hero }: HeroProps) {
         />
       </div>
 
-      {/* Whale — positioned top-right, subtle */}
+      {/* Whale — positioned top-right, subtle. Hidden on small screens
+          to avoid horizontal overflow on phones. */}
       <motion.div
-        className="pointer-events-none absolute top-10 right-0 w-[480px] h-[270px] text-[var(--color-primary)]"
+        className="pointer-events-none absolute top-10 right-0 w-[480px] h-[270px] text-[var(--color-primary)] hidden md:block"
         initial={{ opacity: 0, x: 60 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 1.8, ease, delay: 0.6 }}
@@ -159,6 +161,7 @@ export function Hero({ hero }: HeroProps) {
             href="https://github.com/hanmahong5-arch/lurus-switch/releases/latest"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => track("cta_download_hero")}
             className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl text-white font-semibold text-base transition-all duration-200"
             style={{
               background:
@@ -183,6 +186,7 @@ export function Hero({ hero }: HeroProps) {
 
           <a
             href="#timeline"
+            onClick={() => track("cta_scroll_timeline")}
             className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl font-medium text-base border border-[var(--color-border)] text-[var(--color-text-secondary)] hover:border-[var(--color-primary)] hover:text-[var(--color-primary-light)] transition-all duration-200"
           >
             {hero.cta.secondary}

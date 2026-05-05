@@ -3,6 +3,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import type { ContentBundle } from "@/lib/content";
+import { track } from "@/lib/track";
 
 type ProductCardProps = {
   product: ContentBundle["products"][number];
@@ -79,6 +80,12 @@ function ProductCard({ product, index }: ProductCardProps) {
           href={product.url}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() =>
+            track("outbound_product", {
+              name: product.name,
+              from: "gallery",
+            })
+          }
           className="block h-full"
         >
           {inner}
