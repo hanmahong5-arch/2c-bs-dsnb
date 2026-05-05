@@ -12,7 +12,10 @@ export type CTAEvent =
   | "cta_deeplink_fallback_shown"
   | "cta_scroll_timeline"
   | "outbound_product"
-  | "outbound_source";
+  | "outbound_source"
+  | "in_app_hint_shown"
+  | "in_app_hint_dismissed"
+  | "in_app_hint_copy_url";
 
 type Props = Record<string, string | number | boolean>;
 

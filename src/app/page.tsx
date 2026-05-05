@@ -5,6 +5,7 @@ import { Timeline } from "@/components/Timeline";
 import { ProductGallery } from "@/components/ProductGallery";
 import { ClosingCTA } from "@/components/ClosingCTA";
 import { Footer } from "@/components/Footer";
+import { InAppBrowserHint } from "@/components/InAppBrowserHint";
 
 // Server component — content is loaded at build/request time.
 export default function HomePage() {
@@ -12,6 +13,7 @@ export default function HomePage() {
 
   return (
     <>
+      <InAppBrowserHint />
       <Hero hero={content.hero} />
       <IntroSection intro={content.intro} />
       <Timeline entries={content.timeline} />
