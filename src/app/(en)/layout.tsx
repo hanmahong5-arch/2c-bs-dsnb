@@ -5,9 +5,9 @@ import "../globals.css";
 
 const SITE_URL = "https://dsnb.help";
 const OG_IMAGE = "/og-image.png";
-const TITLE = "The DeepSeek Story: Done Following";
+const TITLE = "dsnb — DeepSeek Tools & Resources";
 const DESCRIPTION =
-  "An emotional narrative timeline of DeepSeek — from a Hangzhou quant fund's GPU cluster to open-sourcing a 1.6T-parameter model. One-click access via the Switch desktop app.";
+  "DeepSeek tutorials, benchmarks, and tools. Powered by LurusTech.";
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -22,23 +22,20 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    type: "article",
+    type: "website",
     locale: "en_US",
-    alternateLocale: ["zh_CN"],
-    siteName: "dsnb.help",
+    siteName: "dsnb",
     url: `${SITE_URL}/en`,
     images: [
       { url: OG_IMAGE, width: 1200, height: 630, alt: TITLE },
     ],
     title: TITLE,
-    description:
-      "From a quant fund to a global AI phenomenon: DeepSeek's open-source narrative, told plainly.",
+    description: DESCRIPTION,
   },
   twitter: {
     card: "summary_large_image",
     title: TITLE,
-    description:
-      "From a quant fund to a global AI phenomenon. The DeepSeek story.",
+    description: DESCRIPTION,
     images: [OG_IMAGE],
   },
   keywords: [
@@ -54,7 +51,7 @@ export const metadata: Metadata = {
     "China AI",
     "Switch desktop app",
   ],
-  authors: [{ name: "Lurus" }],
+  authors: [{ name: "LurusTech" }],
   category: "technology",
   robots: { index: true, follow: true },
 };
@@ -76,12 +73,12 @@ const STRUCTURED_DATA = {
   inLanguage: "en",
   author: {
     "@type": "Organization",
-    name: "Lurus",
+    name: "LurusTech",
     url: "https://lurus.cn",
   },
   publisher: {
     "@type": "Organization",
-    name: "Lurus",
+    name: "LurusTech",
     logo: { "@type": "ImageObject", url: `${SITE_URL}${OG_IMAGE}` },
   },
   mainEntityOfPage: { "@type": "WebPage", "@id": `${SITE_URL}/en` },

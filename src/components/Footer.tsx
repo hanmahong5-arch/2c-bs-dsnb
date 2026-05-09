@@ -32,6 +32,16 @@ export function Footer({ locale, ui }: FooterProps) {
           </p>
         </div>
 
+        <div className="flex flex-col items-center sm:items-end gap-2 text-xs text-[var(--color-text-muted)]">
+          <div className="flex gap-4 flex-wrap justify-center sm:justify-end">
+            <a href="/terms" className="hover:text-[var(--color-primary-light)] transition-colors duration-150">Terms of Service</a>
+            <a href="/privacy" className="hover:text-[var(--color-primary-light)] transition-colors duration-150">Privacy Policy</a>
+            <a href="/security" className="hover:text-[var(--color-primary-light)] transition-colors duration-150">Security &amp; DPA</a>
+          </div>
+          <p>We use cookies per our Privacy Policy.</p>
+          <p>© {new Date().getFullYear()} LurusTech. All rights reserved.</p>
+        </div>
+
         <div className="flex items-center gap-5">
           <Link
             href={otherHref}

@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
 @import "tailwindcss";
 
 html {
@@ -28,6 +29,20 @@ html {
   --color-text-primary: #E8EAF6;
   --color-text-secondary: #8892C8;
   --color-text-muted: #4A5280;
+
+  /* LurusTech master tokens — brand-spec.md SoT */
+  --lt-paper: #F5F2E8;
+  --lt-bg:    #E8E4D6;
+  --lt-ink:   #14130F;
+  --lt-rule:  #D6D2C2;
+  --lt-ok:    #1F7A4F;
+  --lt-warn:  #B8821F;
+  --lt-err:   #B3392B;
+  --lt-info:  #2D4A8A;
+  /* dsnb accent: DeepSeek blue (product positioning, preserved) */
+  --lt-accent: #4D6BFE;
+  --font-sans: 'Inter Tight', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
 }
 
 @theme inline {
@@ -42,7 +57,7 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+  font-family: var(--font-sans);
 }
 
 /* ── Typography ── */
