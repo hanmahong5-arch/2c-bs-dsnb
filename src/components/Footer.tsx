@@ -8,7 +8,7 @@ type FooterProps = {
 
 export function Footer({ locale, ui }: FooterProps) {
   const otherLocale: Locale = locale === "zh" ? "en" : "zh";
-  const otherHref = otherLocale === "en" ? "/en" : "/";
+  const otherHref = otherLocale === "en" ? "/en" : "/zh";
   const rssHref = locale === "en" ? "/en/rss.xml" : "/rss.xml";
 
   return (
@@ -27,8 +27,8 @@ export function Footer({ locale, ui }: FooterProps) {
               className="hover:text-[var(--color-primary-light)] transition-colors duration-150"
             >
               Switch Desktop
-            </a>{" "}
-            {ui.footerBy}
+            </a>
+            {ui.footerBy ? ` ${ui.footerBy}` : ""}
           </p>
         </div>
 

@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { LangSwitch } from "@/components/LangSwitch";
 import "../globals.css";
 
 const SITE_URL = "https://dsnb.help";
@@ -95,6 +96,7 @@ export default function RootLayoutEn({
   return (
     <html lang="en" className="antialiased">
       <body className="min-h-screen flex flex-col bg-[var(--background)] text-[var(--foreground)]">
+        <LangSwitch />
         <main className="flex-1">{children}</main>
         <script
           type="application/ld+json"

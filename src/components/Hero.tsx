@@ -4,75 +4,32 @@ import { motion } from "framer-motion";
 import type { ContentBundle } from "@/lib/content";
 import { track } from "@/lib/track";
 
-// Simple geometric whale silhouette — SVG, no external assets.
-function WhaleSVG() {
+// Minimal DeepSeek brand mark — 14×14 solid square + wordmark in Fraunces.
+function DeepSeekMark() {
   return (
-    <svg
-      viewBox="0 0 320 180"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className="w-full h-full"
-      aria-hidden="true"
-    >
-      {/* Body */}
-      <ellipse
-        cx="145"
-        cy="100"
-        rx="110"
-        ry="50"
-        fill="currentColor"
-        opacity="0.15"
+    <div className="flex items-center gap-3 select-none" aria-hidden="true">
+      <div
+        style={{
+          width: 14,
+          height: 14,
+          background: "var(--color-primary)",
+          opacity: 0.85,
+          flexShrink: 0,
+        }}
       />
-      <ellipse
-        cx="148"
-        cy="98"
-        rx="108"
-        ry="47"
-        fill="currentColor"
-        opacity="0.08"
-      />
-      {/* Rostrum */}
-      <path
-        d="M 35 102 Q 10 100 8 108 Q 20 116 38 112 Z"
-        fill="currentColor"
-        opacity="0.2"
-      />
-      {/* Flukes (tail) */}
-      <path
-        d="M 248 95 Q 280 72 295 62 Q 288 82 290 92 Q 276 88 265 100 Q 280 108 288 128 Q 272 118 255 108 Z"
-        fill="currentColor"
-        opacity="0.2"
-      />
-      {/* Dorsal fin */}
-      <path
-        d="M 160 52 Q 172 40 185 50 Q 178 60 165 63 Z"
-        fill="currentColor"
-        opacity="0.25"
-      />
-      {/* Pectoral fin */}
-      <path
-        d="M 110 110 Q 95 135 105 148 Q 118 138 128 118 Z"
-        fill="currentColor"
-        opacity="0.18"
-      />
-      {/* Eye */}
-      <circle cx="65" cy="96" r="4" fill="currentColor" opacity="0.5" />
-      {/* Water ripple lines */}
-      <path
-        d="M 20 155 Q 80 148 140 155 Q 200 162 260 155"
-        stroke="currentColor"
-        strokeWidth="1"
-        opacity="0.12"
-        strokeLinecap="round"
-      />
-      <path
-        d="M 40 168 Q 100 161 160 168 Q 220 175 280 168"
-        stroke="currentColor"
-        strokeWidth="0.8"
-        opacity="0.07"
-        strokeLinecap="round"
-      />
-    </svg>
+      <span
+        style={{
+          fontFamily: "'Fraunces', serif",
+          fontWeight: 600,
+          fontSize: "1.05rem",
+          letterSpacing: "-0.01em",
+          color: "var(--color-primary)",
+          opacity: 0.85,
+        }}
+      >
+        DeepSeek
+      </span>
+    </div>
   );
 }
 
@@ -108,18 +65,14 @@ export function Hero({ hero }: HeroProps) {
         />
       </div>
 
-      {/* Whale — positioned top-right, subtle. Hidden on small screens
-          to avoid horizontal overflow on phones. */}
+      {/* Brand mark — top-right, subtle. Hidden on small screens. */}
       <motion.div
-        className="pointer-events-none absolute top-10 right-0 w-[480px] h-[270px] text-[var(--color-primary)] hidden md:block"
-        initial={{ opacity: 0, x: 60 }}
+        className="pointer-events-none absolute top-8 right-8 hidden md:flex"
+        initial={{ opacity: 0, x: 20 }}
         animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 1.8, ease, delay: 0.6 }}
-        style={{
-          filter: "blur(0.5px)",
-        }}
+        transition={{ duration: 1.2, ease, delay: 0.6 }}
       >
-        <WhaleSVG />
+        <DeepSeekMark />
       </motion.div>
 
       {/* Content */}

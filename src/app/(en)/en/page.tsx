@@ -3,6 +3,7 @@ import { Hero } from "@/components/Hero";
 import { IntroSection } from "@/components/IntroSection";
 import { Timeline } from "@/components/Timeline";
 import { ProductGallery } from "@/components/ProductGallery";
+import { EcosystemLinks } from "@/components/EcosystemLinks";
 import { ClosingCTA } from "@/components/ClosingCTA";
 import { Footer } from "@/components/Footer";
 
@@ -15,6 +16,7 @@ export default function HomePageEn() {
       <IntroSection intro={content.intro} />
       <Timeline entries={content.timeline} locale="en" ui={content.ui} />
       <ProductGallery products={content.products} ui={content.ui} />
+      <EcosystemLinks locale="en" />
       <ClosingCTA closing={content.closing} ui={content.ui} />
       <Footer locale="en" ui={content.ui} />
     </>
