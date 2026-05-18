@@ -53,6 +53,22 @@ export type UiText = {
   readFull: string;
   readingTimeUnit: string;
   rssLabel: string;
+  resellerHeadline: string;
+  resellerSubhead: string;
+  resellerCtaPartner: string;
+  resellerCtaDownload: string;
+  newsletterEyebrow: string;
+  newsletterHeading: string;
+  newsletterBody: string;
+  newsletterPlaceholder: string;
+  newsletterSubmit: string;
+  newsletterSuccess: string;
+  newsletterErrorInvalid: string;
+  newsletterErrorGeneric: string;
+  notFoundHeadline: string;
+  notFoundSubtitle: string;
+  notFoundPopularLabel: string;
+  notFoundBackHome: string;
 };
 
 export type ContentBundle = {

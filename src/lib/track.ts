@@ -16,7 +16,13 @@ export type CTAEvent =
   | "in_app_hint_shown"
   | "in_app_hint_dismissed"
   | "in_app_hint_copy_url"
-  | "share_event";
+  | "share_event"
+  | "cta_reseller_partner"
+  | "cta_reseller_download"
+  | "newsletter_submit"
+  | "newsletter_success"
+  | "newsletter_error"
+  | "not_found_viewed";
 
 type Props = Record<string, string | number | boolean>;
 

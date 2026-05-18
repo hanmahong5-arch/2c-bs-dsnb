@@ -358,6 +358,22 @@
     "ogSubtitle": "DeepSeek 的故事",
     "readFull": "完整阅读 →",
     "readingTimeUnit": "分钟阅读",
-    "rssLabel": "RSS 订阅"
+    "rssLabel": "RSS 订阅",
+    "resellerHeadline": "成为 AI 分发合作伙伴",
+    "resellerSubhead": "加入 LurusTech 渠道计划，把 Switch 带给你的网络",
+    "resellerCtaPartner": "成为 Reseller 合伙人",
+    "resellerCtaDownload": "下载 Switch",
+    "newsletterEyebrow": "保持更新",
+    "newsletterHeading": "DeepSeek 与 Switch 的新动向",
+    "newsletterBody": "权重更新、reseller 项目变更、Switch 新功能 — 几周一封，可随时退订。",
+    "newsletterPlaceholder": "你的邮箱",
+    "newsletterSubmit": "订阅",
+    "newsletterSuccess": "已订阅 ✓",
+    "newsletterErrorInvalid": "邮箱格式不对",
+    "newsletterErrorGeneric": "暂时无法订阅，稍后再试",
+    "notFoundHeadline": "页面走丢了",
+    "notFoundSubtitle": "也许试试这些?",
+    "notFoundPopularLabel": "热门事件",
+    "notFoundBackHome": "← 回到首页"
   }
 }

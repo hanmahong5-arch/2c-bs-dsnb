@@ -1,23 +1,46 @@
-export function SwitchCTA() {
+"use client";
+
+import type { Locale, UiText } from "@/lib/content";
+import { track } from "@/lib/track";
+
+const RESELLER_PARTNER_URL = "https://switch.lurustech.com/partner";
+const RESELLER_DOWNLOAD_URL = "https://switch.lurustech.com/download";
+
+type SwitchCTAProps = {
+  locale: Locale;
+  ui: UiText;
+};
+
+export function SwitchCTA({ locale, ui }: SwitchCTAProps) {
   return (
-    <section className="py-16 text-center">
-      <h2 className="text-3xl font-bold mb-4">Start Distributing AI</h2>
-      <p className="text-[var(--color-text-secondary)] mb-8 max-w-lg mx-auto">
-        Join the LurusTech Reseller Program. Earn commissions distributing Switch to your network.
-      </p>
-      <div className="flex gap-4 justify-center flex-wrap">
-        <a
-          href="https://switch.lurustech.com/partner"
-          className="px-6 py-3 bg-[var(--color-primary)] text-white rounded-lg font-semibold hover:bg-[var(--color-primary-deep)] transition-colors"
-        >
-          Become a Reseller Partner
-        </a>
-        <a
-          href="https://switch.lurustech.com/download"
-          className="px-6 py-3 border border-[var(--color-border)] text-[var(--color-text-primary)] rounded-lg font-semibold hover:border-[var(--color-border-hover)] transition-colors"
-        >
-          Download Switch
-        </a>
+    <section className="py-16 px-6 text-center">
+      <div className="max-w-2xl mx-auto">
+        <h2 className="text-3xl font-bold mb-4 text-[var(--color-text-primary)]">
+          {ui.resellerHeadline}
+        </h2>
+        <p className="text-[var(--color-text-secondary)] mb-8 max-w-lg mx-auto">
+          {ui.resellerSubhead}
+        </p>
+        <div className="flex gap-4 justify-center flex-wrap">
+          <a
+            href={RESELLER_PARTNER_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => track("cta_reseller_partner", { locale })}
+            className="px-6 py-3 bg-[var(--color-primary)] text-white rounded-lg font-semibold hover:bg-[var(--color-primary-deep)] transition-colors"
+          >
+            {ui.resellerCtaPartner}
+          </a>
+          <a
+            href={RESELLER_DOWNLOAD_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => track("cta_reseller_download", { locale })}
+            className="px-6 py-3 border border-[var(--color-border)] text-[var(--color-text-primary)] rounded-lg font-semibold hover:border-[var(--color-border-hover)] transition-colors"
+          >
+            {ui.resellerCtaDownload}
+          </a>
+        </div>
       </div>
     </section>
   );

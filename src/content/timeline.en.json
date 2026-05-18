@@ -360,6 +360,22 @@
     "ogSubtitle": "The DeepSeek Story",
     "readFull": "Read full →",
     "readingTimeUnit": "min read",
-    "rssLabel": "RSS feed"
+    "rssLabel": "RSS feed",
+    "resellerHeadline": "Start Distributing AI",
+    "resellerSubhead": "Join the LurusTech Reseller Program. Earn commissions distributing Switch to your network.",
+    "resellerCtaPartner": "Become a Reseller Partner",
+    "resellerCtaDownload": "Download Switch",
+    "newsletterEyebrow": "Stay in the loop",
+    "newsletterHeading": "What's next with DeepSeek & Switch",
+    "newsletterBody": "Weight updates, reseller program changes, Switch releases — a few times a month, unsubscribe anytime.",
+    "newsletterPlaceholder": "your@email.com",
+    "newsletterSubmit": "Subscribe",
+    "newsletterSuccess": "Subscribed ✓",
+    "newsletterErrorInvalid": "Please enter a valid email",
+    "newsletterErrorGeneric": "Unable to subscribe right now, try again later",
+    "notFoundHeadline": "This page wandered off",
+    "notFoundSubtitle": "Try one of these instead?",
+    "notFoundPopularLabel": "Popular events",
+    "notFoundBackHome": "← Back home"
   }
 }
