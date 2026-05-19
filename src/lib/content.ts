@@ -69,6 +69,29 @@ export type UiText = {
   notFoundSubtitle: string;
   notFoundPopularLabel: string;
   notFoundBackHome: string;
+  downloadForWindows: string;
+  downloadComingSoonMac: string;
+  downloadGeneric: string;
+};
+
+export type PartnerSection = {
+  eyebrow: string;
+  headline: string;
+  body: string;
+  benefits: Array<{ title: string; body: string }>;
+  faq: Array<{ q: string; a: string }>;
+  formHeading: string;
+  formNameLabel: string;
+  formCompanyLabel: string;
+  formRegionLabel: string;
+  formMessageLabel: string;
+  formEmailLabel: string;
+  formSubmit: string;
+  formSuccess: string;
+  formErrorInvalid: string;
+  formErrorGeneric: string;
+  metaTitle: string;
+  metaDescription: string;
 };
 
 export type ContentBundle = {
@@ -77,6 +100,7 @@ export type ContentBundle = {
     headline: string;
     subhead: string;
     cta: { primary: string; secondary: string };
+    resellerHint?: { label: string; href: string };
   };
   intro: { headline: string; body: string };
   timeline: TimelineEntry[];
@@ -94,6 +118,7 @@ export type ContentBundle = {
     ctaSecondary: string;
   };
   meta: { title: string; description: string; keywords: string[] };
+  partner: PartnerSection;
   ui: UiText;
 };
 

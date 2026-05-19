@@ -6,6 +6,10 @@
     "cta": {
       "primary": "Download Switch",
       "secondary": "Read the full story"
+    },
+    "resellerHint": {
+      "label": "Reseller? · Join the program →",
+      "href": "/en/partner"
     }
   },
   "intro": {
@@ -376,6 +380,62 @@
     "notFoundHeadline": "This page wandered off",
     "notFoundSubtitle": "Try one of these instead?",
     "notFoundPopularLabel": "Popular events",
-    "notFoundBackHome": "← Back home"
+    "notFoundBackHome": "← Back home",
+    "downloadForWindows": "for Windows",
+    "downloadComingSoonMac": "Mac & Linux: coming soon",
+    "downloadGeneric": "All platforms"
+  },
+  "partner": {
+    "eyebrow": "LurusTech Channel Program",
+    "headline": "Bring AI tools to your network",
+    "body": "Switch is a desktop gateway to DeepSeek and other open-source models. We're building a lightweight reseller network — for people already helping their community, customers, or team navigate AI access. No inventory, no integration work; just your network trusting what you recommend.",
+    "benefits": [
+      {
+        "title": "30% revenue share",
+        "body": "30% on first orders, ongoing renewal share. Activation codes auto-track attribution — no manual reconciliation."
+      },
+      {
+        "title": "White-label & co-brand",
+        "body": "Switch supports brand customization. EN and ZH marketing kits ready to use, with LurusTech design templates."
+      },
+      {
+        "title": "Bilingual support",
+        "body": "Technical onboarding, docs, and customer tickets covered in EN and ZH. China and overseas channels run in parallel."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Who is this program for?",
+        "a": "AI content creators, community operators, IT service providers, corporate trainers, independent consultants. The core: a small trusted network that frequently asks you 'which AI should I use?'"
+      },
+      {
+        "q": "How are commissions paid out?",
+        "a": "Monthly, T+30. CNY bank transfer inside China; USDT or wire for overseas. Minimum payout $80 / ¥500."
+      },
+      {
+        "q": "Do I need a business license?",
+        "a": "Corporate payouts inside China require a business license. Individual resellers can use personal payouts (annual cap applies). No requirement overseas."
+      },
+      {
+        "q": "What regions do you support?",
+        "a": "Mainland China, Hong Kong, Taiwan, Singapore, Malaysia, North America, EU. Japan, Korea, and other SEA markets opened on demand."
+      },
+      {
+        "q": "How do I withdraw an application?",
+        "a": "Email marvin.uu@gmail.com with subject 'Withdraw reseller application + your email'. We remove you within 24 hours."
+      }
+    ],
+    "formHeading": "Apply to join",
+    "formEmailLabel": "Email",
+    "formNameLabel": "Name",
+    "formCompanyLabel": "Company / team (optional)",
+    "formRegionLabel": "Target region",
+    "formMessageLabel": "Your network / plan (optional)",
+    "formSubmit": "Submit application",
+    "formSuccess": "Received ✓ We'll reply within 1-2 business days",
+    "formErrorInvalid": "Please enter a valid email",
+    "formErrorGeneric": "Unable to submit right now, try again later",
+    "metaTitle": "Become a Reseller · LurusTech Channel Program",
+    "metaDescription": "Join the LurusTech Channel Program — 30% revenue share, white-label support, bilingual marketing kit. Bring Switch desktop AI gateway to your network."
   }
 }

@@ -3,6 +3,11 @@
 import { AnimatePresence, motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import type { ContentBundle, UiText } from "@/lib/content";
+import {
+  switchDownloadUrl,
+  switchPlatformLabel,
+  usePlatform,
+} from "@/lib/platform";
 import { track } from "@/lib/track";
 
 // One-click import: DeepSeek (via Lurus newapi.lurus.cn) provider preset.
@@ -24,6 +29,9 @@ export function ClosingCTA({ closing, ui }: ClosingCTAProps) {
   const ref = useRef<HTMLElement>(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
   const [showFallback, setShowFallback] = useState(false);
+  const platform = usePlatform();
+  const downloadHref = switchDownloadUrl(platform);
+  const platformLabel = switchPlatformLabel(platform, ui);
 
   const handleImportClick = () => {
     track("cta_deeplink_import");
@@ -80,10 +88,10 @@ export function ClosingCTA({ closing, ui }: ClosingCTAProps) {
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
         >
           <a
-            href={SWITCH_RELEASE_URL}
+            href={downloadHref}
             target="_blank"
             rel="noopener noreferrer"
-            onClick={() => track("cta_download_closing")}
+            onClick={() => track("cta_download_closing", { platform })}
             className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl text-white font-semibold text-base transition-all duration-200"
             style={{
               background:
@@ -114,6 +122,17 @@ export function ClosingCTA({ closing, ui }: ClosingCTAProps) {
             {closing.ctaSecondary}
           </a>
         </motion.div>
+
+        {platformLabel ? (
+          <motion.p
+            className="mt-3 text-xs text-[var(--color-text-muted)]"
+            initial={{ opacity: 0 }}
+            animate={inView ? { opacity: 1 } : {}}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
+            {platformLabel}
+          </motion.p>
+        ) : null}
 
         <AnimatePresence>
           {showFallback && (

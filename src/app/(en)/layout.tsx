@@ -5,7 +5,7 @@ import { LangSwitch } from "@/components/LangSwitch";
 import "../globals.css";
 
 const SITE_URL = "https://dsnb.help";
-const OG_IMAGE = "/og-image.png";
+const OG_IMAGE = "/og-image-en.png";
 const TITLE = "dsnb — DeepSeek Tools & Resources";
 const DESCRIPTION =
   "DeepSeek tutorials, benchmarks, and tools. Powered by LurusTech.";

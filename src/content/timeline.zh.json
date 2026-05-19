@@ -6,6 +6,10 @@
     "cta": {
       "primary": "下载 Switch",
       "secondary": "阅读完整故事"
+    },
+    "resellerHint": {
+      "label": "我是合作伙伴 · 成为 Reseller →",
+      "href": "/partner"
     }
   },
   "intro": {
@@ -374,6 +378,62 @@
     "notFoundHeadline": "页面走丢了",
     "notFoundSubtitle": "也许试试这些?",
     "notFoundPopularLabel": "热门事件",
-    "notFoundBackHome": "← 回到首页"
+    "notFoundBackHome": "← 回到首页",
+    "downloadForWindows": "for Windows",
+    "downloadComingSoonMac": "Mac & Linux：即将推出",
+    "downloadGeneric": "查看所有平台"
+  },
+  "partner": {
+    "eyebrow": "LurusTech 渠道计划",
+    "headline": "把 AI 工具带给你的网络",
+    "body": "Switch 是连接 DeepSeek 等开源模型的桌面入口。我们正在搭建一个轻量的渠道分发网络——给那些已经在帮朋友、社群、客户解决 AI 接入问题的人。无需囤货，无需技术对接，只要你的人脉相信你推荐的工具。",
+    "benefits": [
+      {
+        "title": "30% 销售分润",
+        "body": "首单 30%，续费分润；激活码体系自动追踪归属，无需手工对账。"
+      },
+      {
+        "title": "白标 / 联名素材",
+        "body": "Switch 支持品牌定制；中文与英文营销物料随时取用，配 LurusTech 设计模板。"
+      },
+      {
+        "title": "中英文双语支持",
+        "body": "技术对接、文档、客户工单均双语覆盖；面向中国与海外用户的渠道并行运作。"
+      }
+    ],
+    "faq": [
+      {
+        "q": "什么人适合做 Reseller？",
+        "a": "AI 内容创作者、社群运营者、IT 服务商、企业培训师、独立顾问——核心是你已经有一个信任你的小网络，并经常被问“到底用什么 AI”。"
+      },
+      {
+        "q": "结算周期是怎样的？",
+        "a": "T+30 月度结算，支持中国境内人民币转账与境外 USDT；起付门槛为 ¥500 / $80。"
+      },
+      {
+        "q": "需要营业执照吗？",
+        "a": "境内分润对公转账需要营业执照；个人 reseller 可走个人结算（年额度有限）。海外不要求。"
+      },
+      {
+        "q": "支持哪些区域？",
+        "a": "中国大陆、香港、台湾、新加坡、马来西亚、北美、欧盟。日韩与东南亚其他地区根据需求开通。"
+      },
+      {
+        "q": "如何撤回申请？",
+        "a": "提交后直接邮件 marvin.uu@gmail.com，主题写“撤回 reseller 申请 + 邮箱”，24 小时内从名单移除。"
+      }
+    ],
+    "formHeading": "申请加入",
+    "formEmailLabel": "邮箱",
+    "formNameLabel": "姓名",
+    "formCompanyLabel": "公司 / 团队（可选）",
+    "formRegionLabel": "目标区域",
+    "formMessageLabel": "你的网络 / 计划（可选）",
+    "formSubmit": "提交申请",
+    "formSuccess": "已收到 ✓ 我们 1-2 个工作日内回复",
+    "formErrorInvalid": "邮箱格式不对",
+    "formErrorGeneric": "暂时无法提交，稍后再试",
+    "metaTitle": "成为 Reseller · LurusTech 渠道计划",
+    "metaDescription": "加入 LurusTech 渠道计划——30% 分润、白标支持、中英文双语物料。把 Switch 桌面 AI 网关带给你的网络。"
   }
 }

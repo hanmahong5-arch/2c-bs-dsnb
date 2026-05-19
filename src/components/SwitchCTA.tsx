@@ -1,9 +1,9 @@
 "use client";
 
+import Link from "next/link";
 import type { Locale, UiText } from "@/lib/content";
 import { track } from "@/lib/track";
 
-const RESELLER_PARTNER_URL = "https://switch.lurustech.com/partner";
 const RESELLER_DOWNLOAD_URL = "https://switch.lurustech.com/download";
 
 type SwitchCTAProps = {
@@ -12,6 +12,8 @@ type SwitchCTAProps = {
 };
 
 export function SwitchCTA({ locale, ui }: SwitchCTAProps) {
+  const partnerHref = locale === "en" ? "/en/partner" : "/partner";
+
   return (
     <section className="py-16 px-6 text-center">
       <div className="max-w-2xl mx-auto">
@@ -22,15 +24,13 @@ export function SwitchCTA({ locale, ui }: SwitchCTAProps) {
           {ui.resellerSubhead}
         </p>
         <div className="flex gap-4 justify-center flex-wrap">
-          <a
-            href={RESELLER_PARTNER_URL}
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href={partnerHref}
             onClick={() => track("cta_reseller_partner", { locale })}
             className="px-6 py-3 bg-[var(--color-primary)] text-white rounded-lg font-semibold hover:bg-[var(--color-primary-deep)] transition-colors"
           >
             {ui.resellerCtaPartner}
-          </a>
+          </Link>
           <a
             href={RESELLER_DOWNLOAD_URL}
             target="_blank"

@@ -9,7 +9,7 @@ import {
 import { EventPageContent } from "@/components/EventPageContent";
 
 const SITE_URL = "https://dsnb.help";
-const OG_IMAGE = "/og-image.png";
+const OG_IMAGE = "/og-image-en.png";
 const LOCALE = "en" as const;
 
 export function generateStaticParams() {

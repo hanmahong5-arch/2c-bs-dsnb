@@ -22,6 +22,10 @@ export type CTAEvent =
   | "newsletter_submit"
   | "newsletter_success"
   | "newsletter_error"
+  | "partner_submit"
+  | "partner_success"
+  | "partner_error"
+  | "cta_hero_reseller"
   | "not_found_viewed";
 
 type Props = Record<string, string | number | boolean>;

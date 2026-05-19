@@ -14,7 +14,7 @@ export default function HomePageEn() {
 
   return (
     <>
-      <Hero hero={content.hero} />
+      <Hero hero={content.hero} locale="en" ui={content.ui} />
       <IntroSection intro={content.intro} />
       <Timeline entries={content.timeline} locale="en" ui={content.ui} />
       <ProductGallery products={content.products} ui={content.ui} />

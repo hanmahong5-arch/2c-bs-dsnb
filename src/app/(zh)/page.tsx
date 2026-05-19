@@ -16,7 +16,7 @@ export default function HomePageZh() {
   return (
     <>
       <InAppBrowserHint />
-      <Hero hero={content.hero} />
+      <Hero hero={content.hero} locale="zh" ui={content.ui} />
       <IntroSection intro={content.intro} />
       <Timeline entries={content.timeline} locale="zh" ui={content.ui} />
       <ProductGallery products={content.products} ui={content.ui} />

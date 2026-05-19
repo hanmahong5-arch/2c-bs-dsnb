@@ -1,7 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
-import type { ContentBundle } from "@/lib/content";
+import Link from "next/link";
+import type { ContentBundle, UiText } from "@/lib/content";
+import {
+  switchDownloadUrl,
+  switchPlatformLabel,
+  usePlatform,
+} from "@/lib/platform";
 import { track } from "@/lib/track";
 
 // Minimal DeepSeek brand mark — 14×14 solid square + wordmark in Fraunces.
@@ -37,9 +43,16 @@ const ease = [0.16, 1, 0.3, 1] as const;
 
 type HeroProps = {
   hero: ContentBundle["hero"];
+  locale: "zh" | "en";
+  ui: UiText;
 };
 
-export function Hero({ hero }: HeroProps) {
+export function Hero({ hero, locale, ui }: HeroProps) {
+  const platform = usePlatform();
+  const downloadHref = switchDownloadUrl(platform);
+  const platformLabel = switchPlatformLabel(platform, ui);
+  const resellerHint = hero.resellerHint;
+
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden gradient-mesh grid-bg">
       {/* Ambient glow orbs */}
@@ -111,10 +124,10 @@ export function Hero({ hero }: HeroProps) {
           transition={{ duration: 0.8, ease, delay: 0.54 }}
         >
           <a
-            href="https://github.com/hanmahong5-arch/lurus-switch/releases/latest"
+            href={downloadHref}
             target="_blank"
             rel="noopener noreferrer"
-            onClick={() => track("cta_download_hero")}
+            onClick={() => track("cta_download_hero", { platform })}
             className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl text-white font-semibold text-base transition-all duration-200"
             style={{
               background:
@@ -146,6 +159,34 @@ export function Hero({ hero }: HeroProps) {
             <ChevronDownIcon />
           </a>
         </motion.div>
+
+        {platformLabel ? (
+          <motion.p
+            className="mt-3 text-xs text-[var(--color-text-muted)]"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, ease, delay: 0.7 }}
+          >
+            {platformLabel}
+          </motion.p>
+        ) : null}
+
+        {resellerHint ? (
+          <motion.div
+            className="mt-6"
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease, delay: 0.78 }}
+          >
+            <Link
+              href={resellerHint.href}
+              onClick={() => track("cta_hero_reseller", { locale })}
+              className="text-sm text-[var(--color-text-muted)] hover:text-[var(--color-primary-light)] transition-colors duration-200 underline underline-offset-4 decoration-[var(--color-border)]"
+            >
+              {resellerHint.label}
+            </Link>
+          </motion.div>
+        ) : null}
       </div>
 
       {/* Scroll indicator */}

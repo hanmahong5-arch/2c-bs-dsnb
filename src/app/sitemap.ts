@@ -33,6 +33,31 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
+  const partnerAlternates = {
+    languages: {
+      "zh-CN": `${SITE}/partner`,
+      en: `${SITE}/en/partner`,
+      "x-default": `${SITE}/partner`,
+    },
+  };
+
+  const partner: MetadataRoute.Sitemap = [
+    {
+      url: `${SITE}/partner`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.8,
+      alternates: partnerAlternates,
+    },
+    {
+      url: `${SITE}/en/partner`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.8,
+      alternates: partnerAlternates,
+    },
+  ];
+
   const events: MetadataRoute.Sitemap = slugs.flatMap((slug) => {
     const eventAlternates = {
       languages: {
@@ -59,5 +84,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ];
   });
 
-  return [...home, ...events];
+  return [...home, ...partner, ...events];
 }
