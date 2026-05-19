@@ -49,13 +49,15 @@ bunx vercel --prod
 
 ## Deploy
 
-主路径：**push to main** → GitHub Actions（如有）+ Vercel auto-deploy 双轨。
+主路径：**push to main** → Vercel auto-deploy。
 
+**标准 ship 流程一律走 `scripts/ship.sh`**，不要每次重新推演 status / diff / add / commit / push：
 ```bash
-# 改完代码
-git add . && git commit -m "..." && git push
-# Vercel 大约 30 秒后 production 生效
+./scripts/ship.sh "feat(dsnb): xxx"            # lint + build + safe-stage + commit + push
+./scripts/ship.sh --no-checks "wip: quick fix" # 跳过 lint/build（慎用）
 ```
+
+脚本自动跳过 `.env*` / `*credentials*` / `*.pem` / `*.key`，保留显式 staging 的安全语义。Vercel 30 秒后生产生效。
 
 监控部署状态：
 ```bash
