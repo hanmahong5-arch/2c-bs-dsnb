@@ -70,6 +70,15 @@ export function EventPageContent({ event, prev, next, locale, ui }: Props) {
             {event.headline}
           </h1>
 
+          {event.lede && (
+            <p
+              className="text-base sm:text-lg text-[var(--color-text-primary)] leading-relaxed mb-6 pl-4 border-l-2"
+              style={{ borderColor: eraColor }}
+            >
+              {event.lede}
+            </p>
+          )}
+
           <p className="text-base sm:text-lg text-[var(--color-text-secondary)] leading-relaxed whitespace-pre-line">
             {event.body}
           </p>

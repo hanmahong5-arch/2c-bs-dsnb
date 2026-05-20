@@ -19,6 +19,7 @@ export type TimelineEntry = {
   slug: string;
   era: Era;
   headline: string;
+  lede?: string;
   body: string;
   product?: { name: string; tagline: string; url?: string };
   emotionalBeat: EmotionalBeat;
