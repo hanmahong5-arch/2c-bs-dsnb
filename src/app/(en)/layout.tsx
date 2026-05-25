@@ -5,10 +5,9 @@ import { LangSwitch } from "@/components/LangSwitch";
 import "../globals.css";
 
 const SITE_URL = "https://dsnb.help";
-const OG_IMAGE = "/og-image-en.png";
-const TITLE = "dsnb — DeepSeek Tools & Resources";
+const TITLE = "The DeepSeek Story — Done Following";
 const DESCRIPTION =
-  "DeepSeek tutorials, benchmarks, and tools. Powered by LurusTech.";
+  "A bilingual emotional timeline of DeepSeek, from a Hangzhou quant fund to a 1.6T-parameter open-weight frontier model. 15 events, primary sources, ZH + EN.";
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -25,11 +24,8 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    siteName: "dsnb",
+    siteName: "dsnb.help",
     url: `${SITE_URL}/en`,
-    images: [
-      { url: OG_IMAGE, width: 1200, height: 630, alt: TITLE },
-    ],
     title: TITLE,
     description: DESCRIPTION,
   },
@@ -37,7 +33,6 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: TITLE,
     description: DESCRIPTION,
-    images: [OG_IMAGE],
   },
   keywords: [
     "DeepSeek",
@@ -68,9 +63,9 @@ const STRUCTURED_DATA = {
   "@type": "Article",
   headline: TITLE,
   description: DESCRIPTION,
-  image: `${SITE_URL}${OG_IMAGE}`,
+  image: `${SITE_URL}/opengraph-image`,
   datePublished: "2026-04-30",
-  dateModified: "2026-05-05",
+  dateModified: "2026-05-20",
   inLanguage: "en",
   author: {
     "@type": "Organization",
@@ -80,7 +75,10 @@ const STRUCTURED_DATA = {
   publisher: {
     "@type": "Organization",
     name: "LurusTech",
-    logo: { "@type": "ImageObject", url: `${SITE_URL}${OG_IMAGE}` },
+    logo: {
+      "@type": "ImageObject",
+      url: `${SITE_URL}/opengraph-image`,
+    },
   },
   mainEntityOfPage: { "@type": "WebPage", "@id": `${SITE_URL}/en` },
   about: {
