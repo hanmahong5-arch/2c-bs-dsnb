@@ -4,7 +4,6 @@ import { PartnerSection } from "@/components/PartnerSection";
 import { Footer } from "@/components/Footer";
 
 const SITE_URL = "https://dsnb.help";
-const OG_IMAGE = "/og-image-en.png";
 const LOCALE = "en" as const;
 
 export function generateMetadata(): Metadata {
@@ -29,15 +28,11 @@ export function generateMetadata(): Metadata {
       url,
       title: partner.metaTitle,
       description: partner.metaDescription,
-      images: [
-        { url: OG_IMAGE, width: 1200, height: 630, alt: partner.headline },
-      ],
     },
     twitter: {
       card: "summary_large_image",
       title: partner.metaTitle,
       description: partner.metaDescription,
-      images: [OG_IMAGE],
     },
   };
 }

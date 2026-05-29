@@ -9,11 +9,29 @@ const FONT_BOLD_URL =
 const FONT_REG_URL =
   "https://cdn.jsdelivr.net/npm/@fontsource/inter@5.0.5/files/inter-latin-400-normal.woff";
 
-const boldPromise = fetch(FONT_BOLD_URL).then((r) => r.arrayBuffer());
-const regPromise = fetch(FONT_REG_URL).then((r) => r.arrayBuffer());
+async function tryFetchFont(url: string): Promise<ArrayBuffer | null> {
+  try {
+    const res = await fetch(url, { signal: AbortSignal.timeout(5000) });
+    if (!res.ok) return null;
+    return await res.arrayBuffer();
+  } catch {
+    return null;
+  }
+}
 
 export default async function OG() {
-  const [bold, reg] = await Promise.all([boldPromise, regPromise]);
+  const [bold, reg] = await Promise.all([
+    tryFetchFont(FONT_BOLD_URL),
+    tryFetchFont(FONT_REG_URL),
+  ]);
+
+  const fonts =
+    bold && reg
+      ? [
+          { name: "Inter", data: reg, weight: 400 as const, style: "normal" as const },
+          { name: "Inter", data: bold, weight: 700 as const, style: "normal" as const },
+        ]
+      : undefined;
 
   return new ImageResponse(
     (
@@ -86,10 +104,7 @@ export default async function OG() {
     ),
     {
       ...size,
-      fonts: [
-        { name: "Inter", data: reg, weight: 400, style: "normal" },
-        { name: "Inter", data: bold, weight: 700, style: "normal" },
-      ],
+      ...(fonts ? { fonts } : {}),
     },
   );
 }

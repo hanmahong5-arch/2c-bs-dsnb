@@ -87,8 +87,6 @@ if I got any dates/numbers wrong."
 
 - [ ] `dsnb.help/en` 线上是新 hero copy(`$5.6M trained the model that toppled Nvidia…`)
 - [ ] 随便点一个 event(如 `/en/e/2024-12-26-v3`)能看到左边框的 lede capsule
-- [ ] `/en` OG 卡 = `og-image-en.png`(注:目前仍是 ZH 复制,见 `og-image-spec.md`;
-      若赶在 EN OG 设计 pass 前发车,分享卡会显示中文 —— 可接受但非理想)
+- [ ] `/en` OG 卡 = dynamic 渲染(`src/app/(en)/opengraph-image.tsx`),
+      Twitter Card Validator 验证 = "Done Following." 英文标题(`?v=N` 强刷缓存)
 - [ ] HN 账号 karma 不为 0(全新账号发 Show HN 易被 auto-dead)
-
-> ⚠️ OG 卡是当前唯一短板。要么先补 EN OG 渲染,要么接受首发分享卡是中文。

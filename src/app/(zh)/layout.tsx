@@ -72,7 +72,7 @@ const STRUCTURED_DATA = {
   description: DESCRIPTION,
   image: `${SITE_URL}${OG_IMAGE}`,
   datePublished: "2026-04-30",
-  dateModified: "2026-05-05",
+  dateModified: "2026-05-28",
   inLanguage: "zh-CN",
   author: {
     "@type": "Organization",

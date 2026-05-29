@@ -76,50 +76,23 @@ bunx playwright screenshot --viewport-size=1200,630 \
 
 第一次会有缓存，加 `?v=2` query 强刷。
 
-## EN 变体 — `public/og-image-en.png`
+## EN 变体 — `src/app/(en)/opengraph-image.tsx`（dynamic）
 
-`(en)/layout.tsx` 与 `(en)/en/e/[slug]/page.tsx` 已切到 `/og-image-en.png`，给海外社交分享一张英文卡。两份 PNG 都是 `public/` 下的静态资源。
+2026-05-28 起，EN 路由(`/en`、`/en/e/[slug]`、`/en/partner`)全部由 `next/og` `ImageResponse` 动态渲染。统一标题 "Done Following."，subhead 抽自 `(en)/layout.tsx` 的 DESCRIPTION 字符串 —— 代码 = single source of truth，不再有 EN PNG。
 
-### 文案
+ZH 路由仍用静态 `public/og-image.png`（主权/国运叙事对 ZH 受众仍 work，见 `strategy-12mo.md` Anti-roadmap，不要因 EN 改了就推到 ZH）。
 
-```
-┌────────────────────────────────────────────┐
-│                                            │
-│   eyebrow:  DSNB · LurusTech              │
-│                                            │
-│   headline:  The DeepSeek Story            │
-│   (大字，DeepSeek 蓝 #4D6BFE 主色)         │
-│                                            │
-│   subhead:   From hedge fund to            │
-│              open-source frontier          │
-│                                            │
-│   ─────────────────────                   │
-│                                            │
-│   🐋 dsnb.help                            │
-│                                            │
-└────────────────────────────────────────────┘
-```
+### 改 EN OG 文案
 
-视觉规范与中文版一致（背景渐变、安全区、字体颜色），只替换文字。
+直接改 `src/app/(en)/opengraph-image.tsx` 里的 JSX，push → Vercel 自动 redeploy。无需 design tool，无需 PNG 同步。
 
-### ⚠️ 当前状态
+### 改 ZH OG 文案
 
-EN PNG **目前是 ZH 版本的复制**——只为避免 EN 路由 OG 404、CI 保持绿色。海外社交分享卡现在仍显示中文。下一次设计 pass：
+走 Figma / Playwright 截图，导出到 `public/og-image.png`，Twitter Card Validator + Facebook Debugger 带 `?v=N` 强刷。
 
-- Figma：复用同一模板，仅替换中文文字为上面英文版
-- 或 Playwright：单独建一个 EN-only 的 hero 截图源页（注入英文文案后截图）
+### 验证
 
-替换后此条警告删掉。
-
-### 再生工作流（两份 PNG 同步更新）
-
-文案改动时：
-1. 改 Figma 模板里两个 artboard（中/英）
-2. 各导出 1200×630 PNG 到 `public/og-image.png` 和 `public/og-image-en.png`
-3. 跑 Twitter / Facebook validator（带 `?v=N` 强刷）
-
-如果改 Playwright 截图路线，需要为 EN 单独跑一次，参数指向 `?locale=en` 之类的预览页。
-
-### 未来方向（已 defer）
-
-迁到 `next/og` `ImageResponse` 可以让 OG 跟着 content JSON 动态变；当前流量未到那一步，先 ship 两张静态卡。
+部署后:
+- https://cards-dev.twitter.com/validator（对 `dsnb.help/en` 和 `dsnb.help` 各跑一次）
+- https://developers.facebook.com/tools/debug/
+- `?v=N` 强刷缓存
