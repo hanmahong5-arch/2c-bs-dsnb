@@ -398,7 +398,34 @@
     "notFoundBackHome": "← Back home",
     "downloadForWindows": "for Windows",
     "downloadComingSoonMac": "Mac & Linux: coming soon",
-    "downloadGeneric": "All platforms"
+    "downloadGeneric": "All platforms",
+    "eraIntroLabel": "Era context",
+    "eraEventsHeading": "Events in this era",
+    "eraNavHeading": "Continue reading",
+    "eraNavLabel": "Browse by era",
+    "eraBackToHome": "← Back home"
+  },
+  "eras": {
+    "origin": {
+      "eyebrow": "Origin · 2015 – Jul 2023",
+      "headline": "Stockpiling AI inside a quant fund's server room",
+      "editorial": "The DeepSeek story doesn't start with an AI paper. It starts in 2015, in an unremarkable server room in Hangzhou, where a dozen engineers folded machine learning into China's stock-market trading systems. Eight years later, High-Flyer Quant had used trading profits to stockpile 10,000 A100s, then quietly carved an AGI lab out of the hedge fund through an internal letter. Every lever that would later move the industry was forged in this stretch."
+    },
+    "breakthrough": {
+      "eyebrow": "Breakthrough · Nov 2023 – Jul 2024",
+      "headline": "Prying the closed-source wall open with structural innovation",
+      "editorial": "Less than four months after spinning out, DeepSeek shipped its first open Coder. The next nine months ran on a model-every-other-week cadence: LLM, Coder V2, and then V2 in May 2024 — its Multi-Head Latent Attention cut KV cache by 93.3% and priced inference at 0.14 yuan per million tokens, blowing through the floor of China's API market. In July, Liang Wenfeng's line — 'China cannot remain a follower forever' — broke through to English-speaking tech circles."
+    },
+    "world": {
+      "eyebrow": "World · Dec 2024 – Mar 2025",
+      "headline": "$5.6M dethrones the GPU-scale narrative",
+      "editorial": "On December 26, 2024, V3 trained 671B parameters on 2,048 H800s for $5.6M and outperformed GPT-4o. A month later, R1 open-sourced reasoning via pure reinforcement learning at 1/27 the cost of OpenAI's o1. On January 27, the DeepSeek app topped the U.S. App Store, and Nvidia lost roughly $600B in market cap — the largest single-company daily drop in U.S. market history. The 'more compute wins' narrative was publicly shredded by a Chinese open-source team."
+    },
+    "present": {
+      "eyebrow": "Present · Aug 2025 – today",
+      "headline": "Hybrid thinking and a million-token context window",
+      "editorial": "V3.1 collapses thinking and non-thinking modes into a single model with native tool calls. Eight months later, V4 Preview pushes the context window to 1 million tokens — Pro at 1.6T parameters, 49B active, API output priced at $3.48 per million tokens, one tenth of OpenAI's equivalent. Native compatibility with Huawei's Ascend 950, open weights as always. The next chapter is being written."
+    }
   },
   "partner": {
     "eyebrow": "LurusTech Channel Program",

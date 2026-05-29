@@ -396,7 +396,34 @@
     "notFoundBackHome": "← 回到首页",
     "downloadForWindows": "for Windows",
     "downloadComingSoonMac": "Mac & Linux：即将推出",
-    "downloadGeneric": "查看所有平台"
+    "downloadGeneric": "查看所有平台",
+    "eraIntroLabel": "时代背景",
+    "eraEventsHeading": "本时代事件",
+    "eraNavHeading": "继续阅读",
+    "eraNavLabel": "按时代浏览",
+    "eraBackToHome": "← 回到首页"
+  },
+  "eras": {
+    "origin": {
+      "eyebrow": "起源 · 2015 – 2023.7",
+      "headline": "在量化基金的机房里准备 AI",
+      "editorial": "DeepSeek 的故事不是从一篇 AI 论文开始的，而是从 2015 年杭州一间不起眼的机房里——一群人把机器学习塞进 A 股交易系统。八年内，幻方量化用利润囤了 10000 块 A100，又写了一封内部信，把 AGI 实验室从对冲基金里拆出来。所有后来撬动行业的杠杆，都在这段时间里被悄悄铸好。"
+    },
+    "breakthrough": {
+      "eyebrow": "突破 · 2023.11 – 2024.7",
+      "headline": "用结构创新撬开闭源高墙",
+      "editorial": "独立后不到四个月，DeepSeek 推出第一个开源 Coder。接下来 9 个月，节奏是「隔周一个模型」：LLM、Coder V2，到 2024 年 5 月 V2 用 MLA 把 KV 缓存砍 93.3%，定价 0.14 元/百万 token，直接把国内 API 价格打穿地板。7 月，梁文锋在 36 氪那句「中国不能永远做追随者」第一次被海外认真转译。"
+    },
+    "world": {
+      "eyebrow": "震荡世界 · 2024.12 – 2025.3",
+      "headline": "557 万美元把 Nvidia 推下神坛",
+      "editorial": "2024 年圣诞次日，V3 用 2048 块 H800、557 万美元训出 671B，性能压过 GPT-4o。一个月后，R1 用纯强化学习把推理能力开源，成本仅为 o1 的 1/27。1 月 27 日，DeepSeek App 登顶美区 App Store，同日 Nvidia 单日蒸发 6000 亿美元，成为美股单公司最大日跌幅。「堆算力就赢」的叙事，在这一刻被一家中国开源团队当众撕碎。"
+    },
+    "present": {
+      "eyebrow": "现在 · 2025.8 – 至今",
+      "headline": "Hybrid Thinking 与百万 token 上下文",
+      "editorial": "V3.1 在一个模型里同时塞下 thinking 和 non-thinking，工具调用直接进架构。八个月后，V4 Preview 把 context window 拉到 100 万 token，Pro 版 1.6T 参数、49B 激活，输出 API 定价 3.48 美元/百万 token——OpenAI 同价位的十分之一。同时原生适配华为昇腾 950，开源权重照旧。下一段故事，正在被写。"
+    }
   },
   "partner": {
     "eyebrow": "LurusTech 渠道计划",

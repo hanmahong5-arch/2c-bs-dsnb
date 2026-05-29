@@ -73,6 +73,17 @@ export type UiText = {
   downloadForWindows: string;
   downloadComingSoonMac: string;
   downloadGeneric: string;
+  eraIntroLabel: string;
+  eraEventsHeading: string;
+  eraNavHeading: string;
+  eraNavLabel: string;
+  eraBackToHome: string;
+};
+
+export type EraMeta = {
+  eyebrow: string;
+  headline: string;
+  editorial: string;
 };
 
 export type PartnerSection = {
@@ -120,6 +131,7 @@ export type ContentBundle = {
   };
   meta: { title: string; description: string; keywords: string[] };
   partner: PartnerSection;
+  eras: Record<Era, EraMeta>;
   ui: UiText;
 };
 
@@ -155,6 +167,40 @@ export function getAllEventSlugs(
   locale: Locale = DEFAULT_LOCALE,
 ): string[] {
   return BUNDLES[locale].timeline.map((e) => e.slug);
+}
+
+export const ERA_ORDER: Era[] = [
+  "origin",
+  "breakthrough",
+  "world",
+  "present",
+];
+
+export function getEraMeta(
+  era: Era,
+  locale: Locale = DEFAULT_LOCALE,
+): EraMeta | undefined {
+  return BUNDLES[locale].eras?.[era];
+}
+
+export function getEraEvents(
+  era: Era,
+  locale: Locale = DEFAULT_LOCALE,
+): TimelineEntry[] {
+  return BUNDLES[locale].timeline.filter((e) => e.era === era);
+}
+
+export function eraUrl(era: Era, locale: Locale): string {
+  return locale === "en" ? `/en/era/${era}` : `/era/${era}`;
+}
+
+export function getAdjacentEras(era: Era): { prev?: Era; next?: Era } {
+  const idx = ERA_ORDER.indexOf(era);
+  if (idx === -1) return {};
+  return {
+    prev: idx > 0 ? ERA_ORDER[idx - 1] : undefined,
+    next: idx < ERA_ORDER.length - 1 ? ERA_ORDER[idx + 1] : undefined,
+  };
 }
 
 export function getAdjacentEvents(

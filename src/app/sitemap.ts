@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { getAllEventSlugs } from "@/lib/content";
+import { ERA_ORDER, getAllEventSlugs } from "@/lib/content";
 
 const SITE = "https://dsnb.help";
 
@@ -84,5 +84,31 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ];
   });
 
-  return [...home, ...partner, ...events];
+  const eras: MetadataRoute.Sitemap = ERA_ORDER.flatMap((era) => {
+    const eraAlternates = {
+      languages: {
+        "zh-CN": `${SITE}/era/${era}`,
+        en: `${SITE}/en/era/${era}`,
+        "x-default": `${SITE}/era/${era}`,
+      },
+    };
+    return [
+      {
+        url: `${SITE}/era/${era}`,
+        lastModified: now,
+        changeFrequency: "monthly" as const,
+        priority: 0.75,
+        alternates: eraAlternates,
+      },
+      {
+        url: `${SITE}/en/era/${era}`,
+        lastModified: now,
+        changeFrequency: "monthly" as const,
+        priority: 0.7,
+        alternates: eraAlternates,
+      },
+    ];
+  });
+
+  return [...home, ...partner, ...eras, ...events];
 }
