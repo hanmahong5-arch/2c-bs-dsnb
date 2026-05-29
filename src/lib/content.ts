@@ -5,6 +5,7 @@ import zhContent from "../content/timeline.zh.json";
 import enContent from "../content/timeline.en.json";
 import zhReading from "../content/reading-list.zh.json";
 import enReading from "../content/reading-list.en.json";
+import enConcepts from "../content/concepts.en.json";
 
 export type Locale = "zh" | "en";
 
@@ -83,6 +84,13 @@ export type UiText = {
   readingListLabel: string;
   readingListRelatedHeading: string;
   readingListCategoryHeading: string;
+  conceptsLabel: string;
+  conceptsBackToIndex: string;
+  conceptsOneLineLabel: string;
+  conceptsExplainerLabel: string;
+  conceptsRelatedEventsLabel: string;
+  conceptsRelatedSourcesLabel: string;
+  conceptsContinueLabel: string;
 };
 
 export type EraMeta = {
@@ -118,6 +126,22 @@ export type ReadingListBundle = {
     { label: string; description: string }
   >;
   entries: ReadingListEntry[];
+};
+
+export type ConceptEntry = {
+  slug: string;
+  term: string;
+  oneLineDef: string;
+  fullExplainer: string;
+  relatedEventSlugs: string[];
+  relatedSources?: string[];
+};
+
+export type ConceptsBundle = {
+  eyebrow: string;
+  headline: string;
+  intro: string;
+  entries: ConceptEntry[];
 };
 
 export type PartnerSection = {
@@ -195,6 +219,25 @@ export const READING_LIST_CATEGORY_ORDER: ReadingListCategory[] = [
 
 export function readingListUrl(locale: Locale): string {
   return locale === "en" ? "/en/reading-list" : "/reading-list";
+}
+
+// Concepts is EN-only for now (see plan: ZH backport gated on LLM citation signal).
+const CONCEPTS_EN: ConceptsBundle = enConcepts as ConceptsBundle;
+
+export function loadConcepts(): ConceptsBundle {
+  return CONCEPTS_EN;
+}
+
+export function getAllConceptSlugs(): string[] {
+  return CONCEPTS_EN.entries.map((c) => c.slug);
+}
+
+export function getConceptBySlug(slug: string): ConceptEntry | undefined {
+  return CONCEPTS_EN.entries.find((c) => c.slug === slug);
+}
+
+export function conceptUrl(slug?: string): string {
+  return slug ? `/en/concepts/${slug}` : "/en/concepts";
 }
 
 export const DEFAULT_LOCALE: Locale = "zh";

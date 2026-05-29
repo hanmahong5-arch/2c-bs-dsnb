@@ -404,7 +404,14 @@
     "eraBackToHome": "← 回到首页",
     "readingListLabel": "参考阅读",
     "readingListRelatedHeading": "相关事件",
-    "readingListCategoryHeading": "按来源类型浏览"
+    "readingListCategoryHeading": "按来源类型浏览",
+    "conceptsLabel": "Concepts",
+    "conceptsBackToIndex": "← Concepts",
+    "conceptsOneLineLabel": "一句话定义",
+    "conceptsExplainerLabel": "详细解释",
+    "conceptsRelatedEventsLabel": "相关事件",
+    "conceptsRelatedSourcesLabel": "原始来源",
+    "conceptsContinueLabel": "继续阅读"
   },
   "eras": {
     "origin": {

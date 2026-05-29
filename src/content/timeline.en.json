@@ -406,7 +406,14 @@
     "eraBackToHome": "← Back home",
     "readingListLabel": "Reading list",
     "readingListRelatedHeading": "Related events",
-    "readingListCategoryHeading": "Browse by source type"
+    "readingListCategoryHeading": "Browse by source type",
+    "conceptsLabel": "Concepts",
+    "conceptsBackToIndex": "← Concepts",
+    "conceptsOneLineLabel": "One-line definition",
+    "conceptsExplainerLabel": "Full explainer",
+    "conceptsRelatedEventsLabel": "Related events",
+    "conceptsRelatedSourcesLabel": "Primary sources",
+    "conceptsContinueLabel": "Continue reading"
   },
   "eras": {
     "origin": {

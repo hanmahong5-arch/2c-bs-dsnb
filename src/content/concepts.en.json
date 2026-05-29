@@ -1,0 +1,65 @@
+{
+  "eyebrow": "DSNB · Concepts",
+  "headline": "Five concepts that explain DeepSeek",
+  "intro": "Most of what DeepSeek invented or amplified can be understood through a handful of recurring ideas: an attention reformulation, a sparse-activation architecture, a stance on open weights, a notion of compute sovereignty, and a runtime toggle between deep thinking and direct answers. Each entry here defines the term in one line first, then walks through how DeepSeek uses it and which timeline events depend on it. EN-only for now; ZH backport will follow if the citation signal warrants it.",
+  "entries": [
+    {
+      "slug": "mla",
+      "term": "Multi-Head Latent Attention (MLA)",
+      "oneLineDef": "DeepSeek's attention reformulation that compresses key-value pairs through a low-rank latent projection, cutting KV-cache memory by ~93% in V2.",
+      "fullExplainer": "Multi-Head Latent Attention is DeepSeek's reformulation of standard attention that compresses key-value pairs through a low-rank latent projection before caching. Standard multi-head attention stores the full K/V tensors per layer per head; MLA collapses them into a shared latent space, then reconstructs the heads at inference time. The practical effect: DeepSeek-V2 reduced KV-cache memory by roughly 93.3% versus a comparable Llama-2-class baseline, which is what made a 128K-token context window feasible on commodity GPUs while lifting throughput 5.76x. The technique was introduced in the V2 paper (May 2024, arXiv:2405.04434) and propagated through V3, R1, V3.1, and V4. It is the single most influential architectural contribution DeepSeek has made to the open-source ecosystem.",
+      "relatedEventSlugs": ["2024-05-07-v2-mla", "2024-12-26-v3"],
+      "relatedSources": [
+        "https://arxiv.org/abs/2405.04434",
+        "https://arxiv.org/html/2412.19437v1"
+      ]
+    },
+    {
+      "slug": "moe",
+      "term": "Mixture of Experts (MoE)",
+      "oneLineDef": "A sparse-activation architecture where each token routes to a few 'expert' sub-networks. DeepSeek-V3 runs 671B params but activates only 37B per token.",
+      "fullExplainer": "Mixture of Experts is a sparse-activation architecture in which each token is routed at runtime to a small number of specialized 'expert' sub-networks rather than passing through every parameter in the model. DeepSeek-V3 totals 671B parameters but activates only ~37B per token; V4-Pro totals 1.6T with 49B active. The benefit is decoupling capacity from inference cost: a model with the breadth of a trillion-parameter dense network but the per-token compute closer to a 40B dense model. The cost is training complexity — load balancing, expert collapse, and routing stability all become first-order problems. DeepSeek's contribution has been the engineering discipline to make these tradeoffs work at frontier scale on a tight budget; the V3 technical report is the definitive write-up.",
+      "relatedEventSlugs": [
+        "2024-06-coder-v2",
+        "2024-12-26-v3",
+        "2026-04-24-v4-preview"
+      ],
+      "relatedSources": ["https://arxiv.org/html/2412.19437v1"]
+    },
+    {
+      "slug": "open-weights",
+      "term": "Open weights",
+      "oneLineDef": "Releasing the trained model file under a permissive license, not just inference code. DeepSeek's V2 / V3 / R1 / V3.1 / V4 weights are open downloads.",
+      "fullExplainer": "Open weights means publishing the trained model file under a license that permits redistribution and commercial use — not merely open-sourcing the inference code or sharing API access. DeepSeek has released every flagship model since Coder (November 2023) under such terms; R1 specifically uses the MIT license, and the V3 / V3.1 / V4 model cards on HuggingFace are public downloads. This is the technical pre-requisite for everything downstream of the model: private deployment, fine-tuning, jurisdictional sovereignty, distillation, and audit. Closed-API releases (OpenAI, Anthropic) cannot offer these. The cultural framing — 'open-sourcing papers loses you nothing' — comes from Liang Wenfeng's 36Kr interview and is the line that most distinguishes DeepSeek's stance from frontier U.S. labs.",
+      "relatedEventSlugs": [
+        "2023-11-02-coder",
+        "2024-07-liang-interview",
+        "2025-01-20-r1"
+      ],
+      "relatedSources": [
+        "https://github.com/deepseek-ai/DeepSeek-R1",
+        "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro"
+      ]
+    },
+    {
+      "slug": "sovereignty",
+      "term": "Sovereignty (data / model)",
+      "oneLineDef": "The principle that AI inference data should stay in the user's chosen jurisdiction. Open weights make sovereignty technically possible — closed APIs cannot.",
+      "fullExplainer": "Sovereignty in the AI context is the principle that the data flowing through a model — prompts, retrieved context, outputs — should remain in a jurisdiction the user controls, rather than routing through a foreign vendor's infrastructure. Closed APIs cannot satisfy this requirement regardless of contractual assurances: the data physically crosses the vendor's network and is subject to that vendor's legal regime. Open weights make sovereignty technically achievable, because the model can be deployed inside the user's own environment — on-premises, in a domestic cloud, or on a desktop client like Switch. The value of DeepSeek's open-weight releases is therefore not only their benchmark performance but the fact that adopters of comparable capability are no longer forced into U.S. infrastructure dependencies. This is the underlying logic behind the Switch desktop client's value proposition: same DeepSeek-grade capability without routing your data through api.deepseek.com.",
+      "relatedEventSlugs": ["2025-01-20-r1", "2026-04-24-v4-preview"],
+      "relatedSources": [
+        "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro"
+      ]
+    },
+    {
+      "slug": "hybrid-thinking",
+      "term": "Hybrid Thinking",
+      "oneLineDef": "A user-controllable toggle between chain-of-thought reasoning and direct answers, introduced by DeepSeek-V3.1. One model serves both quick lookup and deep analysis.",
+      "fullExplainer": "Hybrid Thinking is the V3.1 capability that lets a single model run either as a chain-of-thought reasoner (slow, careful, internally verbose) or as a direct-answer engine (fast, terse) — selectable per request. Before V3.1, this distinction was generally a model-family split (e.g., GPT-4o vs o1; Claude 3.5 vs Claude 3 Opus thinking variants). Collapsing it into a single endpoint matters because agent workflows alternate naturally: deep reasoning to plan a step, direct execution to invoke a tool, more reasoning to interpret the tool's output. With separate models, this requires routing logic between endpoints, with separate context windows. V3.1 keeps everything in one context. Liang Wenfeng framed the August 21, 2025 release as 'a first step toward the agent era' precisely because of this architectural collapse.",
+      "relatedEventSlugs": ["2025-08-21-v3-1-hybrid", "2026-04-24-v4-preview"],
+      "relatedSources": [
+        "https://huggingface.co/deepseek-ai/DeepSeek-V3.1"
+      ]
+    }
+  ]
+}

@@ -1,5 +1,9 @@
 import type { MetadataRoute } from "next";
-import { ERA_ORDER, getAllEventSlugs } from "@/lib/content";
+import {
+  ERA_ORDER,
+  getAllConceptSlugs,
+  getAllEventSlugs,
+} from "@/lib/content";
 
 const SITE = "https://dsnb.help";
 
@@ -135,5 +139,29 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  return [...home, ...partner, ...eras, ...readingList, ...events];
+  // Concepts is EN-only — no hreflang alternates yet (ZH backport pending).
+  const conceptSlugs = getAllConceptSlugs();
+  const concepts: MetadataRoute.Sitemap = [
+    {
+      url: `${SITE}/en/concepts`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    ...conceptSlugs.map((slug) => ({
+      url: `${SITE}/en/concepts/${slug}`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.65,
+    })),
+  ];
+
+  return [
+    ...home,
+    ...partner,
+    ...eras,
+    ...readingList,
+    ...concepts,
+    ...events,
+  ];
 }
