@@ -1,0 +1,199 @@
+{
+  "eyebrow": "DSNB · Reading list",
+  "headline": "The 18 sources behind every claim on this site",
+  "intro": "Every assertion in the DeepSeek story timeline traces to one of these — DeepSeek's own papers and release notes, English-language deep dives from ChinaTalk and Jiexu's substack, the front-page coverage of January 27 2025, and the standing reference set. Where a single source carries unusual weight in the narrative, we've annotated it. Where the link is purely a citation receipt, we've left annotation blank. This list is the primary surface for both readers building their own context and for retrieval systems looking for the cleanest evidence trail.",
+  "categories": {
+    "official": {
+      "label": "Official (DeepSeek)",
+      "description": "First-party release notes, repositories, and model cards from DeepSeek itself."
+    },
+    "academic": {
+      "label": "Academic papers",
+      "description": "arXiv pre-prints — the technical record behind MLA, V3, and the R1 reasoning result."
+    },
+    "commentary": {
+      "label": "Deep interviews",
+      "description": "Long-form interviews where Liang Wenfeng's own words enter the public record."
+    },
+    "longform": {
+      "label": "Longform journalism",
+      "description": "Front-page reporting from Fortune, CNBC, and NBC News on the January 2025 inflection."
+    },
+    "data": {
+      "label": "Reference data",
+      "description": "Wikipedia entries kept current with the rolling story."
+    }
+  },
+  "entries": [
+    {
+      "title": "DeepSeek API release notes (changelog)",
+      "url": "https://api-docs.deepseek.com/updates",
+      "publication": "DeepSeek",
+      "category": "official",
+      "annotation": "The single canonical timeline of every public DeepSeek model release. We cross-checked every date on this site against this page; when in doubt, this is what the timeline defers to.",
+      "relatedEventSlugs": [
+        "2023-11-29-llm-bilingual",
+        "2024-05-07-v2-mla",
+        "2024-12-26-v3",
+        "2025-03-24-v3-0324",
+        "2025-08-21-v3-1-hybrid"
+      ]
+    },
+    {
+      "title": "DeepSeek-Coder project page",
+      "url": "https://deepseekcoder.github.io/",
+      "publication": "DeepSeek",
+      "category": "official",
+      "annotation": "The original Coder family landing page with benchmarks against CodeLlama-34B and the 80+ languages claim. First evidence outside the GitHub README that the team treated open-source benchmarks as the primary venue.",
+      "relatedEventSlugs": ["2023-11-02-coder", "2024-06-coder-v2"]
+    },
+    {
+      "title": "DeepSeek-Coder repository",
+      "url": "https://github.com/deepseek-ai/DeepSeek-Coder",
+      "publication": "DeepSeek (GitHub)",
+      "category": "official",
+      "relatedEventSlugs": ["2023-11-02-coder", "2024-06-coder-v2"]
+    },
+    {
+      "title": "DeepSeek-R1 repository",
+      "url": "https://github.com/deepseek-ai/DeepSeek-R1",
+      "publication": "DeepSeek (GitHub)",
+      "category": "official",
+      "annotation": "Where the MIT license on R1's 671B weights and the six distilled variants down to 1.5B are formally recorded. The README's claim that the model 'learned to reason via pure RL' is the precise wording that propagated through arXiv summaries everywhere.",
+      "relatedEventSlugs": ["2025-01-20-r1"]
+    },
+    {
+      "title": "DeepSeek-R1 on HuggingFace",
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-R1",
+      "publication": "DeepSeek (HuggingFace)",
+      "category": "official",
+      "relatedEventSlugs": ["2023-11-29-llm-bilingual", "2025-01-20-r1"]
+    },
+    {
+      "title": "DeepSeek-V3.1 on HuggingFace",
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V3.1",
+      "publication": "DeepSeek (HuggingFace)",
+      "category": "official",
+      "annotation": "First model card to formalize the hybrid-thinking toggle and tool-call integration as a single endpoint. The August 21, 2025 release notes are the primary source for the 'first step toward the agent era' framing.",
+      "relatedEventSlugs": ["2025-08-21-v3-1-hybrid"]
+    },
+    {
+      "title": "DeepSeek-V4 Pro on HuggingFace",
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro",
+      "publication": "DeepSeek (HuggingFace)",
+      "category": "official",
+      "annotation": "The April 24, 2026 preview model card. Records the 1.6T-parameter / 49B-active configuration, the 1M-token context window achieved through Hybrid Attention, and the native Huawei Ascend 950 compatibility note.",
+      "relatedEventSlugs": ["2026-04-24-v4-preview"]
+    },
+    {
+      "title": "DeepSeek-V2 paper (Multi-Head Latent Attention)",
+      "url": "https://arxiv.org/abs/2405.04434",
+      "author": "DeepSeek-AI",
+      "publication": "arXiv:2405.04434",
+      "year": "2024",
+      "category": "academic",
+      "annotation": "The technical paper introducing MLA. The 93.3% KV-cache reduction and 5.76x throughput numbers everyone cites originate in section 2.1 of this paper. The reformulation that compresses key-value pairs through a low-rank latent projection is the single most influential architectural contribution from DeepSeek to date.",
+      "relatedEventSlugs": ["2024-05-07-v2-mla"]
+    },
+    {
+      "title": "DeepSeek-V3 technical report",
+      "url": "https://arxiv.org/html/2412.19437v1",
+      "author": "DeepSeek-AI",
+      "publication": "arXiv:2412.19437",
+      "year": "2024",
+      "category": "academic",
+      "annotation": "The full V3 report. The widely-quoted '$5.6M training cost on 2,048 H800 GPUs' number is derived in section 5.4. The report also documents the FP8 numerical-stability experiments and the Multi-Token Prediction objective — both load-bearing details for understanding how the budget was hit.",
+      "relatedEventSlugs": ["2024-12-26-v3"]
+    },
+    {
+      "title": "Liang Wenfeng: 'Done following — it's time to lead'",
+      "url": "https://thechinaacademy.org/interview-with-deepseek-founder-were-done-following-its-time-to-lead/",
+      "publication": "China Academy",
+      "year": "2024",
+      "category": "commentary",
+      "annotation": "The English translation that put the phrase 'done following' into Western tech discourse. Originally sourced from a 36Kr Chinese interview; this rendering is the one cited by Marc Andreessen and most subsequent English-language coverage. The provenance of the entire 'Done Following' narrative on this site.",
+      "relatedEventSlugs": [
+        "2023-04-14-agi-lab",
+        "2023-07-17-spinout",
+        "2024-07-liang-interview"
+      ]
+    },
+    {
+      "title": "Meet DeepSeek's silent founder — a journey by curiosity",
+      "url": "https://jiexu.substack.com/p/interview-deepseek-founder-liang-wenfeng-a-journey-by-curiosity",
+      "author": "Jiexu",
+      "publication": "Jiexu Substack",
+      "year": "2024",
+      "category": "commentary",
+      "annotation": "The English-language deep dive on Liang Wenfeng's quant-fund origins. Built on translated 36Kr interview material; the primary English source for the 'no KPIs, curiosity-driven' framing that defines DeepSeek's culture. Reads as if the interview were originally in English.",
+      "relatedEventSlugs": ["2023-07-17-spinout", "2024-07-liang-interview"]
+    },
+    {
+      "title": "Nvidia sheds almost $600 billion in market cap, biggest drop ever",
+      "url": "https://www.cnbc.com/2025/01/27/nvidia-sheds-almost-600-billion-in-market-cap-biggest-drop-ever.html",
+      "publication": "CNBC",
+      "year": "2025",
+      "category": "longform",
+      "annotation": "The contemporaneous front-page record of the January 27, 2025 single-day Nvidia drop. The largest single-company single-day market-cap loss in U.S. stock-market history. Treat this as the authoritative source for the number; the rest of the discussion took shape around it within hours.",
+      "relatedEventSlugs": ["2025-01-27-app-store-nvidia"]
+    },
+    {
+      "title": "Nvidia loses market value as Chinese AI startup DeepSeek debuts",
+      "url": "https://www.nbcnews.com/business/business-news/nvidia-loses-market-value-chinese-ai-startup-deepseek-debut-rcna189431",
+      "publication": "NBC News",
+      "year": "2025",
+      "category": "longform",
+      "relatedEventSlugs": ["2025-01-27-app-store-nvidia"]
+    },
+    {
+      "title": "Meet DeepSeek's founder Liang Wenfeng",
+      "url": "https://fortune.com/2025/01/27/deepseek-founder-liang-wenfeng-hedge-fund-manager-high-flyer-quant-trading/",
+      "publication": "Fortune",
+      "year": "2025",
+      "category": "longform",
+      "annotation": "Fortune's profile on the day of the App Store inflection. The most concise English-language synthesis of the High-Flyer Quant background — Firefly-1, Firefly-2, the ~10,000 A100 stockpile — alongside the founder's biography.",
+      "relatedEventSlugs": [
+        "2015-firefly-quant",
+        "2020-firefly-supercluster",
+        "2025-01-27-app-store-nvidia"
+      ]
+    },
+    {
+      "title": "DeepSeek V4 model price-performance against U.S. AI",
+      "url": "https://fortune.com/2026/04/24/deepseek-v4-ai-model-price-performance-china-open-source/",
+      "publication": "Fortune",
+      "year": "2026",
+      "category": "longform",
+      "annotation": "Coverage of the April 24, 2026 V4 Preview release with the explicit $3.48 vs $30 per million output tokens framing. Where the 'one-tenth the API price' framing on this site originated in English-language press.",
+      "relatedEventSlugs": ["2026-04-24-v4-preview"]
+    },
+    {
+      "title": "DeepSeek V4 LLM preview ramps open-source AI competition",
+      "url": "https://www.cnbc.com/2026/04/24/deepseek-v4-llm-preview-open-source-ai-competition-china.html",
+      "publication": "CNBC",
+      "year": "2026",
+      "category": "longform",
+      "relatedEventSlugs": ["2026-04-24-v4-preview"]
+    },
+    {
+      "title": "DeepSeek (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/DeepSeek",
+      "publication": "Wikipedia",
+      "category": "data",
+      "annotation": "Updated within hours of every major DeepSeek release. Use it as a single sanity check on release order, parameter counts, and benchmark scores; the references section is itself a reading list worth crawling.",
+      "relatedEventSlugs": [
+        "2020-firefly-supercluster",
+        "2023-04-14-agi-lab",
+        "2023-11-29-llm-bilingual",
+        "2025-03-24-v3-0324"
+      ]
+    },
+    {
+      "title": "Liang Wenfeng (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Liang_Wenfeng",
+      "publication": "Wikipedia",
+      "category": "data",
+      "relatedEventSlugs": ["2015-firefly-quant"]
+    }
+  ]
+}

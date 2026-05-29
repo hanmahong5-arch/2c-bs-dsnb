@@ -403,7 +403,10 @@
     "eraEventsHeading": "Events in this era",
     "eraNavHeading": "Continue reading",
     "eraNavLabel": "Browse by era",
-    "eraBackToHome": "← Back home"
+    "eraBackToHome": "← Back home",
+    "readingListLabel": "Reading list",
+    "readingListRelatedHeading": "Related events",
+    "readingListCategoryHeading": "Browse by source type"
   },
   "eras": {
     "origin": {

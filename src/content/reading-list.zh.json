@@ -1,0 +1,199 @@
+{
+  "eyebrow": "DSNB · 参考阅读",
+  "headline": "支撑这个站每一句话的 18 个出处",
+  "intro": "本站时间线里的每一个主张都来自下面这些来源——DeepSeek 自己的论文和发布更新、ChinaTalk 与 Jiexu Substack 的英文深度访谈、2025 年 1 月 27 日那一天的头版报道、以及保留下来的参考资料集合。当一份来源在叙事中分量异常重时，我们给它写了一段注。当链接只是引用回执时，我们把注留白。这份清单是给两类读者用的：自己搭建上下文的人，和检索系统寻找最干净证据链的时候。",
+  "categories": {
+    "official": {
+      "label": "官方（DeepSeek）",
+      "description": "DeepSeek 自身的发布说明、代码仓库与模型卡片。"
+    },
+    "academic": {
+      "label": "学术论文",
+      "description": "arXiv 预印本——MLA、V3 与 R1 推理结果背后的技术原档。"
+    },
+    "commentary": {
+      "label": "深度访谈",
+      "description": "梁文锋本人话语进入公开记录的长篇访谈。"
+    },
+    "longform": {
+      "label": "深度报道",
+      "description": "2025 年 1 月那次拐点的 Fortune / CNBC / NBC 头版报道。"
+    },
+    "data": {
+      "label": "参考资料",
+      "description": "随故事滚动更新的维基百科条目。"
+    }
+  },
+  "entries": [
+    {
+      "title": "DeepSeek API 更新日志",
+      "url": "https://api-docs.deepseek.com/updates",
+      "publication": "DeepSeek",
+      "category": "official",
+      "annotation": "DeepSeek 公开模型发布唯一的标准时间线。本站每一个日期都对照此页校对过；存疑时以此为准。",
+      "relatedEventSlugs": [
+        "2023-11-29-llm-bilingual",
+        "2024-05-07-v2-mla",
+        "2024-12-26-v3",
+        "2025-03-24-v3-0324",
+        "2025-08-21-v3-1-hybrid"
+      ]
+    },
+    {
+      "title": "DeepSeek-Coder 项目主页",
+      "url": "https://deepseekcoder.github.io/",
+      "publication": "DeepSeek",
+      "category": "official",
+      "annotation": "Coder 系列的原始落地页，包含对 CodeLlama-34B 的基准对比以及「支持 80+ 语言」的来源。在 GitHub README 之外，第一份证据显示团队把开源基准当成了主战场。",
+      "relatedEventSlugs": ["2023-11-02-coder", "2024-06-coder-v2"]
+    },
+    {
+      "title": "DeepSeek-Coder 代码仓库",
+      "url": "https://github.com/deepseek-ai/DeepSeek-Coder",
+      "publication": "DeepSeek (GitHub)",
+      "category": "official",
+      "relatedEventSlugs": ["2023-11-02-coder", "2024-06-coder-v2"]
+    },
+    {
+      "title": "DeepSeek-R1 代码仓库",
+      "url": "https://github.com/deepseek-ai/DeepSeek-R1",
+      "publication": "DeepSeek (GitHub)",
+      "category": "official",
+      "annotation": "R1 的 671B 权重以 MIT 开源、以及 6 个蒸馏版本（最小至 1.5B）的官方记录在此。README 中那句「通过纯强化学习学会推理」是后来 arXiv 摘要传播开的精确措辞。",
+      "relatedEventSlugs": ["2025-01-20-r1"]
+    },
+    {
+      "title": "DeepSeek-R1（HuggingFace）",
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-R1",
+      "publication": "DeepSeek (HuggingFace)",
+      "category": "official",
+      "relatedEventSlugs": ["2023-11-29-llm-bilingual", "2025-01-20-r1"]
+    },
+    {
+      "title": "DeepSeek-V3.1（HuggingFace）",
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V3.1",
+      "publication": "DeepSeek (HuggingFace)",
+      "category": "official",
+      "annotation": "第一份将 hybrid thinking 切换与工具调用整合到单一端点的模型卡。2025 年 8 月 21 日的发布说明是「走向 Agent 时代第一步」这个表述的原始出处。",
+      "relatedEventSlugs": ["2025-08-21-v3-1-hybrid"]
+    },
+    {
+      "title": "DeepSeek-V4 Pro（HuggingFace）",
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro",
+      "publication": "DeepSeek (HuggingFace)",
+      "category": "official",
+      "annotation": "2026 年 4 月 24 日的预览版模型卡。记录了 1.6T 参数 / 49B 激活配置、通过 Hybrid Attention 实现的百万 token 上下文窗口，以及与华为昇腾 950 原生适配的备注。",
+      "relatedEventSlugs": ["2026-04-24-v4-preview"]
+    },
+    {
+      "title": "DeepSeek-V2 论文（多头潜在注意力）",
+      "url": "https://arxiv.org/abs/2405.04434",
+      "author": "DeepSeek-AI",
+      "publication": "arXiv:2405.04434",
+      "year": "2024",
+      "category": "academic",
+      "annotation": "引入 MLA 的技术原档。「KV 缓存减少 93.3%、推理吞吐提升 5.76 倍」的数字都源于该论文 2.1 节。通过低秩潜在投影压缩键-值对的这一架构重构，是 DeepSeek 迄今最有影响力的单一架构贡献。",
+      "relatedEventSlugs": ["2024-05-07-v2-mla"]
+    },
+    {
+      "title": "DeepSeek-V3 技术报告",
+      "url": "https://arxiv.org/html/2412.19437v1",
+      "author": "DeepSeek-AI",
+      "publication": "arXiv:2412.19437",
+      "year": "2024",
+      "category": "academic",
+      "annotation": "V3 完整报告。被广泛引用的「2048 块 H800 上训练成本 557 万美元」推导在 5.4 节。报告同时记录了 FP8 数值稳定性实验和 Multi-Token Prediction 目标——两个理解该预算如何被实现的关键细节。",
+      "relatedEventSlugs": ["2024-12-26-v3"]
+    },
+    {
+      "title": "梁文锋：「不做追随者——是时候领跑了」",
+      "url": "https://thechinaacademy.org/interview-with-deepseek-founder-were-done-following-its-time-to-lead/",
+      "publication": "China Academy",
+      "year": "2024",
+      "category": "commentary",
+      "annotation": "把「Done Following」这句话推进西方科技圈语境的英文翻译。原始访谈来自 36 氪中文版；这份翻译是 Marc Andreessen 及后续多数英文报道引用的版本。本站「不做追随者」整套叙事的来源。",
+      "relatedEventSlugs": [
+        "2023-04-14-agi-lab",
+        "2023-07-17-spinout",
+        "2024-07-liang-interview"
+      ]
+    },
+    {
+      "title": "认识 DeepSeek 沉默的创始人——好奇心驱动的旅程",
+      "url": "https://jiexu.substack.com/p/interview-deepseek-founder-liang-wenfeng-a-journey-by-curiosity",
+      "author": "Jiexu",
+      "publication": "Jiexu Substack",
+      "year": "2024",
+      "category": "commentary",
+      "annotation": "讲述梁文锋量化基金起源的英文深度长稿。基于 36 氪访谈素材翻译；本站对 DeepSeek 文化定调的「没有 KPI、好奇心驱动」叙事，其英文主要出处即此。读起来像是访谈原本就是英文写的。",
+      "relatedEventSlugs": ["2023-07-17-spinout", "2024-07-liang-interview"]
+    },
+    {
+      "title": "Nvidia 市值单日蒸发近 6000 亿，史上最大跌幅",
+      "url": "https://www.cnbc.com/2025/01/27/nvidia-sheds-almost-600-billion-in-market-cap-biggest-drop-ever.html",
+      "publication": "CNBC",
+      "year": "2025",
+      "category": "longform",
+      "annotation": "2025 年 1 月 27 日 Nvidia 单日下跌当天的头版记录。美股单公司单日市值损失史上最大。这个数字以此为准；之后几小时之内，整个讨论都围绕它展开。",
+      "relatedEventSlugs": ["2025-01-27-app-store-nvidia"]
+    },
+    {
+      "title": "Nvidia 因中国 AI 初创 DeepSeek 出现而失去市值",
+      "url": "https://www.nbcnews.com/business/business-news/nvidia-loses-market-value-chinese-ai-startup-deepseek-debut-rcna189431",
+      "publication": "NBC News",
+      "year": "2025",
+      "category": "longform",
+      "relatedEventSlugs": ["2025-01-27-app-store-nvidia"]
+    },
+    {
+      "title": "认识 DeepSeek 创始人梁文锋",
+      "url": "https://fortune.com/2025/01/27/deepseek-founder-liang-wenfeng-hedge-fund-manager-high-flyer-quant-trading/",
+      "publication": "Fortune",
+      "year": "2025",
+      "category": "longform",
+      "annotation": "App Store 拐点当天 Fortune 的人物特写。关于幻方量化背景——萤火一号、萤火二号、约 10000 块 A100 储备——以及创始人传记最简洁的英文综述。",
+      "relatedEventSlugs": [
+        "2015-firefly-quant",
+        "2020-firefly-supercluster",
+        "2025-01-27-app-store-nvidia"
+      ]
+    },
+    {
+      "title": "DeepSeek V4 模型对美国 AI 的性价比",
+      "url": "https://fortune.com/2026/04/24/deepseek-v4-ai-model-price-performance-china-open-source/",
+      "publication": "Fortune",
+      "year": "2026",
+      "category": "longform",
+      "annotation": "2026 年 4 月 24 日 V4 预览版发布的报道，明确提出 $3.48 vs $30 / 百万输出 token 的对比框架。本站「十分之一 API 价格」叙事的英文媒体来源。",
+      "relatedEventSlugs": ["2026-04-24-v4-preview"]
+    },
+    {
+      "title": "DeepSeek V4 LLM 预览推升开源 AI 竞争",
+      "url": "https://www.cnbc.com/2026/04/24/deepseek-v4-llm-preview-open-source-ai-competition-china.html",
+      "publication": "CNBC",
+      "year": "2026",
+      "category": "longform",
+      "relatedEventSlugs": ["2026-04-24-v4-preview"]
+    },
+    {
+      "title": "DeepSeek（维基百科）",
+      "url": "https://en.wikipedia.org/wiki/DeepSeek",
+      "publication": "Wikipedia",
+      "category": "data",
+      "annotation": "每次 DeepSeek 大版本发布后几小时内即更新。把它当作发布顺序、参数计数、基准分数的一次性 sanity check；参考资料一节本身就是值得继续追踪的阅读清单。",
+      "relatedEventSlugs": [
+        "2020-firefly-supercluster",
+        "2023-04-14-agi-lab",
+        "2023-11-29-llm-bilingual",
+        "2025-03-24-v3-0324"
+      ]
+    },
+    {
+      "title": "梁文锋（维基百科）",
+      "url": "https://en.wikipedia.org/wiki/Liang_Wenfeng",
+      "publication": "Wikipedia",
+      "category": "data",
+      "relatedEventSlugs": ["2015-firefly-quant"]
+    }
+  ]
+}

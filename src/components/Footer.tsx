@@ -11,6 +11,7 @@ export function Footer({ locale, ui }: FooterProps) {
   const otherHref = otherLocale === "en" ? "/en" : "/zh";
   const rssHref = locale === "en" ? "/en/rss.xml" : "/rss.xml";
   const eraHref = locale === "en" ? "/en/era/origin" : "/era/origin";
+  const readingListHref = locale === "en" ? "/en/reading-list" : "/reading-list";
 
   return (
     <footer className="border-t border-[var(--color-border)] py-10 px-6">
@@ -36,6 +37,7 @@ export function Footer({ locale, ui }: FooterProps) {
         <div className="flex flex-col items-center sm:items-end gap-2 text-xs text-[var(--color-text-muted)]">
           <div className="flex gap-4 flex-wrap justify-center sm:justify-end">
             <Link href={eraHref} className="hover:text-[var(--color-primary-light)] transition-colors duration-150">{ui.eraNavLabel}</Link>
+            <Link href={readingListHref} className="hover:text-[var(--color-primary-light)] transition-colors duration-150">{ui.readingListLabel}</Link>
             <a href="/terms" className="hover:text-[var(--color-primary-light)] transition-colors duration-150">Terms of Service</a>
             <a href="/privacy" className="hover:text-[var(--color-primary-light)] transition-colors duration-150">Privacy Policy</a>
             <a href="/security" className="hover:text-[var(--color-primary-light)] transition-colors duration-150">Security &amp; DPA</a>

@@ -401,7 +401,10 @@
     "eraEventsHeading": "本时代事件",
     "eraNavHeading": "继续阅读",
     "eraNavLabel": "按时代浏览",
-    "eraBackToHome": "← 回到首页"
+    "eraBackToHome": "← 回到首页",
+    "readingListLabel": "参考阅读",
+    "readingListRelatedHeading": "相关事件",
+    "readingListCategoryHeading": "按来源类型浏览"
   },
   "eras": {
     "origin": {

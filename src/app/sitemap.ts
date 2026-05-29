@@ -110,5 +110,30 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ];
   });
 
-  return [...home, ...partner, ...eras, ...events];
+  const readingListAlternates = {
+    languages: {
+      "zh-CN": `${SITE}/reading-list`,
+      en: `${SITE}/en/reading-list`,
+      "x-default": `${SITE}/reading-list`,
+    },
+  };
+
+  const readingList: MetadataRoute.Sitemap = [
+    {
+      url: `${SITE}/reading-list`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.7,
+      alternates: readingListAlternates,
+    },
+    {
+      url: `${SITE}/en/reading-list`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.7,
+      alternates: readingListAlternates,
+    },
+  ];
+
+  return [...home, ...partner, ...eras, ...readingList, ...events];
 }

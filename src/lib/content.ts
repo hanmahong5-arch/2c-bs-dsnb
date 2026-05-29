@@ -3,6 +3,8 @@
 
 import zhContent from "../content/timeline.zh.json";
 import enContent from "../content/timeline.en.json";
+import zhReading from "../content/reading-list.zh.json";
+import enReading from "../content/reading-list.en.json";
 
 export type Locale = "zh" | "en";
 
@@ -78,12 +80,44 @@ export type UiText = {
   eraNavHeading: string;
   eraNavLabel: string;
   eraBackToHome: string;
+  readingListLabel: string;
+  readingListRelatedHeading: string;
+  readingListCategoryHeading: string;
 };
 
 export type EraMeta = {
   eyebrow: string;
   headline: string;
   editorial: string;
+};
+
+export type ReadingListCategory =
+  | "official"
+  | "academic"
+  | "commentary"
+  | "longform"
+  | "data";
+
+export type ReadingListEntry = {
+  title: string;
+  url: string;
+  author?: string;
+  publication?: string;
+  year?: string;
+  category: ReadingListCategory;
+  annotation?: string;
+  relatedEventSlugs?: string[];
+};
+
+export type ReadingListBundle = {
+  eyebrow: string;
+  headline: string;
+  intro: string;
+  categories: Record<
+    ReadingListCategory,
+    { label: string; description: string }
+  >;
+  entries: ReadingListEntry[];
 };
 
 export type PartnerSection = {
@@ -139,6 +173,29 @@ const BUNDLES: Record<Locale, ContentBundle> = {
   zh: zhContent as ContentBundle,
   en: enContent as ContentBundle,
 };
+
+const READING_LIST_BUNDLES: Record<Locale, ReadingListBundle> = {
+  zh: zhReading as ReadingListBundle,
+  en: enReading as ReadingListBundle,
+};
+
+export function loadReadingList(
+  locale: Locale = DEFAULT_LOCALE,
+): ReadingListBundle {
+  return READING_LIST_BUNDLES[locale];
+}
+
+export const READING_LIST_CATEGORY_ORDER: ReadingListCategory[] = [
+  "official",
+  "academic",
+  "commentary",
+  "longform",
+  "data",
+];
+
+export function readingListUrl(locale: Locale): string {
+  return locale === "en" ? "/en/reading-list" : "/reading-list";
+}
 
 export const DEFAULT_LOCALE: Locale = "zh";
 
