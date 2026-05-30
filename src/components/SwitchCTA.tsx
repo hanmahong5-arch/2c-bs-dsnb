@@ -2,9 +2,8 @@
 
 import Link from "next/link";
 import type { Locale, UiText } from "@/lib/content";
+import { switchDownloadUrl, usePlatform } from "@/lib/platform";
 import { track } from "@/lib/track";
-
-const RESELLER_DOWNLOAD_URL = "https://switch.lurustech.com/download";
 
 type SwitchCTAProps = {
   locale: Locale;
@@ -13,6 +12,8 @@ type SwitchCTAProps = {
 
 export function SwitchCTA({ locale, ui }: SwitchCTAProps) {
   const partnerHref = locale === "en" ? "/en/partner" : "/partner";
+  const platform = usePlatform();
+  const downloadHref = switchDownloadUrl(platform);
 
   return (
     <section className="py-16 px-6 text-center">
@@ -32,7 +33,7 @@ export function SwitchCTA({ locale, ui }: SwitchCTAProps) {
             {ui.resellerCtaPartner}
           </Link>
           <a
-            href={RESELLER_DOWNLOAD_URL}
+            href={downloadHref}
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => track("cta_reseller_download", { locale })}
