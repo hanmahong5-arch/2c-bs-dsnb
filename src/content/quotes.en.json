@@ -1,0 +1,95 @@
+{
+  "eyebrow": "DSNB · Quotes",
+  "headline": "Eight lines that explain DeepSeek's stance",
+  "intro": "Most of the company's posture compresses into a handful of sentences — almost all from Liang Wenfeng, plus the one industry reaction that put the rest in context. Each line below is anchored to where it was actually said, why it landed, and which timeline event it belongs to. We don't paraphrase; we cite. If a quote you remember isn't here, it's because we couldn't trace it to a verifiable utterance.",
+  "entries": [
+    {
+      "id": "natural-extension",
+      "quote": "A natural extension of existing capabilities.",
+      "speaker": "High-Flyer Quant internal letter",
+      "speakerRole": "founding statement of the AGI research lab",
+      "context": "How High-Flyer Quant — a hedge fund managing 100 billion yuan — described stepping officially into general AI work in an internal letter. The plainness of the wording is itself the point: no mission statement, no funding-round news, no theatrics.",
+      "date": "April 14, 2023",
+      "relatedEventSlug": "2023-04-14-agi-lab",
+      "source": "https://thechinaacademy.org/interview-with-deepseek-founder-were-done-following-its-time-to-lead/",
+      "sourcePublication": "China Academy"
+    },
+    {
+      "id": "no-commercial-pressure",
+      "quote": "We have no commercial pressure. No KPIs.",
+      "speaker": "Liang Wenfeng",
+      "speakerRole": "Founder, DeepSeek",
+      "context": "The operating principle stated at spin-out, while nearly every AI startup chased VC validation and the next valuation round. Behind the line stood eight years of quant accumulation as a capital cushion — a structural choice, not bravado.",
+      "date": "July 17, 2023",
+      "relatedEventSlug": "2023-07-17-spinout",
+      "source": "https://jiexu.substack.com/p/interview-deepseek-founder-liang-wenfeng-a-journey-by-curiosity",
+      "sourcePublication": "Jiexu Substack"
+    },
+    {
+      "id": "open-source-loses-nothing",
+      "quote": "Open-sourcing papers loses you nothing. For a technical person, being followed is itself a kind of achievement.",
+      "speaker": "Liang Wenfeng",
+      "speakerRole": "Founder, DeepSeek",
+      "context": "Said during the 36Kr deep interview, July 2024. Most distinguishing line of DeepSeek's stance vs. frontier U.S. labs — the cultural premise that justifies releasing every flagship model under open licenses.",
+      "date": "July 2024",
+      "relatedEventSlug": "2024-07-liang-interview",
+      "source": "https://jiexu.substack.com/p/interview-deepseek-founder-liang-wenfeng-a-journey-by-curiosity",
+      "sourcePublication": "Jiexu Substack"
+    },
+    {
+      "id": "china-cannot-remain-a-follower",
+      "quote": "China cannot remain a follower forever.",
+      "speaker": "Liang Wenfeng",
+      "speakerRole": "Founder, DeepSeek",
+      "context": "The 36Kr interview line that, once translated into English by ChinaTalk and Jiexu, propagated through Western tech discourse as the 'Done Following' framing. Marc Andreessen and most subsequent English-language coverage cite this rendering.",
+      "date": "July 2024",
+      "relatedEventSlug": "2024-07-liang-interview",
+      "source": "https://thechinaacademy.org/interview-with-deepseek-founder-were-done-following-its-time-to-lead/",
+      "sourcePublication": "China Academy"
+    },
+    {
+      "id": "more-investment",
+      "quote": "More investment doesn't necessarily produce more innovation, otherwise large companies would have monopolized all innovation by now.",
+      "speaker": "Liang Wenfeng",
+      "speakerRole": "Founder, DeepSeek",
+      "context": "The line that became economically load-bearing six months later, when V3 trained on $5.6M outperformed GPT-4o. A pre-emptive theory statement that the subsequent engineering result happened to confirm.",
+      "date": "July 2024",
+      "relatedEventSlug": "2024-07-liang-interview",
+      "source": "https://jiexu.substack.com/p/interview-deepseek-founder-liang-wenfeng-a-journey-by-curiosity",
+      "sourcePublication": "Jiexu Substack"
+    },
+    {
+      "id": "miracle-of-efficiency",
+      "quote": "A miracle of efficiency — not the team with the most compute wins, but the team that uses compute most ruthlessly.",
+      "speaker": "Open-source community",
+      "speakerRole": "consensus framing of the V3 technical report",
+      "context": "How the community described V3 after the arXiv:2412.19437 paper made every engineering choice public — FP8 mixed precision, Multi-Token Prediction, careful numerical-stability experiments. The phrase captured the inversion of the 'compute-pile wins' narrative one month before Nvidia's $600B day.",
+      "date": "December 2024",
+      "relatedEventSlug": "2024-12-26-v3",
+      "source": "https://arxiv.org/html/2412.19437v1",
+      "sourcePublication": "arXiv:2412.19437"
+    },
+    {
+      "id": "andreessen-gift",
+      "quote": "One of the most amazing and impressive breakthroughs I've ever seen — and as open source, a profound gift to the world.",
+      "speaker": "Marc Andreessen",
+      "speakerRole": "Co-founder, a16z",
+      "context": "Posted on January 27, 2025 — the day DeepSeek's app overtook ChatGPT on the U.S. App Store and Nvidia lost roughly $600 billion in market cap, the largest single-day single-company drop in U.S. market history. The line was widely re-cited as Silicon Valley's first public capitulation to the result.",
+      "date": "January 27, 2025",
+      "relatedEventSlug": "2025-01-27-app-store-nvidia",
+      "source": "https://fortune.com/2025/01/27/deepseek-founder-liang-wenfeng-hedge-fund-manager-high-flyer-quant-trading/",
+      "sourcePublication": "Fortune"
+    },
+    {
+      "id": "first-step-agent-era",
+      "quote": "This is our first step toward the agent era.",
+      "speaker": "Liang Wenfeng",
+      "speakerRole": "Founder, DeepSeek",
+      "context": "Framing the August 21, 2025 release of V3.1, which collapsed thinking and non-thinking modes into a single model with native tool calls. The architectural significance: switching cost between reasoning and acting compresses into the model itself, no endpoint routing required.",
+      "date": "August 21, 2025",
+      "relatedEventSlug": "2025-08-21-v3-1-hybrid",
+      "source": "https://huggingface.co/deepseek-ai/DeepSeek-V3.1",
+      "sourcePublication": "DeepSeek (HuggingFace)"
+    }
+  ]
+}

@@ -411,7 +411,11 @@
     "conceptsExplainerLabel": "详细解释",
     "conceptsRelatedEventsLabel": "相关事件",
     "conceptsRelatedSourcesLabel": "原始来源",
-    "conceptsContinueLabel": "继续阅读"
+    "conceptsContinueLabel": "继续阅读",
+    "quotesLabel": "引语",
+    "quotesContextLabel": "上下文",
+    "quotesSourceLabel": "出处",
+    "quotesRelatedEventLabel": "相关事件"
   },
   "eras": {
     "origin": {

@@ -413,7 +413,11 @@
     "conceptsExplainerLabel": "Full explainer",
     "conceptsRelatedEventsLabel": "Related events",
     "conceptsRelatedSourcesLabel": "Primary sources",
-    "conceptsContinueLabel": "Continue reading"
+    "conceptsContinueLabel": "Continue reading",
+    "quotesLabel": "Quotes",
+    "quotesContextLabel": "Context",
+    "quotesSourceLabel": "Source",
+    "quotesRelatedEventLabel": "Related event"
   },
   "eras": {
     "origin": {

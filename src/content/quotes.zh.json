@@ -1,0 +1,95 @@
+{
+  "eyebrow": "DSNB · 引语",
+  "headline": "理解 DeepSeek 立场的 8 句话",
+  "intro": "这家公司的姿态可以压缩在几句话里——几乎都来自梁文锋，加上一句让其他话有上下文的行业回应。下面每条都钉到了它真实被说出的场合、为什么落地、以及对应到时间线哪一段。我们不复述，只引用。如果你记得的某条引语没在此处，是因为我们还没能追溯到可被核验的出处。",
+  "entries": [
+    {
+      "id": "natural-extension",
+      "quote": "既有能力的自然延伸。",
+      "speaker": "幻方量化内部信",
+      "speakerRole": "AGI 研究实验室成立公告",
+      "context": "管理千亿资金的对冲基金幻方量化，对外正式将触角伸向通用人工智能时在内部信里的表述。措辞的平淡本身就是重点——没有目标宣言、没有融资新闻、没有戏剧性。",
+      "date": "2023 年 4 月 14 日",
+      "relatedEventSlug": "2023-04-14-agi-lab",
+      "source": "https://thechinaacademy.org/interview-with-deepseek-founder-were-done-following-its-time-to-lead/",
+      "sourcePublication": "China Academy"
+    },
+    {
+      "id": "no-commercial-pressure",
+      "quote": "我们没有商业压力，没有 KPI。",
+      "speaker": "梁文锋",
+      "speakerRole": "DeepSeek 创始人",
+      "context": "拆分独立时的运营原则。几乎所有 AI 初创都在追逐 VC 背书和下一轮估值时，这句话背后站着八年量化积累提供的资本缓冲——是结构选择，不是傲慢。",
+      "date": "2023 年 7 月 17 日",
+      "relatedEventSlug": "2023-07-17-spinout",
+      "source": "https://jiexu.substack.com/p/interview-deepseek-founder-liang-wenfeng-a-journey-by-curiosity",
+      "sourcePublication": "Jiexu Substack"
+    },
+    {
+      "id": "open-source-loses-nothing",
+      "quote": "开源发论文并不会失去什么，对技术人来说，被人跟随本身就是成就感。",
+      "speaker": "梁文锋",
+      "speakerRole": "DeepSeek 创始人",
+      "context": "2024 年 7 月 36 氪深度访谈里的话。DeepSeek 与海外前沿实验室立场分野最清晰的一句——也是支撑「每一代旗舰模型都按开源协议发布」这一文化前提的根。",
+      "date": "2024 年 7 月",
+      "relatedEventSlug": "2024-07-liang-interview",
+      "source": "https://jiexu.substack.com/p/interview-deepseek-founder-liang-wenfeng-a-journey-by-curiosity",
+      "sourcePublication": "Jiexu Substack"
+    },
+    {
+      "id": "china-cannot-remain-a-follower",
+      "quote": "中国不能永远做追随者。",
+      "speaker": "梁文锋",
+      "speakerRole": "DeepSeek 创始人",
+      "context": "36 氪访谈里那一句，被 ChinaTalk 和 Jiexu 翻成英文后，作为 “Done Following” 框架在西方科技圈传开。Marc Andreessen 和后续多数英文报道引用的都是这一版译法。",
+      "date": "2024 年 7 月",
+      "relatedEventSlug": "2024-07-liang-interview",
+      "source": "https://thechinaacademy.org/interview-with-deepseek-founder-were-done-following-its-time-to-lead/",
+      "sourcePublication": "China Academy"
+    },
+    {
+      "id": "more-investment",
+      "quote": "更多投入不一定产生更多创新，否则大公司早就垄断所有创新了。",
+      "speaker": "梁文锋",
+      "speakerRole": "DeepSeek 创始人",
+      "context": "六个月后这句话变得经济意义重大——V3 用 557 万美元训出比 GPT-4o 更强的模型。这是一句事先的理论陈述，被随后的工程结果确认。",
+      "date": "2024 年 7 月",
+      "relatedEventSlug": "2024-07-liang-interview",
+      "source": "https://jiexu.substack.com/p/interview-deepseek-founder-liang-wenfeng-a-journey-by-curiosity",
+      "sourcePublication": "Jiexu Substack"
+    },
+    {
+      "id": "miracle-of-efficiency",
+      "quote": "效率的奇迹——不是算力最多的人赢，而是把算力用到极致的人赢。",
+      "speaker": "开源社区",
+      "speakerRole": "对 V3 技术报告的共识表述",
+      "context": "arXiv:2412.19437 把每一个工程选择都摊开——FP8 混合精度、Multi-Token Prediction、对抗数值不稳定的反复实验——之后开源社区如此形容 V3。这句话在 Nvidia 单日蒸发 6000 亿美元之前一个月，就已经把「堆算力赢」的叙事翻了过来。",
+      "date": "2024 年 12 月",
+      "relatedEventSlug": "2024-12-26-v3",
+      "source": "https://arxiv.org/html/2412.19437v1",
+      "sourcePublication": "arXiv:2412.19437"
+    },
+    {
+      "id": "andreessen-gift",
+      "quote": "我见过的最令人叹服的突破之一，作为开源，是给世界的礼物。",
+      "speaker": "Marc Andreessen",
+      "speakerRole": "a16z 联合创始人",
+      "context": "2025 年 1 月 27 日发出——DeepSeek App 在美区 App Store 免费榜超越 ChatGPT 登顶，同日 Nvidia 蒸发约 6000 亿美元市值（美股单公司单日最大跌幅）。这句话被广泛转述为硅谷第一次公开向结果低头。",
+      "date": "2025 年 1 月 27 日",
+      "relatedEventSlug": "2025-01-27-app-store-nvidia",
+      "source": "https://fortune.com/2025/01/27/deepseek-founder-liang-wenfeng-hedge-fund-manager-high-flyer-quant-trading/",
+      "sourcePublication": "Fortune"
+    },
+    {
+      "id": "first-step-agent-era",
+      "quote": "这是我们走向 Agent 时代的第一步。",
+      "speaker": "梁文锋",
+      "speakerRole": "DeepSeek 创始人",
+      "context": "2025 年 8 月 21 日 V3.1 发布时的表述——单一模型同时支持 thinking 和 non-thinking 两种模式，原生集成工具调用。架构意义：推理与行动之间的切换成本被压进了模型本身，无需在多个端点间路由。",
+      "date": "2025 年 8 月 21 日",
+      "relatedEventSlug": "2025-08-21-v3-1-hybrid",
+      "source": "https://huggingface.co/deepseek-ai/DeepSeek-V3.1",
+      "sourcePublication": "DeepSeek (HuggingFace)"
+    }
+  ]
+}

@@ -6,6 +6,8 @@ import enContent from "../content/timeline.en.json";
 import zhReading from "../content/reading-list.zh.json";
 import enReading from "../content/reading-list.en.json";
 import enConcepts from "../content/concepts.en.json";
+import zhQuotes from "../content/quotes.zh.json";
+import enQuotes from "../content/quotes.en.json";
 
 export type Locale = "zh" | "en";
 
@@ -91,6 +93,10 @@ export type UiText = {
   conceptsRelatedEventsLabel: string;
   conceptsRelatedSourcesLabel: string;
   conceptsContinueLabel: string;
+  quotesLabel: string;
+  quotesContextLabel: string;
+  quotesSourceLabel: string;
+  quotesRelatedEventLabel: string;
 };
 
 export type EraMeta = {
@@ -142,6 +148,25 @@ export type ConceptsBundle = {
   headline: string;
   intro: string;
   entries: ConceptEntry[];
+};
+
+export type QuoteEntry = {
+  id: string;
+  quote: string;
+  speaker: string;
+  speakerRole?: string;
+  context: string;
+  date?: string;
+  relatedEventSlug?: string;
+  source?: string;
+  sourcePublication?: string;
+};
+
+export type QuotesBundle = {
+  eyebrow: string;
+  headline: string;
+  intro: string;
+  entries: QuoteEntry[];
 };
 
 export type PartnerSection = {
@@ -238,6 +263,19 @@ export function getConceptBySlug(slug: string): ConceptEntry | undefined {
 
 export function conceptUrl(slug?: string): string {
   return slug ? `/en/concepts/${slug}` : "/en/concepts";
+}
+
+const QUOTES_BUNDLES: Record<Locale, QuotesBundle> = {
+  zh: zhQuotes as QuotesBundle,
+  en: enQuotes as QuotesBundle,
+};
+
+export function loadQuotes(locale: Locale = DEFAULT_LOCALE): QuotesBundle {
+  return QUOTES_BUNDLES[locale];
+}
+
+export function quotesUrl(locale: Locale): string {
+  return locale === "en" ? "/en/quotes" : "/quotes";
 }
 
 export const DEFAULT_LOCALE: Locale = "zh";

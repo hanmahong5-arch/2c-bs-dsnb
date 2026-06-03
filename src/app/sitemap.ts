@@ -139,6 +139,31 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
+  const quotesAlternates = {
+    languages: {
+      "zh-CN": `${SITE}/quotes`,
+      en: `${SITE}/en/quotes`,
+      "x-default": `${SITE}/quotes`,
+    },
+  };
+
+  const quotes: MetadataRoute.Sitemap = [
+    {
+      url: `${SITE}/quotes`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.75,
+      alternates: quotesAlternates,
+    },
+    {
+      url: `${SITE}/en/quotes`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.75,
+      alternates: quotesAlternates,
+    },
+  ];
+
   // Concepts is EN-only — no hreflang alternates yet (ZH backport pending).
   const conceptSlugs = getAllConceptSlugs();
   const concepts: MetadataRoute.Sitemap = [
@@ -161,6 +186,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...partner,
     ...eras,
     ...readingList,
+    ...quotes,
     ...concepts,
     ...events,
   ];

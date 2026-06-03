@@ -12,6 +12,7 @@ export function Footer({ locale, ui }: FooterProps) {
   const rssHref = locale === "en" ? "/en/rss.xml" : "/rss.xml";
   const eraHref = locale === "en" ? "/en/era/origin" : "/era/origin";
   const readingListHref = locale === "en" ? "/en/reading-list" : "/reading-list";
+  const quotesHref = locale === "en" ? "/en/quotes" : "/quotes";
   const conceptsHref = "/en/concepts";
 
   return (
@@ -39,6 +40,7 @@ export function Footer({ locale, ui }: FooterProps) {
           <div className="flex gap-4 flex-wrap justify-center sm:justify-end">
             <Link href={eraHref} className="hover:text-[var(--color-primary-light)] transition-colors duration-150">{ui.eraNavLabel}</Link>
             <Link href={readingListHref} className="hover:text-[var(--color-primary-light)] transition-colors duration-150">{ui.readingListLabel}</Link>
+            <Link href={quotesHref} className="hover:text-[var(--color-primary-light)] transition-colors duration-150">{ui.quotesLabel}</Link>
             {locale === "en" && (
               <Link href={conceptsHref} className="hover:text-[var(--color-primary-light)] transition-colors duration-150">{ui.conceptsLabel}</Link>
             )}
