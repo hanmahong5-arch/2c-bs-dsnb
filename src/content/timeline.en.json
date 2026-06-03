@@ -417,7 +417,17 @@
     "quotesLabel": "Quotes",
     "quotesContextLabel": "Context",
     "quotesSourceLabel": "Source",
-    "quotesRelatedEventLabel": "Related event"
+    "quotesRelatedEventLabel": "Related event",
+    "explainLabel": "Explain",
+    "explainBackToIndex": "← Topic map",
+    "explainFromDsPerspectiveLabel": "From DeepSeek's perspective",
+    "explainPickLevelLabel": "Pick a depth",
+    "explainAnalogyLabel": "Analogy",
+    "explainTechRefsLabel": "Technical references",
+    "explainRelatedEventsLabel": "Related events",
+    "explainRelatedConceptsLabel": "Related concepts",
+    "explainContinueLabel": "Next stop",
+    "explainDifficultyJumpLabel": "Start here"
   },
   "eras": {
     "origin": {

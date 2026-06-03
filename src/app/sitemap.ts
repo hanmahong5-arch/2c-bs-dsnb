@@ -3,6 +3,7 @@ import {
   ERA_ORDER,
   getAllConceptSlugs,
   getAllEventSlugs,
+  getAllExplainSlugs,
 } from "@/lib/content";
 
 const SITE = "https://dsnb.help";
@@ -181,10 +182,61 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
   ];
 
+  const explainSlugs = getAllExplainSlugs("zh");
+  const explainIndexAlternates = {
+    languages: {
+      "zh-CN": `${SITE}/explain`,
+      en: `${SITE}/en/explain`,
+      "x-default": `${SITE}/explain`,
+    },
+  };
+  const explainRoutes: MetadataRoute.Sitemap = [
+    {
+      url: `${SITE}/explain`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.85,
+      alternates: explainIndexAlternates,
+    },
+    {
+      url: `${SITE}/en/explain`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.85,
+      alternates: explainIndexAlternates,
+    },
+    ...explainSlugs.flatMap((slug) => {
+      const alt = {
+        languages: {
+          "zh-CN": `${SITE}/explain/${slug}`,
+          en: `${SITE}/en/explain/${slug}`,
+          "x-default": `${SITE}/explain/${slug}`,
+        },
+      };
+      return [
+        {
+          url: `${SITE}/explain/${slug}`,
+          lastModified: now,
+          changeFrequency: "monthly" as const,
+          priority: 0.8,
+          alternates: alt,
+        },
+        {
+          url: `${SITE}/en/explain/${slug}`,
+          lastModified: now,
+          changeFrequency: "monthly" as const,
+          priority: 0.8,
+          alternates: alt,
+        },
+      ];
+    }),
+  ];
+
   return [
     ...home,
     ...partner,
     ...eras,
+    ...explainRoutes,
     ...readingList,
     ...quotes,
     ...concepts,

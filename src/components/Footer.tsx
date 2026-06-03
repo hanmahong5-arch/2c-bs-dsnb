@@ -13,6 +13,7 @@ export function Footer({ locale, ui }: FooterProps) {
   const eraHref = locale === "en" ? "/en/era/origin" : "/era/origin";
   const readingListHref = locale === "en" ? "/en/reading-list" : "/reading-list";
   const quotesHref = locale === "en" ? "/en/quotes" : "/quotes";
+  const explainHref = locale === "en" ? "/en/explain" : "/explain";
   const conceptsHref = "/en/concepts";
 
   return (
@@ -38,6 +39,7 @@ export function Footer({ locale, ui }: FooterProps) {
 
         <div className="flex flex-col items-center sm:items-end gap-2 text-xs text-[var(--color-text-muted)]">
           <div className="flex gap-4 flex-wrap justify-center sm:justify-end">
+            <Link href={explainHref} className="hover:text-[var(--color-primary-light)] transition-colors duration-150">{ui.explainLabel}</Link>
             <Link href={eraHref} className="hover:text-[var(--color-primary-light)] transition-colors duration-150">{ui.eraNavLabel}</Link>
             <Link href={readingListHref} className="hover:text-[var(--color-primary-light)] transition-colors duration-150">{ui.readingListLabel}</Link>
             <Link href={quotesHref} className="hover:text-[var(--color-primary-light)] transition-colors duration-150">{ui.quotesLabel}</Link>

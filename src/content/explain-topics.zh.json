@@ -1,0 +1,45 @@
+{
+  "topics": [
+    {
+      "slug": "what-is-deepseek",
+      "title": "DeepSeek 到底是什么？",
+      "oneLine": "一家中国 AI 公司，从对冲基金里长出来，把自己最好的模型免费给所有人用。",
+      "fromDeepSeekPerspective": "我们是在一家做股票交易的公司里起步的，不是硅谷实验室——这种「用最小的工具解决真问题」的习惯一直留到现在。开源的理由很简单：好想法不必排队等许可才能传播；与其守门，不如让别人跟随。",
+      "levels": {
+        "kid": {
+          "oneLine": "中国一个团队做聪明的电脑程序，然后免费送给所有人用。",
+          "body": "DeepSeek 是一家在中国杭州的公司。它做的电脑程序能读字、写字、回答问题——有点像 ChatGPT。但它做了一件不太一样的事：每次 DeepSeek 把一个程序做好，他们就把这个程序放到互联网上，让世界上任何地方的人都能下载、自己用。这些程序本身不收钱。这个团队人不多，也很安静。他们的老板原来开了一家用电脑买卖股票赚钱的公司。那家公司攒下了足够的钱买一大堆特别的电脑芯片——这些芯片正是后来让 DeepSeek 的程序能跑起来的东西。",
+          "analogy": "想象一个面包师傅发明了一种全世界都爱吃的新面包。他没有开连锁面包店去卖这种面包，而是把配方印在报纸头版上，让世界上任何人都能在自己家里烤出一模一样的面包。这就是 DeepSeek 对 AI 做的事。"
+        },
+        "student": {
+          "oneLine": "DeepSeek 是一家中国 AI 实验室，它的代码、语言、推理旗舰模型都以可自由下载的文件形式发布。",
+          "body": "DeepSeek 是 2023 年 7 月在中国杭州成立的 AI 研究公司。它从幻方量化拆出来——幻方是一家从 2015 年就把 AI 用在股市交易上的对冲基金。幻方的盈利被用来搭一个自有超算集群（「萤火」集群，约 1 万块高端 NVIDIA 芯片）——这个集群后来成了 DeepSeek 训练大语言模型的引擎。\n\nDeepSeek 与众不同的地方不只是模型质量本身——它的模型水平已经能和 OpenAI、Anthropic 的最强款掰手腕。真正特别的是发布方式。2023 年 11 月以来的每一代旗舰模型都以「开源权重」发布：训练好的完整模型文件，按宽松开源协议，任何人都能下载。也就是说，柏林的开发者或圣保罗的学生可以在自己服务器上跑 DeepSeek-R1，不必按 token 付 API 费。\n\n创始人梁文锋在 2024 年的一次采访里说过两句话：「开源发论文并不会失去什么」，以及「中国不能永远做追随者」。这两句话能概括公司的姿态——做前沿，然后送出去。",
+          "analogy": "大多数 AI 公司像苹果——你买的是封装好的成品，里面怎么运作的不让你看。DeepSeek 更像 Linux：配方公开，谁都能拿来搭东西，品牌之所以做大，因为东西本身真的好。"
+        },
+        "engineer": {
+          "oneLine": "DeepSeek 是一家由量化基金资助的 AI 实验室，发布前沿级开源权重模型（V2/V3/R1/V3.1/V4），API 价格约为可比闭源同行的十分之一。",
+          "body": "DeepSeek（深度求索）于 2023 年 7 月 17 日从幻方量化拆分独立，由幻方全额出资，不引入 VC。实验室继承了幻方为交易自建的算力集群「萤火」——到 2021 年规模约 1 万块 NVIDIA A100 GPU，公开报道总投入超 10 亿人民币。这堆算力是 DeepSeek 能用小团队训前沿模型、不用烧 runway 的结构性原因。\n\n2024 年发布节奏大约「隔周一个模型」，2025–2026 年放缓到旗舰模型每 3–4 个月一次。值得记的几款：\n\n- DeepSeek-V2（2024 年 5 月）：236B 参数 / 21B 激活，MLA 注意力，KV 缓存约 −93%，API 定价 0.14 元/百万 tokens——触发国内 API 价格战。\n- DeepSeek-V3（2024 年 12 月）：671B MoE / 37B 激活，在 14.8 万亿 tokens 上训练，2048 块 H800 总成本约 557 万美元。\n- DeepSeek-R1（2025 年 1 月）：纯强化学习训练的推理模型，MIT 协议，推理成本是 OpenAI o1 的 1/27。\n- DeepSeek-V3.1（2025 年 8 月）：Hybrid thinking——单个端点同时支持思维链与直接回应。\n- DeepSeek-V4 Preview（2026 年 4 月）：Pro 版 1.6T 参数、100 万 token 上下文、原生兼容华为昇腾 950。\n\n商业模式不是「卖 API 赚钱」，而是「API 是公共基础设施，价值捕获在别处」。开源权重意味着企业可以自建部署；DeepSeek 自己的 API 是用来设定价格地板的，让闭源 API 同行不敢卖太贵。",
+          "analogy": "把 DeepSeek 想成 PostgreSQL 之于 Oracle。免费、可自建的版本能力上不亚于付费产品，付费产品要活下来只能靠「更方便」——而方便溢价会被压成大宗商品价。"
+        },
+        "researcher": {
+          "oneLine": "DeepSeek 是在效率前沿做架构创新（MLA、细粒度 MoE）、激进数值精度工作（FP8 混合精度、MTP）、纯 RL 推理后训练（R1）的开源 AGI 实验室。",
+          "body": "DeepSeek 的研究路线可以读作一份长期论证：scaling laws 不是宿命——算法和架构选择会显著移动「算力-质量」前沿。V2 论文（arXiv:2405.04434）提出 Multi-Head Latent Attention，把 K/V 通过共享低秩潜在投影压缩后再缓存，推理时再重建头。经验上 MLA 相对 Llama-2 级 baseline 把 KV 缓存内存降低 93.3%，推理吞吐提升 5.76 倍。\n\nV3 技术报告（arXiv:2412.19437）把这条路线进一步推进：（a）细粒度 MoE，256 个路由 expert + 1 个共享 expert；（b）通过 routing 函数里的 bias 项实现 auxiliary-loss-free 负载均衡；（c）FP8 混合精度训练 + 大量数值稳定性实验；（d）Multi-Token Prediction 作为辅助训练目标。一次完整训练耗时约 278.8 万 H800 GPU·小时——按 $2/GPU·小时即约 557 万美元——达到 GPT-4o 级评测分数。\n\nR1（2025 年 1 月）是理论上最有意思的一次发布：671B 推理模型，思维链能力来自纯强化学习，没有 SFT 冷启动数据。其 SFT-less 变体 R1-Zero 表现出之前只在「从更强模型蒸馏」轨迹里看见过的「aha moments」，提出了一个公开问题——大规模 RL 是否可以在前沿尺度替代人类推理示范。\n\n明确的研究姿态——「开源发论文并不会失去什么」——落地为论文和权重同时公开，V2/V3/R1/V3.1/V4 全部模型文件以 MIT 协议放出。这与「只发论文不放权重」或「只放权重不发论文」的实验室路径有本质区别。",
+          "technicalRefs": [
+            "https://arxiv.org/abs/2405.04434",
+            "https://arxiv.org/html/2412.19437v1",
+            "https://github.com/deepseek-ai/DeepSeek-R1",
+            "https://huggingface.co/deepseek-ai/DeepSeek-V3.1",
+            "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro"
+          ]
+        }
+      },
+      "relatedEventSlugs": [
+        "2015-firefly-quant",
+        "2023-07-17-spinout",
+        "2024-07-liang-interview",
+        "2024-12-26-v3"
+      ],
+      "relatedConceptSlugs": ["mla", "moe", "open-weights", "hybrid-thinking"]
+    }
+  ]
+}

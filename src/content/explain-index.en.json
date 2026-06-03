@@ -1,0 +1,45 @@
+{
+  "eyebrow": "DSNB · Explain",
+  "headline": "Understand DeepSeek at the depth you want",
+  "intro": "DeepSeek is a story you can read at four different depths. Each topic below has the same four tabs — a one-paragraph version for a 10-year-old, a longer version for a curious teenager, a working explanation for a software engineer, and the underlying research framing for someone with a machine-learning background. Same story, four resolutions. Pick the depth you want, switch up or down anytime.",
+  "fromDeepSeekPerspective": "We chose to write this site this way because DeepSeek itself was built on the premise that good ideas should be explainable. Open weights, open papers, and a refusal to hide behind marketing language are all the same principle: a story worth telling should be tellable at every level.",
+  "levelLabels": {
+    "kid": "Kid",
+    "student": "Teen",
+    "engineer": "Engineer",
+    "researcher": "Researcher"
+  },
+  "levelDescriptions": {
+    "kid": "Plain language. One short paragraph. Analogies in place of jargon. Aimed at a 10-year-old reading on their own.",
+    "student": "A curious teenager with internet access. Some jargon used, but defined inline. About one page of reading.",
+    "engineer": "A software engineer who has shipped real systems but doesn't do ML for a living. Concrete numbers, no hand-waving on tradeoffs.",
+    "researcher": "Someone who has read transformer papers. Architectural details, paper citations, what's novel vs. derivative."
+  },
+  "difficultyLabel": "Depth",
+  "startHere": [
+    {
+      "slug": "what-is-deepseek",
+      "title": "What is DeepSeek?",
+      "oneLine": "A Chinese AI company that gives away its best models for free, born from a quant hedge fund.",
+      "difficulty": "kid"
+    },
+    {
+      "slug": "why-open-source",
+      "title": "Why open-source instead of selling APIs?",
+      "oneLine": "Open weights let anyone deploy DeepSeek-grade AI on their own machines — the move that broke the price ceiling on frontier models.",
+      "difficulty": "student"
+    },
+    {
+      "slug": "cost-efficiency",
+      "title": "How did $5.6M train a GPT-4-class model?",
+      "oneLine": "DeepSeek-V3 was trained for ~1/10th the cost of competitors through ruthless engineering across data, architecture, and numerical precision.",
+      "difficulty": "engineer"
+    },
+    {
+      "slug": "mla",
+      "title": "What is Multi-Head Latent Attention (MLA)?",
+      "oneLine": "DeepSeek's attention reformulation that compresses the KV cache by ~93%, making long context windows affordable at frontier scale.",
+      "difficulty": "researcher"
+    }
+  ]
+}

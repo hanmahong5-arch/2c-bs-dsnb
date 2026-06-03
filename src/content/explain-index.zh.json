@@ -1,0 +1,45 @@
+{
+  "eyebrow": "DSNB · 讲清楚",
+  "headline": "按你想要的深度，把 DeepSeek 看懂",
+  "intro": "DeepSeek 这个故事可以读 4 个不同的深度。下面每个主题都有同样的 4 个分页——一段写给 10 岁孩子的话、一段写给好奇的中学生的稍长版本、一段写给程序员的工作解释、以及一段写给懂机器学习的人的研究语境。同一个故事，4 个分辨率。挑你想要的深度，随时上下切。",
+  "fromDeepSeekPerspective": "我们之所以这样写这个站，是因为 DeepSeek 本身就建立在「好的想法应该可以被讲清楚」这个前提上。开源权重、公开论文、拒绝躲在营销话术后面，都是同一种原则：一个值得讲的故事，每一层都应该讲得清楚。",
+  "levelLabels": {
+    "kid": "小学生",
+    "student": "中学生",
+    "engineer": "工程师",
+    "researcher": "研究者"
+  },
+  "levelDescriptions": {
+    "kid": "用大白话，一段话讲完，类比代替术语。目标读者是能自己看一段文字的 10 岁孩子。",
+    "student": "一个能上网搜东西的好奇中学生。会用一些术语，但当场解释清楚。大约一页阅读量。",
+    "engineer": "做过真实系统但不专门搞 ML 的程序员。具体数字，权衡不打太极。",
+    "researcher": "读过 transformer 论文的人。架构细节、论文引用，原创点和延续点分得清楚。"
+  },
+  "difficultyLabel": "深度",
+  "startHere": [
+    {
+      "slug": "what-is-deepseek",
+      "title": "DeepSeek 到底是什么？",
+      "oneLine": "一家中国 AI 公司，从对冲基金里长出来，把自己最好的模型免费给所有人用。",
+      "difficulty": "kid"
+    },
+    {
+      "slug": "why-open-source",
+      "title": "为什么开源而不卖 API？",
+      "oneLine": "开源权重让任何人都能在自己机器上跑 DeepSeek 级 AI——这是打穿前沿模型价格天花板的那一招。",
+      "difficulty": "student"
+    },
+    {
+      "slug": "cost-efficiency",
+      "title": "557 万美元怎么训出 GPT-4 级模型？",
+      "oneLine": "DeepSeek-V3 训练成本只有同级模型的 1/10 左右，靠的是数据、架构、数值精度三个方向的极致工程。",
+      "difficulty": "engineer"
+    },
+    {
+      "slug": "mla",
+      "title": "多头潜在注意力（MLA）是什么？",
+      "oneLine": "DeepSeek 把 KV 缓存压到原来 7% 的那个注意力重构——这是长上下文在前沿模型上变得便宜的关键。",
+      "difficulty": "researcher"
+    }
+  ]
+}

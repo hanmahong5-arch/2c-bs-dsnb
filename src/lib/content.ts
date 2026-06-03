@@ -8,6 +8,10 @@ import enReading from "../content/reading-list.en.json";
 import enConcepts from "../content/concepts.en.json";
 import zhQuotes from "../content/quotes.zh.json";
 import enQuotes from "../content/quotes.en.json";
+import zhExplainIndex from "../content/explain-index.zh.json";
+import enExplainIndex from "../content/explain-index.en.json";
+import zhExplainTopics from "../content/explain-topics.zh.json";
+import enExplainTopics from "../content/explain-topics.en.json";
 
 export type Locale = "zh" | "en";
 
@@ -97,6 +101,16 @@ export type UiText = {
   quotesContextLabel: string;
   quotesSourceLabel: string;
   quotesRelatedEventLabel: string;
+  explainLabel: string;
+  explainBackToIndex: string;
+  explainFromDsPerspectiveLabel: string;
+  explainPickLevelLabel: string;
+  explainAnalogyLabel: string;
+  explainTechRefsLabel: string;
+  explainRelatedEventsLabel: string;
+  explainRelatedConceptsLabel: string;
+  explainContinueLabel: string;
+  explainDifficultyJumpLabel: string;
 };
 
 export type EraMeta = {
@@ -167,6 +181,58 @@ export type QuotesBundle = {
   headline: string;
   intro: string;
   entries: QuoteEntry[];
+};
+
+export type ExplainLevel =
+  | "kid"
+  | "student"
+  | "engineer"
+  | "researcher";
+
+export const EXPLAIN_LEVEL_ORDER: ExplainLevel[] = [
+  "kid",
+  "student",
+  "engineer",
+  "researcher",
+];
+
+export type ExplainLevelContent = {
+  oneLine: string;
+  body: string;
+  analogy?: string;
+  technicalRefs?: string[];
+};
+
+export type ExplainTopic = {
+  slug: string;
+  title: string;
+  oneLine: string;
+  fromDeepSeekPerspective: string;
+  levels: Record<ExplainLevel, ExplainLevelContent>;
+  relatedEventSlugs?: string[];
+  relatedConceptSlugs?: string[];
+};
+
+export type ExplainTopicSummary = {
+  slug: string;
+  title: string;
+  oneLine: string;
+  difficulty: ExplainLevel;
+};
+
+export type ExplainIndexBundle = {
+  eyebrow: string;
+  headline: string;
+  intro: string;
+  fromDeepSeekPerspective: string;
+  levelLabels: Record<ExplainLevel, string>;
+  levelDescriptions: Record<ExplainLevel, string>;
+  difficultyLabel: string;
+  startHere: ExplainTopicSummary[];
+};
+
+export type ExplainTopicsBundle = {
+  topics: ExplainTopic[];
 };
 
 export type PartnerSection = {
@@ -276,6 +342,46 @@ export function loadQuotes(locale: Locale = DEFAULT_LOCALE): QuotesBundle {
 
 export function quotesUrl(locale: Locale): string {
   return locale === "en" ? "/en/quotes" : "/quotes";
+}
+
+const EXPLAIN_INDEX_BUNDLES: Record<Locale, ExplainIndexBundle> = {
+  zh: zhExplainIndex as ExplainIndexBundle,
+  en: enExplainIndex as ExplainIndexBundle,
+};
+
+const EXPLAIN_TOPIC_BUNDLES: Record<Locale, ExplainTopicsBundle> = {
+  zh: zhExplainTopics as ExplainTopicsBundle,
+  en: enExplainTopics as ExplainTopicsBundle,
+};
+
+export function loadExplainIndex(
+  locale: Locale = DEFAULT_LOCALE,
+): ExplainIndexBundle {
+  return EXPLAIN_INDEX_BUNDLES[locale];
+}
+
+export function loadExplainTopics(
+  locale: Locale = DEFAULT_LOCALE,
+): ExplainTopic[] {
+  return EXPLAIN_TOPIC_BUNDLES[locale].topics;
+}
+
+export function getAllExplainSlugs(
+  locale: Locale = DEFAULT_LOCALE,
+): string[] {
+  return EXPLAIN_TOPIC_BUNDLES[locale].topics.map((t) => t.slug);
+}
+
+export function getExplainTopicBySlug(
+  slug: string,
+  locale: Locale = DEFAULT_LOCALE,
+): ExplainTopic | undefined {
+  return EXPLAIN_TOPIC_BUNDLES[locale].topics.find((t) => t.slug === slug);
+}
+
+export function explainUrl(slug: string | undefined, locale: Locale): string {
+  const prefix = locale === "en" ? "/en/explain" : "/explain";
+  return slug ? `${prefix}/${slug}` : prefix;
 }
 
 export const DEFAULT_LOCALE: Locale = "zh";

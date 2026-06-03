@@ -415,7 +415,17 @@
     "quotesLabel": "引语",
     "quotesContextLabel": "上下文",
     "quotesSourceLabel": "出处",
-    "quotesRelatedEventLabel": "相关事件"
+    "quotesRelatedEventLabel": "相关事件",
+    "explainLabel": "讲清楚",
+    "explainBackToIndex": "← 主题地图",
+    "explainFromDsPerspectiveLabel": "从 DeepSeek 的视角",
+    "explainPickLevelLabel": "选择深度",
+    "explainAnalogyLabel": "类比",
+    "explainTechRefsLabel": "技术参考",
+    "explainRelatedEventsLabel": "相关事件",
+    "explainRelatedConceptsLabel": "相关概念",
+    "explainContinueLabel": "下一站",
+    "explainDifficultyJumpLabel": "从这里开始"
   },
   "eras": {
     "origin": {
