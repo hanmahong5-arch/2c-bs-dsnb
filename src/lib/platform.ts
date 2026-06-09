@@ -4,7 +4,7 @@ import type { UiText } from "./content";
 export type Platform = "win" | "mac" | "linux" | "unknown";
 
 const RELEASES_BASE =
-  "https://github.com/hanmahong5-arch/lurus-switch/releases/latest";
+  "https://github.com/LurusTech/lurus-switch/releases/latest";
 
 // GitHub serves /releases/latest/download/<asset> as a 302 to the latest
 // release's asset by exact filename — no API call needed, version-agnostic.

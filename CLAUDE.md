@@ -73,14 +73,14 @@ bunx vercel domains add <subdomain>.dsnb.help
 ## Switch 集成（用户漏斗的下一跳）
 
 落地页 CTA 按钮：
-- "下载 Switch" → `https://github.com/hanmahong5-arch/lurus-switch/releases/latest`
+- "下载 Switch" → `https://github.com/LurusTech/lurus-switch/releases/latest`
 - "已有 Switch？一键导入" → `switch://import?type=provider&data=<base64url(preset)>` 协议唤起
 
 deeplink data 形状对齐 `2c-gui-switch/internal/provider/preset.go` 的 `Preset` struct，base64url 编码后嵌在 `ClosingCTA.tsx` 的 `SWITCH_IMPORT_URL` 常量。
 
 ## Gotchas
 
-- 占位 URL `lurus-dev/lurus-switch` 是错的，**必须**用 `hanmahong5-arch/lurus-switch`
+- Switch 仓库 owner = `LurusTech/lurus-switch`（2026-06-08 移交 LurusTech）；旧值 `lurus-dev/lurus-switch`（错误占位符）和 `hanmahong5-arch/lurus-switch`（移交前，现重定向）均勿再用
 - 营销文案不要堆民族主义口号（"国之骄傲"、"打败 X"等），保持自信但克制
 - `timeline.json` 是数据真源，改文案改 JSON，**不要**写死在组件里
 - Vercel hobby tier 流量上限 100GB/月，目前用量极低，到顶前会有邮件通知

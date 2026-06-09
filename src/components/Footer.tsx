@@ -26,7 +26,7 @@ export function Footer({ locale, ui }: FooterProps) {
           <p>
             {ui.footerTagline} ·{" "}
             <a
-              href="https://github.com/hanmahong5-arch/lurus-switch"
+              href="https://github.com/LurusTech/lurus-switch"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-[var(--color-primary-light)] transition-colors duration-150"
