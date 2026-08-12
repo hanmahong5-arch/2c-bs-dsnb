@@ -80,7 +80,7 @@ export function QuotesSection({ bundle, locale, ui }: Props) {
                     {event && (
                       <Link
                         href={eventUrl(event.slug, locale)}
-                        className="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-full border border-[var(--color-border)] text-[var(--color-text-secondary)] hover:text-[var(--color-primary-light)] hover:border-[var(--color-primary)] transition-colors"
+                        className="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-full border border-[var(--color-border)] text-[var(--color-text-secondary)] hover:text-[var(--color-primary-light)] hover:border-[var(--color-primary)] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]"
                       >
                         <span className="text-[var(--color-text-muted)]">
                           {ui.quotesRelatedEventLabel}:
@@ -93,7 +93,7 @@ export function QuotesSection({ bundle, locale, ui }: Props) {
                         href={entry.source}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-full border border-[var(--color-border)] text-[var(--color-text-secondary)] hover:text-[var(--color-primary-light)] hover:border-[var(--color-primary)] transition-colors"
+                        className="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-full border border-[var(--color-border)] text-[var(--color-text-secondary)] hover:text-[var(--color-primary-light)] hover:border-[var(--color-primary)] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]"
                       >
                         <span className="text-[var(--color-text-muted)]">
                           {ui.quotesSourceLabel}:

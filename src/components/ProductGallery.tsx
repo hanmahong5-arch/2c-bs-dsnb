@@ -24,9 +24,9 @@ function ProductCard({ product, index, ui }: ProductCardProps) {
         <span
           className="flex-shrink-0 text-xs font-mono px-2 py-0.5 rounded-md"
           style={{
-            background: "rgba(77,107,254,0.1)",
+            background: "var(--color-primary-tint-10)",
             color: "var(--color-primary-light)",
-            border: "1px solid rgba(77,107,254,0.2)",
+            border: "1px solid var(--color-primary-tint-20)",
           }}
         >
           {product.year}

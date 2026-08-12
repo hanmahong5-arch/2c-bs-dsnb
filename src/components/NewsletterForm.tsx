@@ -108,14 +108,18 @@ export function NewsletterForm({ locale, ui }: NewsletterFormProps) {
             disabled={submitting || success}
             required
             autoComplete="email"
-            className="flex-1 px-4 py-3 rounded-lg bg-[var(--color-surface)] border border-[var(--color-border)] text-[var(--color-text-primary)] placeholder:text-[var(--color-text-muted)] focus:outline-none focus:border-[var(--color-primary)] transition-colors disabled:opacity-60"
+            className="flex-1 px-4 py-3 rounded-lg bg-[var(--color-surface)] border border-[var(--color-border)] text-[var(--color-text-primary)] placeholder:text-[var(--color-text-muted)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)] focus:border-[var(--color-primary)] transition-colors disabled:opacity-60"
           />
           <button
             type="submit"
             disabled={submitting || success}
-            className="px-6 py-3 bg-[var(--color-primary)] text-white rounded-lg font-semibold hover:bg-[var(--color-primary-deep)] transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+            className="px-6 py-3 bg-[var(--color-primary)] text-white rounded-lg font-semibold hover:bg-[var(--color-primary-deep)] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)] disabled:opacity-60 disabled:cursor-not-allowed"
           >
-            {success ? ui.newsletterSuccess : ui.newsletterSubmit}
+            {success
+              ? ui.newsletterSuccess
+              : submitting
+                ? ui.newsletterSubmitting
+                : ui.newsletterSubmit}
           </button>
         </form>
 

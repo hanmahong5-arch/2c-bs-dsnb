@@ -57,7 +57,7 @@ export function NotFoundContent({ locale, ui }: NotFoundContentProps) {
                 <li key={item.slug}>
                   <Link
                     href={eventUrl(item.slug, locale)}
-                    className="block px-4 py-3 rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] hover:border-[var(--color-primary)] transition-colors"
+                    className="block px-4 py-3 rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] hover:border-[var(--color-primary)] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]"
                   >
                     <span className="block text-sm text-[var(--color-text-primary)] font-medium">
                       {item.headline}
@@ -74,7 +74,7 @@ export function NotFoundContent({ locale, ui }: NotFoundContentProps) {
 
         <Link
           href={homeUrl(locale)}
-          className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-[var(--color-primary)] text-white font-semibold hover:bg-[var(--color-primary-deep)] transition-colors"
+          className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-[var(--color-primary)] text-white font-semibold hover:bg-[var(--color-primary-deep)] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary-light)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]"
         >
           {ui.notFoundBackHome}
         </Link>

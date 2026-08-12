@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import type {
   ExplainLevel,
   ExplainLevelContent,
@@ -8,14 +8,7 @@ import type {
   Locale,
   UiText,
 } from "@/lib/content";
-import { EXPLAIN_LEVEL_ORDER } from "@/lib/content";
-
-const LEVEL_COLOR: Record<ExplainLevel, string> = {
-  kid: "#FBBF24",
-  student: "#22D3EE",
-  engineer: "#6F8AFF",
-  researcher: "#4D6BFE",
-};
+import { EXPLAIN_LEVEL_ORDER, LEVEL_COLOR } from "@/lib/content";
 
 type Props = {
   topic: ExplainTopic;
@@ -36,6 +29,27 @@ export function ExplainLevelTabs({
   const [active, setActive] = useState<ExplainLevel>(initialLevel ?? "kid");
   const content: ExplainLevelContent = topic.levels[active];
   const accent = LEVEL_COLOR[active];
+  const tabRefs = useRef<Partial<Record<ExplainLevel, HTMLButtonElement>>>({});
+
+  function focusLevel(lvl: ExplainLevel) {
+    setActive(lvl);
+    tabRefs.current[lvl]?.focus();
+  }
+
+  function handleTablistKeyDown(e: React.KeyboardEvent<HTMLDivElement>) {
+    const idx = EXPLAIN_LEVEL_ORDER.indexOf(active);
+    if (e.key === "ArrowRight") {
+      e.preventDefault();
+      focusLevel(EXPLAIN_LEVEL_ORDER[(idx + 1) % EXPLAIN_LEVEL_ORDER.length]);
+    } else if (e.key === "ArrowLeft") {
+      e.preventDefault();
+      focusLevel(
+        EXPLAIN_LEVEL_ORDER[
+          (idx - 1 + EXPLAIN_LEVEL_ORDER.length) % EXPLAIN_LEVEL_ORDER.length
+        ],
+      );
+    }
+  }
 
   return (
     <div>
@@ -43,6 +57,7 @@ export function ExplainLevelTabs({
       <div
         role="tablist"
         aria-label={ui.explainPickLevelLabel}
+        onKeyDown={handleTablistKeyDown}
         className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-8"
       >
         {EXPLAIN_LEVEL_ORDER.map((lvl) => {
@@ -51,8 +66,12 @@ export function ExplainLevelTabs({
           return (
             <button
               key={lvl}
+              ref={(el) => {
+                tabRefs.current[lvl] = el ?? undefined;
+              }}
               role="tab"
               aria-selected={isActive}
+              tabIndex={isActive ? 0 : -1}
               type="button"
               onClick={() => setActive(lvl)}
               className="card px-3 py-3 text-left transition-all"

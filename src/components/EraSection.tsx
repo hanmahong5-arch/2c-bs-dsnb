@@ -6,14 +6,7 @@ import type {
   TimelineEntry,
   UiText,
 } from "@/lib/content";
-import { eventUrl, eraUrl, homeUrl, ERA_ORDER } from "@/lib/content";
-
-const ERA_COLOR: Record<Era, string> = {
-  origin: "#6F8AFF",
-  breakthrough: "#22D3EE",
-  world: "#FBBF24",
-  present: "#4D6BFE",
-};
+import { eventUrl, eraUrl, homeUrl, ERA_ORDER, ERA_COLOR } from "@/lib/content";
 
 type Props = {
   era: Era;

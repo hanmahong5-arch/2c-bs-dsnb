@@ -3,18 +3,15 @@ import type {
   TimelineEntry,
   UiText,
   Locale,
-  Era,
 } from "@/lib/content";
-import { eventUrl, homeUrl, readingTimeMinutes } from "@/lib/content";
+import {
+  eventUrl,
+  homeUrl,
+  readingTimeMinutes,
+  ERA_COLOR,
+} from "@/lib/content";
 import { Footer } from "@/components/Footer";
 import { ReadingProgress } from "@/components/ReadingProgress";
-
-const ERA_COLOR: Record<Era, string> = {
-  origin: "#6F8AFF",
-  breakthrough: "#22D3EE",
-  world: "#FBBF24",
-  present: "#4D6BFE",
-};
 
 type Props = {
   event: TimelineEntry;
@@ -86,7 +83,7 @@ export function EventPageContent({ event, prev, next, locale, ui }: Props) {
           {event.product && (
             <div
               className="mt-10 p-5 rounded-2xl border border-[var(--color-border)]"
-              style={{ background: "rgba(77,107,254,0.06)" }}
+              style={{ background: "var(--color-primary-tint-06)" }}
             >
               <p className="eyebrow mb-2">{ui.relatedProduct}</p>
               {event.product.url ? (

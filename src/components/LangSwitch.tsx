@@ -19,7 +19,7 @@ export function LangSwitch() {
   return (
     <button
       onClick={() => router.push(targetPath)}
-      className="fixed top-4 right-4 z-50 px-3 py-1.5 rounded-full border border-[var(--color-border)] bg-[var(--color-surface)]/80 backdrop-blur text-xs font-mono hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] transition-colors"
+      className="fixed top-4 right-4 z-50 px-3 py-1.5 rounded-full border border-[var(--color-border)] bg-[var(--color-surface)]/80 backdrop-blur text-xs font-mono hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]"
       aria-label={isZh ? 'Switch to English' : '切换到中文'}
     >
       {targetLabel}

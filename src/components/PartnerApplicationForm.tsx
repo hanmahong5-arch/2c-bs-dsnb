@@ -160,16 +160,20 @@ export function PartnerApplicationForm({
           onChange={(e) => setMessage(e.target.value)}
           rows={4}
           disabled={submitting || success}
-          className="w-full px-4 py-3 rounded-lg bg-[var(--color-surface)] border border-[var(--color-border)] text-[var(--color-text-primary)] placeholder:text-[var(--color-text-muted)] focus:outline-none focus:border-[var(--color-primary)] transition-colors disabled:opacity-60"
+          className="w-full px-4 py-3 rounded-lg bg-[var(--color-surface)] border border-[var(--color-border)] text-[var(--color-text-primary)] placeholder:text-[var(--color-text-muted)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)] focus:border-[var(--color-primary)] transition-colors disabled:opacity-60"
         />
       </div>
       <div className="sm:col-span-2 flex flex-col items-center gap-3 mt-2">
         <button
           type="submit"
           disabled={submitting || success}
-          className="px-8 py-3 bg-[var(--color-primary)] text-white rounded-lg font-semibold hover:bg-[var(--color-primary-deep)] transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+          className="px-8 py-3 bg-[var(--color-primary)] text-white rounded-lg font-semibold hover:bg-[var(--color-primary-deep)] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)] disabled:opacity-60 disabled:cursor-not-allowed"
         >
-          {success ? partner.formSuccess : partner.formSubmit}
+          {success
+            ? partner.formSuccess
+            : submitting
+              ? partner.formSubmitting
+              : partner.formSubmit}
         </button>
         {errorMsg ? (
           <p
@@ -222,7 +226,7 @@ function Field({
         required={required}
         autoComplete={autoComplete}
         disabled={disabled}
-        className="w-full px-4 py-3 rounded-lg bg-[var(--color-surface)] border border-[var(--color-border)] text-[var(--color-text-primary)] placeholder:text-[var(--color-text-muted)] focus:outline-none focus:border-[var(--color-primary)] transition-colors disabled:opacity-60"
+        className="w-full px-4 py-3 rounded-lg bg-[var(--color-surface)] border border-[var(--color-border)] text-[var(--color-text-primary)] placeholder:text-[var(--color-text-muted)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)] focus:border-[var(--color-primary)] transition-colors disabled:opacity-60"
       />
     </div>
   );
