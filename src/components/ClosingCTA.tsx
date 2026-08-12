@@ -54,7 +54,7 @@ export function ClosingCTA({ closing, ui }: ClosingCTAProps) {
           className="w-[600px] h-[300px] rounded-full"
           style={{
             background:
-              "radial-gradient(ellipse at center, rgba(77,107,254,0.1) 0%, transparent 70%)",
+              "radial-gradient(ellipse at center, var(--color-primary-tint-10) 0%, transparent 70%)",
             filter: "blur(40px)",
           }}
         />
@@ -92,20 +92,21 @@ export function ClosingCTA({ closing, ui }: ClosingCTAProps) {
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => track("cta_download_closing", { platform })}
-            className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl text-white font-semibold text-base transition-all duration-200"
+            className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl text-white font-semibold text-base transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary-light)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]"
             style={{
-              background:
-                "linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-deep) 100%)",
-              boxShadow: "0 4px 24px rgba(77,107,254,0.3)",
+              // Solid --color-primary-deep (not the lighter --color-primary)
+              // keeps white label text at ~6.8:1 contrast — AA-safe.
+              background: "var(--color-primary-deep)",
+              boxShadow: "0 4px 24px var(--color-primary-tint-30)",
             }}
             onMouseEnter={(e) => {
               const el = e.currentTarget as HTMLAnchorElement;
-              el.style.boxShadow = "0 6px 32px rgba(77,107,254,0.5)";
+              el.style.boxShadow = "0 6px 32px var(--color-primary-tint-50)";
               el.style.transform = "translateY(-1px)";
             }}
             onMouseLeave={(e) => {
               const el = e.currentTarget as HTMLAnchorElement;
-              el.style.boxShadow = "0 4px 24px rgba(77,107,254,0.3)";
+              el.style.boxShadow = "0 4px 24px var(--color-primary-tint-30)";
               el.style.transform = "";
             }}
           >
@@ -116,7 +117,7 @@ export function ClosingCTA({ closing, ui }: ClosingCTAProps) {
           <a
             href={SWITCH_IMPORT_URL}
             onClick={handleImportClick}
-            className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl font-medium text-base border border-[var(--color-border)] text-[var(--color-text-secondary)] hover:border-[var(--color-primary)] hover:text-[var(--color-primary-light)] transition-all duration-200"
+            className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl font-medium text-base border border-[var(--color-border)] text-[var(--color-text-secondary)] hover:border-[var(--color-primary)] hover:text-[var(--color-primary-light)] transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]"
           >
             <ImportIcon />
             {closing.ctaSecondary}

@@ -110,7 +110,7 @@ function LinkCard({ item }: { item: LinkItem }) {
       href={item.href}
       target="_blank"
       rel="noopener noreferrer"
-      className="group flex flex-col gap-0.5 px-4 py-3 rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] hover:border-[var(--color-primary)] transition-colors duration-150"
+      className="group flex flex-col gap-0.5 px-4 py-3 rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] hover:border-[var(--color-primary)] transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]"
     >
       <span className="text-sm font-mono text-[var(--color-text-secondary)] group-hover:text-[var(--color-primary-light)] transition-colors duration-150 truncate">
         {item.label}

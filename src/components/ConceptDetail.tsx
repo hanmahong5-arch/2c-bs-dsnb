@@ -60,7 +60,7 @@ export function ConceptDetail({ concept, others, ui }: Props) {
                     <li key={slug}>
                       <Link
                         href={eventUrl(slug, "en")}
-                        className="inline-block text-sm px-3 py-1.5 rounded-full border border-[var(--color-border)] text-[var(--color-text-secondary)] hover:text-[var(--color-primary-light)] hover:border-[var(--color-primary)] transition-colors"
+                        className="inline-block text-sm px-3 py-1.5 rounded-full border border-[var(--color-border)] text-[var(--color-text-secondary)] hover:text-[var(--color-primary-light)] hover:border-[var(--color-primary)] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]"
                       >
                         {event.headline}
                       </Link>

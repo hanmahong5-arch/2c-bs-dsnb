@@ -59,7 +59,7 @@ export function ExplainTopicSection({
 
           <section
             className="rounded-2xl border border-[var(--color-border)] p-5 sm:p-6 mb-12"
-            style={{ background: "rgba(77,107,254,0.06)" }}
+            style={{ background: "var(--color-primary-tint-06)" }}
           >
             <p className="eyebrow mb-2">
               {ui.explainFromDsPerspectiveLabel}
@@ -92,7 +92,7 @@ export function ExplainTopicSection({
                       <li key={slug}>
                         <Link
                           href={conceptUrl(slug)}
-                          className="inline-block text-sm px-3 py-1.5 rounded-full border border-[var(--color-border)] text-[var(--color-text-secondary)] hover:text-[var(--color-primary-light)] hover:border-[var(--color-primary)] transition-colors"
+                          className="inline-block text-sm px-3 py-1.5 rounded-full border border-[var(--color-border)] text-[var(--color-text-secondary)] hover:text-[var(--color-primary-light)] hover:border-[var(--color-primary)] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]"
                         >
                           {concept.term}
                         </Link>
@@ -116,7 +116,7 @@ export function ExplainTopicSection({
                     <li key={slug}>
                       <Link
                         href={eventUrl(slug, locale)}
-                        className="inline-block text-sm px-3 py-1.5 rounded-full border border-[var(--color-border)] text-[var(--color-text-secondary)] hover:text-[var(--color-primary-light)] hover:border-[var(--color-primary)] transition-colors"
+                        className="inline-block text-sm px-3 py-1.5 rounded-full border border-[var(--color-border)] text-[var(--color-text-secondary)] hover:text-[var(--color-primary-light)] hover:border-[var(--color-primary)] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]"
                       >
                         {event.headline}
                       </Link>

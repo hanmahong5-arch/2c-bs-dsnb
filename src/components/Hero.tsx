@@ -10,7 +10,7 @@ import {
 } from "@/lib/platform";
 import { track } from "@/lib/track";
 
-// Minimal DeepSeek brand mark — 14×14 solid square + wordmark in Fraunces.
+// Minimal DeepSeek brand mark — 14×14 solid square + wordmark.
 function DeepSeekMark() {
   return (
     <div className="flex items-center gap-3 select-none" aria-hidden="true">
@@ -25,7 +25,7 @@ function DeepSeekMark() {
       />
       <span
         style={{
-          fontFamily: "'Fraunces', serif",
+          fontFamily: "var(--font-sans)",
           fontWeight: 600,
           fontSize: "1.05rem",
           letterSpacing: "-0.01em",
@@ -64,7 +64,7 @@ export function Hero({ hero, locale, ui }: HeroProps) {
           className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[400px] rounded-full"
           style={{
             background:
-              "radial-gradient(ellipse at center, rgba(77,107,254,0.12) 0%, transparent 70%)",
+              "radial-gradient(ellipse at center, var(--color-primary-tint-12) 0%, transparent 70%)",
             filter: "blur(40px)",
           }}
         />
@@ -128,21 +128,22 @@ export function Hero({ hero, locale, ui }: HeroProps) {
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => track("cta_download_hero", { platform })}
-            className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl text-white font-semibold text-base transition-all duration-200"
+            className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl text-white font-semibold text-base transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary-light)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]"
             style={{
-              background:
-                "linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-deep) 100%)",
-              boxShadow: "0 4px 24px rgba(77,107,254,0.3)",
+              // Solid --color-primary-deep (not the lighter --color-primary)
+              // keeps white label text at ~6.8:1 contrast — AA-safe.
+              background: "var(--color-primary-deep)",
+              boxShadow: "0 4px 24px var(--color-primary-tint-30)",
             }}
             onMouseEnter={(e) => {
               (e.currentTarget as HTMLAnchorElement).style.boxShadow =
-                "0 6px 32px rgba(77,107,254,0.5)";
+                "0 6px 32px var(--color-primary-tint-50)";
               (e.currentTarget as HTMLAnchorElement).style.transform =
                 "translateY(-1px)";
             }}
             onMouseLeave={(e) => {
               (e.currentTarget as HTMLAnchorElement).style.boxShadow =
-                "0 4px 24px rgba(77,107,254,0.3)";
+                "0 4px 24px var(--color-primary-tint-30)";
               (e.currentTarget as HTMLAnchorElement).style.transform = "";
             }}
           >
@@ -153,7 +154,7 @@ export function Hero({ hero, locale, ui }: HeroProps) {
           <a
             href="#timeline"
             onClick={() => track("cta_scroll_timeline")}
-            className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl font-medium text-base border border-[var(--color-border)] text-[var(--color-text-secondary)] hover:border-[var(--color-primary)] hover:text-[var(--color-primary-light)] transition-all duration-200"
+            className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl font-medium text-base border border-[var(--color-border)] text-[var(--color-text-secondary)] hover:border-[var(--color-primary)] hover:text-[var(--color-primary-light)] transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]"
           >
             {hero.cta.secondary}
             <ChevronDownIcon />

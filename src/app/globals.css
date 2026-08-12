@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
 @import "tailwindcss";
 
 html {
@@ -11,6 +10,16 @@ html {
   --color-primary-deep: #2D4ECC;
   --color-primary-light: #6F8AFF;
   --color-accent: #22D3EE;
+
+  /* Primary-tinted overlays (glows, hover shadows, faint fills) — named
+     tokens instead of repeating the raw rgba() literal at each call site
+     so a palette change only needs one edit. */
+  --color-primary-tint-06: rgba(77, 107, 254, 0.06);
+  --color-primary-tint-10: rgba(77, 107, 254, 0.1);
+  --color-primary-tint-12: rgba(77, 107, 254, 0.12);
+  --color-primary-tint-20: rgba(77, 107, 254, 0.2);
+  --color-primary-tint-30: rgba(77, 107, 254, 0.3);
+  --color-primary-tint-50: rgba(77, 107, 254, 0.5);
 
   /* Dark navy background */
   --background: #060818;
@@ -28,7 +37,7 @@ html {
   /* Text */
   --color-text-primary: #E8EAF6;
   --color-text-secondary: #8892C8;
-  --color-text-muted: #4A5280;
+  --color-text-muted: #727BC0;
 
   /* LurusTech master tokens — brand-spec.md SoT */
   --lt-paper: #F5F2E8;
@@ -41,8 +50,10 @@ html {
   --lt-info:  #2D4A8A;
   /* dsnb accent: DeepSeek blue (product positioning, preserved) */
   --lt-accent: #4D6BFE;
-  --font-sans: 'Inter Tight', system-ui, sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
+  /* --font-sans / --font-mono are set by the self-hosted next/font
+     variables applied to <body> in each locale layout. */
+  --font-sans: var(--font-inter-tight), system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), monospace;
 }
 
 @theme inline {
@@ -122,6 +133,18 @@ body {
 }
 
 .card:hover {
+  border-color: var(--color-border-hover);
+  box-shadow: 0 0 30px rgba(77, 107, 254, 0.08), 0 8px 32px rgba(0, 0, 0, 0.4);
+  transform: translateY(-2px);
+}
+
+/* Keyboard focus parity with :hover — .card is used as a Link/button
+   wrapper across most index/detail pages. Second selector covers the
+   ProductGallery case where the focusable <a> wraps a .card child. */
+.card:focus-visible,
+a:focus-visible > .card {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
   border-color: var(--color-border-hover);
   box-shadow: 0 0 30px rgba(77, 107, 254, 0.08), 0 8px 32px rgba(0, 0, 0, 0.4);
   transform: translateY(-2px);

@@ -28,7 +28,7 @@ export function SwitchCTA({ locale, ui }: SwitchCTAProps) {
           <Link
             href={partnerHref}
             onClick={() => track("cta_reseller_partner", { locale })}
-            className="px-6 py-3 bg-[var(--color-primary)] text-white rounded-lg font-semibold hover:bg-[var(--color-primary-deep)] transition-colors"
+            className="px-6 py-3 bg-[var(--color-primary)] text-white rounded-lg font-semibold hover:bg-[var(--color-primary-deep)] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary-light)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]"
           >
             {ui.resellerCtaPartner}
           </Link>
@@ -37,7 +37,7 @@ export function SwitchCTA({ locale, ui }: SwitchCTAProps) {
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => track("cta_reseller_download", { locale })}
-            className="px-6 py-3 border border-[var(--color-border)] text-[var(--color-text-primary)] rounded-lg font-semibold hover:border-[var(--color-border-hover)] transition-colors"
+            className="px-6 py-3 border border-[var(--color-border)] text-[var(--color-text-primary)] rounded-lg font-semibold hover:border-[var(--color-border-hover)] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]"
           >
             {ui.resellerCtaDownload}
           </a>

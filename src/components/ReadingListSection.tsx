@@ -132,7 +132,7 @@ export function ReadingListSection({ bundle, locale, ui }: Props) {
                                   <li key={slug}>
                                     <Link
                                       href={eventUrl(slug, locale)}
-                                      className="inline-block text-xs px-3 py-1 rounded-full border border-[var(--color-border)] text-[var(--color-text-secondary)] hover:text-[var(--color-primary-light)] hover:border-[var(--color-primary)] transition-colors"
+                                      className="inline-block text-xs px-3 py-1 rounded-full border border-[var(--color-border)] text-[var(--color-text-secondary)] hover:text-[var(--color-primary-light)] hover:border-[var(--color-primary)] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]"
                                     >
                                       {event.headline}
                                     </Link>

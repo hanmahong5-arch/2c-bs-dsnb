@@ -5,14 +5,12 @@ import type {
   Locale,
   UiText,
 } from "@/lib/content";
-import { EXPLAIN_LEVEL_ORDER, explainUrl, homeUrl } from "@/lib/content";
-
-const LEVEL_COLOR = {
-  kid: "#FBBF24",
-  student: "#22D3EE",
-  engineer: "#6F8AFF",
-  researcher: "#4D6BFE",
-} as const;
+import {
+  EXPLAIN_LEVEL_ORDER,
+  LEVEL_COLOR,
+  explainUrl,
+  homeUrl,
+} from "@/lib/content";
 
 type Props = {
   bundle: ExplainIndexBundle;
@@ -54,7 +52,7 @@ export function ExplainIndex({ bundle, topics, locale, ui }: Props) {
 
           <section
             className="rounded-2xl border border-[var(--color-border)] p-5 sm:p-6 mb-12"
-            style={{ background: "rgba(77,107,254,0.06)" }}
+            style={{ background: "var(--color-primary-tint-06)" }}
           >
             <p className="eyebrow mb-2">
               {ui.explainFromDsPerspectiveLabel}

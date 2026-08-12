@@ -139,14 +139,14 @@ export function InAppBrowserHint() {
             </span>
             <button
               onClick={onCopy}
-              className="flex-shrink-0 px-2.5 py-1 rounded-md text-xs border border-[var(--color-primary)]/40 text-[var(--color-primary-light)] hover:bg-[var(--color-primary)]/10 transition-colors"
+              className="flex-shrink-0 px-2.5 py-1 rounded-md text-xs border border-[var(--color-primary)]/40 text-[var(--color-primary-light)] hover:bg-[var(--color-primary)]/10 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]"
             >
               {copied ? "已复制" : "复制链接"}
             </button>
             <button
               onClick={onDismiss}
               aria-label="关闭提示"
-              className="flex-shrink-0 w-7 h-7 flex items-center justify-center rounded-md text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)] hover:bg-[var(--color-primary)]/10 transition-colors"
+              className="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-md text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)] hover:bg-[var(--color-primary)]/10 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]"
             >
               <CloseIcon />
             </button>

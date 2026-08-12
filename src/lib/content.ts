@@ -58,6 +58,7 @@ export type UiText = {
   footerBy: string;
   footerEmail: string;
   footerIcpNote: string;
+  footerCopyrightSuffix: string;
   languageSwitch: string;
   ogSubtitle: string;
   readFull: string;
@@ -72,6 +73,7 @@ export type UiText = {
   newsletterBody: string;
   newsletterPlaceholder: string;
   newsletterSubmit: string;
+  newsletterSubmitting: string;
   newsletterSuccess: string;
   newsletterErrorInvalid: string;
   newsletterErrorGeneric: string;
@@ -196,6 +198,16 @@ export const EXPLAIN_LEVEL_ORDER: ExplainLevel[] = [
   "researcher",
 ];
 
+// Single source of truth for explain-level → accent color. ExplainIndex and
+// ExplainLevelTabs used to keep separate copies of this map; consolidated
+// here so a palette change only needs one edit.
+export const LEVEL_COLOR: Record<ExplainLevel, string> = {
+  kid: "#FBBF24",
+  student: "#22D3EE",
+  engineer: "#6F8AFF",
+  researcher: "#4D6BFE",
+};
+
 export type ExplainLevelContent = {
   oneLine: string;
   body: string;
@@ -248,6 +260,7 @@ export type PartnerSection = {
   formMessageLabel: string;
   formEmailLabel: string;
   formSubmit: string;
+  formSubmitting: string;
   formSuccess: string;
   formErrorInvalid: string;
   formErrorGeneric: string;
@@ -419,6 +432,24 @@ export const ERA_ORDER: Era[] = [
   "world",
   "present",
 ];
+
+// Single source of truth for era → accent color. Timeline, EraSection and
+// EventPageContent all render era chips/dots and used to keep separate
+// copies of this map; consolidated here so a palette change only needs
+// one edit.
+export const ERA_COLOR: Record<Era, string> = {
+  origin: "#6F8AFF",
+  breakthrough: "#22D3EE",
+  world: "#FBBF24",
+  present: "#4D6BFE",
+};
+
+export const ERA_BG: Record<Era, string> = {
+  origin: "rgba(77,107,254,0.08)",
+  breakthrough: "rgba(34,211,238,0.06)",
+  world: "rgba(251,191,36,0.06)",
+  present: "rgba(77,107,254,0.1)",
+};
 
 export function getEraMeta(
   era: Era,

@@ -10,24 +10,10 @@ import type {
   Locale,
   UiText,
 } from "@/lib/content";
-import { eventUrl } from "@/lib/content";
+import { ERA_BG, ERA_COLOR, eventUrl } from "@/lib/content";
 import { track } from "@/lib/track";
 
 const SITE_URL = "https://dsnb.help";
-
-const ERA_DOT: Record<Era, string> = {
-  origin: "#6F8AFF",
-  breakthrough: "#22D3EE",
-  world: "#FBBF24",
-  present: "#4D6BFE",
-};
-
-const ERA_BG: Record<Era, string> = {
-  origin: "rgba(77,107,254,0.08)",
-  breakthrough: "rgba(34,211,238,0.06)",
-  world: "rgba(251,191,36,0.06)",
-  present: "rgba(77,107,254,0.1)",
-};
 
 const BEAT_ICONS: Record<EmotionalBeat, React.ReactNode> = {
   spark: (
@@ -136,7 +122,7 @@ function ShareButton({ slug, headline, locale, ui }: ShareButtonProps) {
   return (
     <button
       onClick={handle}
-      className="ml-auto flex items-center gap-1 text-[11px] text-[var(--color-text-muted)] hover:text-[var(--color-primary-light)] transition-colors px-1.5 py-1 rounded-md"
+      className="ml-auto flex items-center gap-1 text-[11px] text-[var(--color-text-muted)] hover:text-[var(--color-primary-light)] transition-colors px-2.5 py-2 min-h-[32px] rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]"
       aria-label={`${ui.share}: ${headline}`}
       title={copied ? ui.copied : ui.share}
     >
@@ -182,7 +168,7 @@ type TimelineEntryProps = {
 function TimelineEntry({ entry, index, locale, ui }: TimelineEntryProps) {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
-  const dot = ERA_DOT[entry.era];
+  const dot = ERA_COLOR[entry.era];
 
   return (
     <motion.div
@@ -267,7 +253,7 @@ function TimelineEntry({ entry, index, locale, ui }: TimelineEntryProps) {
                     })
                   }
                   className="inline-flex items-center gap-2 text-xs px-3 py-1.5 rounded-lg border border-[var(--color-border)] text-[var(--color-primary-light)] hover:border-[var(--color-primary)] transition-colors duration-200"
-                  style={{ background: "rgba(77,107,254,0.06)" }}
+                  style={{ background: "var(--color-primary-tint-06)" }}
                 >
                   <span className="font-medium">{entry.product.name}</span>
                   <span className="text-[var(--color-text-muted)]">—</span>
@@ -279,7 +265,7 @@ function TimelineEntry({ entry, index, locale, ui }: TimelineEntryProps) {
               ) : (
                 <span
                   className="inline-flex items-center gap-2 text-xs px-3 py-1.5 rounded-lg border border-[var(--color-border)] text-[var(--color-primary-light)]"
-                  style={{ background: "rgba(77,107,254,0.06)" }}
+                  style={{ background: "var(--color-primary-tint-06)" }}
                 >
                   <span className="font-medium">{entry.product.name}</span>
                   <span className="text-[var(--color-text-muted)]">—</span>
@@ -371,7 +357,7 @@ export function Timeline({ entries, locale, ui }: TimelineProps) {
             >
               <span
                 className="inline-block w-2 h-2 rounded-full"
-                style={{ background: ERA_DOT[era] }}
+                style={{ background: ERA_COLOR[era] }}
               />
               {ui.eraLabels[era]}
             </span>

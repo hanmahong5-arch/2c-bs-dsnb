@@ -1,8 +1,26 @@
 import type { Metadata, Viewport } from "next";
+import { Inter_Tight, JetBrains_Mono } from "next/font/google";
+import { MotionConfig } from "framer-motion";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { LangSwitch } from "@/components/LangSwitch";
 import "../globals.css";
+
+// Self-hosted via next/font — no runtime request to fonts.googleapis.com,
+// avoids the render-blocking cross-origin hop the raw @import used to cost.
+const interTight = Inter_Tight({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-inter-tight",
+  display: "swap",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-jetbrains-mono",
+  display: "swap",
+});
 
 const SITE_URL = "https://dsnb.help";
 const TITLE = "The DeepSeek Story — Done Following";
@@ -93,9 +111,13 @@ export default function RootLayoutEn({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className="antialiased">
-      <body className="min-h-screen flex flex-col bg-[var(--background)] text-[var(--foreground)]">
-        <LangSwitch />
-        <main className="flex-1">{children}</main>
+      <body
+        className={`${interTight.variable} ${jetbrainsMono.variable} min-h-screen flex flex-col bg-[var(--background)] text-[var(--foreground)]`}
+      >
+        <MotionConfig reducedMotion="user">
+          <LangSwitch />
+          <main className="flex-1">{children}</main>
+        </MotionConfig>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(STRUCTURED_DATA) }}
