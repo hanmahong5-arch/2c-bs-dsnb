@@ -1,0 +1,19 @@
+# .lurus-arch-baseline.tsv — Two-Way Ratchet (legacy ceiling; can ONLY shrink, never grow)
+# file	rule	ceiling	note
+next.config.ts	ARCH-CMT-002	1	legacy-hits
+src/app/api/subscribe/route.ts	ARCH-CMT-002	1	legacy-hits
+src/app/sitemap.ts	ARCH-CMT-002	2	legacy-hits
+src/components/ClosingCTA.tsx	ARCH-CMT-002	2	legacy-hits
+src/components/Hero.tsx	ARCH-CMT-002	6	legacy-hits
+src/components/InAppBrowserHint.tsx	ARCH-CMT-002	4	legacy-hits
+src/components/InAppBrowserHint.tsx	ARCH-PRI-004	2	legacy-hits
+src/components/LangSwitch.tsx	ARCH-CMT-002	5	legacy-hits
+src/components/NewsletterForm.tsx	ARCH-PRI-004	1	legacy-hits
+src/components/PartnerApplicationForm.tsx	ARCH-PRI-004	1	legacy-hits
+src/components/Timeline.tsx	ARCH-CMT-002	2	legacy-hits
+src/components/Timeline.tsx	ARCH-LEN-001	401	legacy-lines
+src/lib/content.ts	ARCH-LEN-001	525	legacy-lines
+src/lib/platform.ts	ARCH-CMT-002	1	legacy-hits
+src/lib/rss.ts	ARCH-CMT-002	1	legacy-hits
+src/lib/track.ts	ARCH-CMT-002	1	legacy-hits
+src/middleware.ts	ARCH-CMT-002	2	legacy-hits
